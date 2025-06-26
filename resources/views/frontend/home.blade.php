@@ -1,1218 +1,668 @@
 @extends('frontend.layouts.app')
 
-@section('title', $about->title ?? 'Firstudio - Creative Digital Solutions')
-@section('meta_description', $about->description ?? 'Firstudio provides creative digital solutions for your business.')
+@section('title', 'Firstudio - Creative Digital Solutions')
+@section('meta_description', 'Firstudio provides creative digital solutions for your business.')
 @section('meta_keywords', 'firstudio, digital, creative, agency, portfolio, service')
 
-@section('styles')
-<style>
-    /* Modern Gray Color Scheme with Enhanced Variables */
-    :root {
-        --primary-gray: #6B7280;
-        --primary-dark: #1F2937;
-        --primary-light: #F9FAFB;
-        --secondary-gray: #9CA3AF;
-        --white: #FFFFFF;
-        --black: #111827;
-        --text-dark: #1F2937;
-        --text-light: #6B7280;
-        --accent-gray: #4B5563;
-        --gradient-hero: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%);
-        --gradient-section: linear-gradient(135deg, #F9FAFB 0%, #E5E7EB 100%);
-        --shadow-card: 0 8px 30px rgba(0,0,0,0.08);
-        --shadow-hover: 0 15px 40px rgba(0,0,0,0.12);
-        --transition-base: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        --border-radius: 16px;
-        --section-spacing: 8rem;
-    }
-    
-    /* Base Styles */
-    * {
-        scroll-behavior: smooth;
-        box-sizing: border-box;
-    }
-    
-    body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        line-height: 1.7;
-        color: var(--text-dark);
-        background-color: var(--white);
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-    }
-    
-    /* Typography Enhancements */
-    h1, h2, h3, h4, h5, h6 {
-        font-weight: 800;
-        line-height: 1.2;
-        margin-top: 0;
-        margin-bottom: 1.5rem;
-        color: var(--black);
-    }
-    
-    .display-4 {
-        font-weight: 900;
-        color: var(--black);
-        font-size: 3.5rem;
-        letter-spacing: -0.05em;
-    }
-    
-    p {
-        margin-top: 0;
-        margin-bottom: 1.5rem;
-        color: var(--text-dark);
-        font-size: 1.1rem;
-    }
-    
-    /* Layout Components */
-    .container {
-        width: 100%;
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
-        max-width: 1200px;
-    }
-    
-    /* Hero Section - Enhanced with Typing Effect */
-    .hero-section {
-        background: var(--gradient-hero);
-        padding: var(--section-spacing) 0;
-        position: relative;
-        overflow: hidden;
-        min-height: 90vh;
-        display: flex;
-        align-items: center;
-        will-change: transform;
-    }
-    
-    .hero-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231F2937' fill-opacity='0.03'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        animation: backgroundFloat 25s linear infinite;
-        will-change: transform;
-    }
-    
-    @keyframes backgroundFloat {
-        0% { transform: translate(0, 0); }
-        100% { transform: translate(-50%, -50%); }
-    }
-    
-    .hero-content {
-        position: relative;
-        z-index: 2;
-    }
-    
-    .typing-text {
-        min-height: 120px;
-        position: relative;
-    }
-    
-    .typing-text::after {
-        content: '|';
-        animation: blink 1s infinite;
-        color: var(--primary-gray);
-    }
-    
-    @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-    }
-    
-    .hero-section .lead {
-        color: var(--text-dark);
-        font-size: 1.3rem;
-        font-weight: 400;
-        margin-bottom: 2.5rem;
-        max-width: 600px;
-        opacity: 0.9;
-    }
-    
-    /* Buttons - Enhanced with Hover Effects */
-    .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        cursor: pointer;
-        transition: var(--transition-base);
-        position: relative;
-        overflow: hidden;
-        border: none;
-        outline: none;
-        font-weight: 600;
-        font-size: 1.1rem;
-        letter-spacing: 0.5px;
-        border-radius: 50px;
-        padding: 1.1rem 2.75rem;
-        z-index: 1;
-    }
-    
-    .btn-primary-modern {
-        background: var(--primary-gray);
-        color: var(--white);
-        box-shadow: var(--shadow-card);
-    }
-    
-    .btn-primary-modern::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--accent-gray);
-        z-index: -1;
-        transform: scaleX(0);
-        transform-origin: right;
-        transition: transform 0.4s ease;
-    }
-    
-    .btn-primary-modern:hover::before {
-        transform: scaleX(1);
-        transform-origin: left;
-    }
-    
-    .btn-outline-modern {
-        border: 2px solid var(--primary-gray);
-        color: var(--primary-gray);
-        background: rgba(255,255,255,0.9);
-    }
-    
-    .btn-outline-modern:hover {
-        background: var(--primary-gray);
-        color: var(--white);
-    }
-    
-    /* Section Styling */
-    .section-modern {
-        padding: var(--section-spacing) 0;
-        position: relative;
-    }
-    
-    .section-gray {
-        background-color: var(--primary-light);
-    }
-    
-    .section-heading {
-        text-align: center;
-        margin-bottom: 5rem;
-    }
-    
-    .section-heading h2 {
-        font-size: 2.8rem;
-        font-weight: 800;
-        color: var(--black);
-        margin-bottom: 1.5rem;
-        position: relative;
-        display: inline-block;
-    }
-    
-    .section-heading h2::after {
-        content: '';
-        position: absolute;
-        bottom: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
-        background: var(--primary-gray);
-        border-radius: 2px;
-    }
-    
-    .section-heading p {
-        font-size: 1.2rem;
-        color: var(--text-light);
-        max-width: 700px;
-        margin: 0 auto;
-    }
-    
-    /* About Section - Enhanced */
-    .about-section {
-        background: var(--gradient-section);
-        color: var(--text-dark);
-        padding: var(--section-spacing) 0;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .about-section::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background-image: radial-gradient(circle, rgba(156,163,175,0.1) 1px, transparent 1px);
-        background-size: 30px 30px;
-        animation: backgroundMove 60s linear infinite;
-        pointer-events: none;
-    }
-    
-    @keyframes backgroundMove {
-        0% { transform: translate(0, 0); }
-        100% { transform: translate(50%, 50%); }
-    }
-    
-    .about-features {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-    }
-    
-    .feature-item {
-        background: var(--white);
-        padding: 2rem;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow-card);
-        transition: var(--transition-base);
-    }
-    
-    .feature-item:hover {
-        transform: translateY(-10px);
-        box-shadow: var(--shadow-hover);
-    }
-    
-    .feature-icon {
-        font-size: 2.5rem;
-        color: var(--primary-gray);
-        margin-bottom: 1.5rem;
-    }
-    
-    /* Service Cards - Enhanced with 3D Tilt Effect */
-    .service-card {
-        background: var(--white);
-        border-radius: var(--border-radius);
-        padding: 3rem 2rem;
-        height: 100%;
-        transition: var(--transition-base);
-        border: 1px solid #E5E7EB;
-        box-shadow: var(--shadow-card);
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        will-change: transform;
-        transform-style: preserve-3d;
-    }
-    
-    .service-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 5px;
-        background: var(--primary-gray);
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.6s ease;
-    }
-    
-    .service-card:hover::before {
-        transform: scaleX(1);
-    }
-    
-    .service-card .card-content {
-        transform: translateZ(30px);
-    }
-    
-    .service-icon {
-        font-size: 3.5rem;
-        color: var(--primary-gray);
-        margin-bottom: 2rem;
-        transition: var(--transition-base);
-        display: inline-block;
-    }
-    
-    .service-card:hover .service-icon {
-        transform: scale(1.1) rotate(5deg);
-        color: var(--accent-gray);
-    }
-    
-    .service-card h4 {
-        color: var(--black);
-        margin-bottom: 1.5rem;
-        font-size: 1.5rem;
-        font-weight: 700;
-    }
-    
-    /* Statistics Section - New */
-    .stats-section {
-        background: var(--gradient-section);
-        padding: 5rem 0;
-        position: relative;
-    }
-    
-    .stat-item {
-        text-align: center;
-        padding: 2rem;
-    }
-    
-    .stat-number {
-        font-size: 3.5rem;
-        font-weight: 800;
-        color: var(--black);
-        margin-bottom: 1rem;
-        line-height: 1;
-    }
-    
-    .stat-number .plus {
-        color: var(--primary-gray);
-    }
-    
-    .stat-label {
-        font-size: 1.1rem;
-        color: var(--text-light);
-        font-weight: 500;
-    }
-    
-    /* Testimonials Section - New with Swiper */
-    .testimonials-section {
-        background: var(--white);
-        padding: var(--section-spacing) 0;
-    }
-    
-    .testimonial-card {
-        background: var(--white);
-        border-radius: var(--border-radius);
-        padding: 3rem;
-        box-shadow: var(--shadow-card);
-        margin: 1rem;
-        position: relative;
-    }
-    
-    .testimonial-card::before {
-        content: '"';
-        position: absolute;
-        top: 2rem;
-        left: 2rem;
-        font-size: 5rem;
-        color: rgba(156, 163, 175, 0.1);
-        font-family: serif;
-        line-height: 1;
-    }
-    
-    .testimonial-content {
-        font-size: 1.1rem;
-        color: var(--text-dark);
-        margin-bottom: 2rem;
-        line-height: 1.8;
-        position: relative;
-        z-index: 1;
-    }
-    
-    .testimonial-author {
-        display: flex;
-        align-items: center;
-    }
-    
-    .author-avatar {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-right: 1.5rem;
-    }
-    
-    .author-info h5 {
-        margin-bottom: 0.5rem;
-        font-size: 1.2rem;
-    }
-    
-    .author-info p {
-        color: var(--text-light);
-        margin-bottom: 0;
-        font-size: 0.9rem;
-    }
-    
-    /* Portfolio Section - Enhanced with Masonry Layout */
-    .portfolio-section {
-        padding: var(--section-spacing) 0;
-        background: var(--primary-light);
-    }
-    
-    .portfolio-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        gap: 2rem;
-    }
-    
-    .portfolio-card {
-        border-radius: var(--border-radius);
-        overflow: hidden;
-        transition: var(--transition-base);
-        box-shadow: var(--shadow-card);
-        background: var(--white);
-        position: relative;
-    }
-    
-    .portfolio-img-container {
-        overflow: hidden;
-        height: 280px;
-        position: relative;
-    }
-    
-    .portfolio-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-    
-    .portfolio-card:hover .portfolio-img {
-        transform: scale(1.1);
-    }
-    
-    .portfolio-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(31, 41, 55, 0.8);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: var(--transition-base);
-        padding: 2rem;
-        color: var(--white);
-    }
-    
-    .portfolio-card:hover .portfolio-overlay {
-        opacity: 1;
-    }
-    
-    .portfolio-title {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        transform: translateY(20px);
-        transition: transform 0.4s ease;
-    }
-    
-    .portfolio-card:hover .portfolio-title {
-        transform: translateY(0);
-    }
-    
-    .portfolio-category {
-        color: var(--secondary-gray);
-        margin-bottom: 1.5rem;
-        transform: translateY(20px);
-        transition: transform 0.4s ease 0.1s;
-    }
-    
-    .portfolio-card:hover .portfolio-category {
-        transform: translateY(0);
-    }
-    
-    /* CTA Section - New */
-    .cta-section {
-        background: var(--gradient-section);
-        padding: 6rem 0;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .cta-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239CA3AF' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-        animation: backgroundMove 40s linear infinite;
-    }
-    
-    .cta-content {
-        position: relative;
-        z-index: 2;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-    
-    .cta-title {
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
-    }
-    
-    /* Footer - New */
-    .footer {
-        background: var(--primary-dark);
-        color: var(--white);
-        padding: 5rem 0 2rem;
-    }
-    
-    .footer-logo {
-        font-size: 1.8rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        display: inline-block;
-    }
-    
-    .footer-about {
-        margin-bottom: 2rem;
-    }
-    
-    .footer-links h5 {
-        color: var(--white);
-        margin-bottom: 1.5rem;
-        font-size: 1.2rem;
-    }
-    
-    .footer-links ul {
-        list-style: none;
-        padding: 0;
-    }
-    
-    .footer-links li {
-        margin-bottom: 0.8rem;
-    }
-    
-    .footer-links a {
-        color: var(--secondary-gray);
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-    
-    .footer-links a:hover {
-        color: var(--white);
-    }
-    
-    .social-links {
-        display: flex;
-        gap: 1rem;
-        margin-top: 1.5rem;
-    }
-    
-    .social-links a {
-        color: var(--white);
-        background: rgba(255,255,255,0.1);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: var(--transition-base);
-    }
-    
-    .social-links a:hover {
-        background: rgba(255,255,255,0.2);
-        transform: translateY(-3px);
-    }
-    
-    .copyright {
-        border-top: 1px solid rgba(255,255,255,0.1);
-        padding-top: 2rem;
-        margin-top: 3rem;
-        text-align: center;
-        color: var(--secondary-gray);
-        font-size: 0.9rem;
-    }
-    
-    /* Animations */
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-    
-    @keyframes slideUp {
-        from { transform: translateY(50px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-    }
-    
-    /* Scroll Reveal Animations */
-    [data-animate] {
-        opacity: 0;
-        transition: all 0.8s ease;
-    }
-    
-    [data-animate="fadeIn"] {
-        animation: fadeIn 1s forwards;
-    }
-    
-    [data-animate="slideUp"] {
-        animation: slideUp 0.8s forwards;
-    }
-    
-    [data-animate-delay="100"] { animation-delay: 0.1s; }
-    [data-animate-delay="200"] { animation-delay: 0.2s; }
-    [data-animate-delay="300"] { animation-delay: 0.3s; }
-    
-    /* Particle Background - New */
-    .particles {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 1200px) {
-        .display-4 {
-            font-size: 3rem;
-        }
-    }
-    
-    @media (max-width: 992px) {
-        .section-heading h2 {
-            font-size: 2.4rem;
-        }
-        
-        .hero-section {
-            min-height: auto;
-            padding: 6rem 0;
-        }
-        
-        .section-modern, .section-gray {
-            padding: 6rem 0;
-        }
-    }
-    
-    @media (max-width: 768px) {
-        .display-4 {
-            font-size: 2.5rem;
-        }
-        
-        .section-heading h2 {
-            font-size: 2rem;
-        }
-        
-        .section-heading p {
-            font-size: 1rem;
-        }
-        
-        .btn {
-            padding: 0.9rem 2rem;
-            font-size: 1rem;
-        }
-        
-        .portfolio-grid {
-            grid-template-columns: 1fr;
-        }
-        
-        .testimonial-card {
-            padding: 2rem;
-        }
-    }
-    
-    @media (max-width: 576px) {
-        .display-4 {
-            font-size: 2rem;
-        }
-        
-        .hero-section .lead {
-            font-size: 1.1rem;
-        }
-        
-        .section-heading h2 {
-            font-size: 1.8rem;
-        }
-        
-        .section-modern, .section-gray {
-            padding: 4rem 0;
-        }
-        
-        .service-card {
-            padding: 2rem 1.5rem;
-        }
-    }
-</style>
-@endsection
+@push('styles')
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/animsition/css/animsition.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/fontawesome/css/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/linearicons/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/owl-carousel/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/owl-carousel/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/ytplayer/css/jquery.mb.YTPlayer.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/lightgallery/css/lightgallery.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/helper.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/theme.css') }}">
+@endpush
 
 @section('content')
-    <!-- Hero Section with Typing Effect and Slide -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 order-lg-1 order-2">
-                    <div class="hero-content">
-                        <h1 class="display-4 fw-bold mb-4" data-animate="slideUp">
-                            <span class="typing-text" id="typing-text"></span>
-                        </h1>
-                        <p class="lead" data-animate="slideUp" data-animate-delay="100">
-                            {{ $about->short_description ?? 'Kami membantu bisnis dan ibadah Anda dengan layanan digital, haji, dan qurban yang profesional dan terpercaya.' }}
-                        </p>
-                        <div class="d-flex flex-wrap gap-3" data-animate="slideUp" data-animate-delay="200">
-                            <a href="#services" class="btn btn-primary-modern">Lihat Layanan</a>
-                            <a href="#contact" class="btn btn-outline-modern">Hubungi Kami</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 order-lg-2 order-1 mb-4 mb-lg-0 text-center" data-animate="fadeIn" data-animate-delay="300">
-                    @if($slides->count())
-                        <div class="owl-carousel" id="hero-carousel">
-                            @foreach($slides as $slide)
-                                <img src="{{ asset($slide->image_url) }}" alt="{{ $slide->title }}" class="img-fluid rounded-4 shadow floating" style="max-height:500px;" loading="lazy">
-                            @endforeach
-                        </div>
-                    @else
-                        <img src="{{ asset('aivo/assets/img/intro/intro-9.jpg') }}" alt="Hero" class="img-fluid rounded-4 shadow floating" style="max-height:500px;" loading="lazy">
-                    @endif
-                </div>
-            </div>
-        </div>
-    </section>
+    <div id="body-content">
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0" data-animate="slideUp">
-                    <div class="section-heading text-start">
-                        <h2>{{ $about->title ?? 'Tentang Kami' }}</h2>
-                        <p>{{ $about->subtitle ?? 'Kenali kami lebih dekat dan visi misi perusahaan' }}</p>
-                    </div>
-                    <p class="mb-4" style="line-height:1.8; font-size: 1.1rem;">
-                        {!! $about->description ?? 'Firstudio adalah digital agency yang juga menyediakan layanan ibadah seperti Haji dan Qurban. Kami berkomitmen memberikan solusi kreatif dan spiritual terbaik untuk Anda.' !!}
-                    </p>
-                    <a href="{{ route('about') }}" class="btn btn-outline-modern">Selengkapnya</a>
-                    <div class="about-features mt-5">
-                        <div class="feature-item" data-animate="slideUp" data-animate-delay="100">
-                            <div class="feature-icon">
-                                <i class="lni lni-bullseye"></i>
-                            </div>
-                            <h4>Visi Kami</h4>
-                            <p>{{ $about->vision ?? 'Menjadi partner terpercaya dalam transformasi digital dan spiritual masyarakat Indonesia.' }}</p>
-                        </div>
-                        <div class="feature-item" data-animate="slideUp" data-animate-delay="200">
-                            <div class="feature-icon">
-                                <i class="lni lni-certificate"></i>
-                            </div>
-                            <h4>Misi Kami</h4>
-                            <p>{{ $about->mission ?? 'Memberikan solusi terbaik dengan integritas, profesionalisme, dan nilai-nilai islami.' }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 text-center" data-animate="fadeIn" data-animate-delay="300">
-                    <img src="{{ asset($about->image ?? 'aivo/assets/img/hajj1.png') }}" alt="About" class="img-fluid rounded-4 shadow-lg floating" style="max-height:500px;" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-6" data-animate="slideUp">
-                    <div class="stat-item">
-                        <div class="stat-number"><span class="counter" data-count="{{ $about->projects_count ?? 0 }}">0</span><span class="plus">+</span></div>
-                        <div class="stat-label">Proyek Selesai</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6" data-animate="slideUp" data-animate-delay="100">
-                    <div class="stat-item">
-                        <div class="stat-number"><span class="counter" data-count="{{ $about->customers_count ?? 0 }}">0</span><span class="plus">+</span></div>
-                        <div class="stat-label">Klien Puas</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6" data-animate="slideUp" data-animate-delay="200">
-                    <div class="stat-item">
-                        <div class="stat-number"><span class="counter" data-count="{{ $about->years_experience ?? 0 }}">0</span><span class="plus">+</span></div>
-                        <div class="stat-label">Tahun Pengalaman</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6" data-animate="slideUp" data-animate-delay="300">
-                    <div class="stat-item">
-                        <div class="stat-number"><span class="counter" data-count="{{ $about->awards_count ?? 0 }}">0</span><span class="plus">+</span></div>
-                        <div class="stat-label">Penghargaan</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="section-modern">
-        <div class="container">
-            <div class="section-heading" data-animate="slideUp">
-                <h2>Layanan Kami</h2>
-                <p>Kami menyediakan berbagai layanan digital dan ibadah yang profesional</p>
-            </div>
-            <div class="row g-4">
-                @foreach($services as $service)
-                <div class="col-lg-4 col-md-6" data-animate="slideUp" data-animate-delay="100">
-                    <div class="service-card glow-on-hover">
-                        <div class="card-content">
-                            <div class="service-icon">
-                                <i class="{{ $service->icon ?? 'lni lni-cog' }}"></i>
-                            </div>
-                            <h4>{{ $service->title }}</h4>
-                            <p>{{ \Illuminate\Support\Str::limit(strip_tags($service->description), 100) }}</p>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="products" class="section-modern section-gray">
-        <div class="container">
-            <div class="section-heading" data-animate="slideUp">
-                <h2>Produk Terbaru</h2>
-                <p>Produk digital dan layanan terbaru dari kami</p>
-            </div>
-            <div class="row g-4">
-                @foreach($products as $product)
-                <div class="col-lg-4 col-md-6" data-animate="slideUp" data-animate-delay="100">
-                    <div class="service-card glow-on-hover">
-                        <div class="card-content">
-                            <div class="service-icon">
-                                <i class="lni lni-package"></i>
-                            </div>
-                            <h4>
-                                <a href="{{ route('products.show', $product->slug) }}">{{ $product->title }}</a>
-                            </h4>
-                            <p>{{ \Illuminate\Support\Str::limit(strip_tags($product->description), 100) }}</p>
-                            @if($product->service)
-                                <span class="badge bg-secondary">{{ $product->service->title }}</span>
-                            @endif
-                            @if($product->techStacks && count($product->techStacks))
-                                <div class="mt-2">
-                                    @foreach($product->techStacks as $stack)
-                                        <span class="badge bg-info">{{ $stack->name }}</span>
-                                    @endforeach
+        {{-- Intro Section --}}
+        <section id="tt-intro" class="intro-full-m">
+            <div class="tt-intro-inner">
+                <div class="owl-carousel cursor-grab bg-dark cc-hover-zoom" data-items="1" data-loop="true"
+                    data-dots="false" data-nav="true" data-autoplay="true" data-autoplay-timeout="8000"
+                    data-autoplay-hover-pause="true" data-animate-in="fadeIn" data-animate-out="fadeOut">
+                    @foreach ($slides as $slide)
+                        <div class="cc-item">
+                            <div class="intro-image-wrap parallax-6">
+                                <div class="intro-image bg-dark bg-image"
+                                    style="background-image: url('{{ $slide->image_url }}');">
+                                    <div class="cover cover-opacity-5"></div>
                                 </div>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio-section">
-        <div class="container">
-            <div class="section-heading" data-animate="slideUp">
-                <h2>Portfolio</h2>
-                <p>Beberapa portfolio dan produk digital terbaik kami</p>
-            </div>
-            <div class="portfolio-grid">
-                @forelse($portfolios as $portfolio)
-                    <div class="portfolio-card" data-animate="fadeIn">
-                        @if ($portfolio->image_url)
-                            <div class="portfolio-img-container">
-                                <img src="{{ asset($portfolio->image_url) }}" class="portfolio-img" alt="{{ $portfolio->title }}" loading="lazy">
-                                <div class="portfolio-overlay">
-                                    <h3 class="portfolio-title">{{ $portfolio->title }}</h3>
-                                    <p class="portfolio-category">
-                                        @if($portfolio->service)
-                                            {{ $portfolio->service->title }}
-                                        @else
-                                            Web Development
+                            </div>
+                            <div
+                                class="intro-caption-wrap caption-animate intro-caption-xxlg center parallax-4 fade-out-scroll-5">
+                                <div class="intro-caption-holder">
+                                    <div class="intro-caption center">
+                                        <h1 class="intro-title">{{ $slide->title }}</h1>
+                                        <h2 class="intro-subtitle">{{ $slide->subtitle }}</h2>
+                                        <div class="intro-description">{!! $slide->description !!}</div>
+                                        @if ($slide->button_link)
+                                            <div class="intro-buttons">
+                                                <a href="{{ $slide->button_link }}"
+                                                    class="btn btn-primary margin-top-5 margin-right-10" target="_blank">
+                                                    {{ $slide->button_text ?? 'Learn More' }}
+                                                </a>
+                                            </div>
                                         @endif
-                                    </p>
-                                    <a href="{{ route('portfolio.show', $portfolio->slug) }}" class="btn btn-outline-modern">Lihat Detail</a>
+                                    </div>
                                 </div>
                             </div>
-                        @endif
-                    </div>
-                @empty
-                    <div class="col-12 text-center" data-animate="slideUp">
-                        <div class="alert alert-light border-0 shadow-sm">
-                            <p class="mb-0 text-muted">Tidak ada portfolio tersedia saat ini.</p>
                         </div>
-                    </div>
-                @endforelse
+                    @endforeach
+                </div>
             </div>
-            <div class="text-center mt-5" data-animate="slideUp">
-                <a href="{{ route('portfolio') }}" class="btn btn-primary-modern">Lihat Semua Portfolio</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Blog/News Section -->
-    <section id="news" class="section-modern section-gray">
-        <div class="container">
-            <div class="section-heading" data-animate="slideUp">
-                <h2>Artikel Terbaru</h2>
-                <p>Informasi dan tips terbaru dari kami</p>
-            </div>
-            <div class="row g-4">
-                @foreach($articles as $article)
-                <div class="col-lg-4 col-md-6" data-animate="slideUp" data-animate-delay="100">
-                    <div class="service-card glow-on-hover">
-                        <div class="card-content">
-                            <a href="{{ route('article.show', $article->slug) }}">
-                                <h4>{{ $article->title }}</h4>
-                            </a>
-                            <div class="mb-2">
-                                @if($article->service)
-                                    <span class="badge bg-secondary">{{ $article->service->title }}</span>
-                                @endif
-                                <span class="text-muted small">{{ $article->published_at ? $article->published_at->format('d M Y') : '' }}</span>
+        <!-- =============================
+             >>>>> Begin about us section <<<<<
+             ============================== -->
+        <section id="about-us-section">
+            <div class="about-us-inner tt-wrap">
+                {{-- Menggunakan data-aos untuk animasi fade-up saat section muncul --}}
+                <div class="split-box" data-aos="fade-up" data-aos-duration="800">
+                    <div class="container-fluid">
+                        <div class="row row-lg-height">
+
+                            <!-- Split box image -->
+                            <div class="col-lg-6 col-lg-height split-box-image-wrapper no-padding">
+                                <div class="split-box-image no-padding bg-image sbi-shadow"
+                                    style="background-image: url('{{ isset($about) && $about && $about->image_url ? asset($about->image_url) : asset('aivo/assets/img/misc/us-2.jpg') }}');">
+                                    {{-- Kosongkan div ini, fungsinya hanya untuk memberi tinggi --}}
+                                    <div class="sbi-height padding-height-80"></div>
+                                </div>
                             </div>
-                            <p>{{ \Illuminate\Support\Str::limit(strip_tags($article->content), 120) }}</p>
+
+                            <!-- Split box content -->
+                            <div class="col-lg-6 col-lg-height col-lg-middle no-padding">
+                                <div class="split-box-content sb-content-right">
+                                    <div class="tt-heading tt-heading-xxlg">
+                                        <div class="tt-heading-inner">
+                                            <h2 class="tt-heading-title">{{ $about->title ?? 'Tentang Kami' }}</h2>
+                                            <div class="tt-heading-subtitle">
+                                                {{ $about->subtitle ?? 'Perjalanan dan Visi Kami' }}</div>
+                                            <div class="zig-zag-separator">
+                                                <span></span><span></span><span></span><span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="split-box-content-text">
+                                        {!! isset($about) && $about->description
+                                            ? $about->description
+                                            : '<p class="text-muted">Deskripsi tentang kami belum tersedia. Kami adalah agensi digital yang bersemangat dalam menciptakan solusi inovatif.</p>' !!}
+                                    </div>
+
+                                    {{-- Bagian Achievements yang telah di-refactor --}}
+                                    @if (isset($about) && $about && $about->achievements)
+                                        <div class="achievements-grid mt-4">
+                                            @foreach (json_decode($about->achievements) as $achievement)
+                                                <div class="achievement-card">
+                                                    <div class="achievement-icon">
+                                                        <i class="bx bx-check-circle"></i>
+                                                    </div>
+                                                    <div class="achievement-text">
+                                                        <h5 class="mb-0">{{ $achievement->title }}</h5>
+                                                        <small>{{ $achievement->description }}</small>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                @endforeach
             </div>
-        </div>
-    </section>
+        </section>
+        <!-- End about us section -->
 
-    <!-- Clients Section -->
-    <section id="clients" class="section-modern">
-        <div class="container">
-            <div class="section-heading" data-animate="slideUp">
-                <h2>Klien Kami</h2>
-                <p>Kami dipercaya oleh perusahaan dan instansi terbaik</p>
-            </div>
-            <div class="row justify-content-center">
-                @foreach($clients as $client)
-                <div class="col-4 col-md-2 mb-4 text-center" data-animate="fadeIn">
-                    <img src="{{ asset('images/clients/' . $client->company_logo) }}" alt="{{ $client->company_name }}" class="img-fluid" style="max-height:60px;">
+
+        <!-- =============================
+            ///// Begin services section /////
+            ============================== -->
+        <section id="services-section" class="services-style-1 bg-gray-3 bg-pattern"
+            style="background-image: url('{{ asset('aivo/assets/img/pattern/transparent/pt-transparent-2.png') }}');">
+            <div class="cover cover-opacity-1 cover-light"></div>
+            <div class="services-inner tt-wrap">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="tt-heading tt-heading-xxlg text-center">
+                            <div class="tt-heading-inner">
+                                <h2 class="tt-heading-title">Visi &amp; Misi</h2>
+                                <div class="tt-heading-subtitle">Tujuan &amp; Langkah Kami</div>
+                                <div class="zig-zag-separator">
+                                    <span></span><span></span><span></span><span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                @endforeach
+                <div class="info-box-wrap ib-style-2 ib-icon-bg-shape">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="info-box text-center h-100">
+                                <span class="info-box-icon"><span class="lnr lnr-bullhorn text-success"></span></span>
+                                <div class="info-box-info">
+                                    <h3 class="info-box-heading text-success">Visi</h3>
+                                    <div class="info-box-text fs-5">
+                                        {{ $about->vision ?? '-' }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="info-box h-100">
+                                <span class="info-box-icon"><span class="lnr lnr-list text-info"></span></span>
+                                <div class="info-box-info">
+                                    <h3 class="info-box-heading text-info">Misi</h3>
+                                    <div class="info-box-text fs-5">
+                                        @if (!empty($about->mission))
+                                            <ul class="list-unstyled text-start d-inline-block mx-auto"
+                                                style="max-width: 400px;">
+                                                @foreach (preg_split('/\r\n|\r|\n/', $about->mission) as $point)
+                                                    @if (trim($point) !== '')
+                                                        <li class="mb-2"><i
+                                                                class="bx bx-check-circle text-primary me-2"></i>{{ $point }}
+                                                        </li>
+                                                    @endif
+                                                @endforeach
+                                            </ul>
+                                        @else
+                                            <span class="text-muted">-</span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+        <!-- End services/visi misi section -->
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content" data-animate="slideUp">
-                <h2 class="cta-title">Siap Memulai Proyek Anda?</h2>
-                <p class="mb-5" style="font-size:1.2rem;">Kami siap membantu mewujudkan ide dan kebutuhan digital Anda dengan solusi terbaik.</p>
-                <a href="#contact" class="btn btn-primary-modern btn-lg">Hubungi Kami Sekarang</a>
+        {{-- Services Section --}}
+        <section id="services-section" class="services-style-1">
+            <div class="services-inner tt-wrap">
+                <div class="tt-heading tt-heading-lg text-center padding-on">
+                    <div class="tt-heading-inner">
+                        <h1 class="tt-heading-title">Layanan Kami</h1>
+                        <div class="tt-heading-subtitle">Layanan yang kami tawarkan</div>
+                        <div class="zig-zag-separator">
+                            <span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box-wrap ib-style-2 ib-icon-bg-shape">
+                    <div class="row">
+                        @foreach ($services as $service)
+                            <div class="col-sm-4 mb-4">
+                                <div class="info-box">
+                                    <span class="info-box-icon"><span
+                                            class="{{ $service->icon ?? 'lnr lnr-cog' }}"></span></span>
+                                    <div class="info-box-info">
+                                        <h3 class="info-box-heading"><a
+                                                href="{{ route('services.show', $service->slug) }}">{{ $service->title }}</a>
+                                        </h3>
+                                        <div class="info-box-text tt-ellipsis">
+                                            {{ \Illuminate\Support\Str::limit(strip_tags($service->description), 100) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        {{-- Video Promo Section --}}
+        <section class="video-promo-section bg-image"
+            style="background-image: url('{{ asset('assets/img/misc/misc-5.jpg') }}');">
+            <div class="cover cover-opacity-5"></div>
+            <div class="video-promo-inner tt-wrap">
+                <div class="video-promo-caption">
+                    <div class="tt-heading tt-heading-xlg text-center text-white">
+                        <div class="tt-heading-inner tt-wrap">
+                            <h1 class="tt-heading-title">Video Promo</h1>
+                            <div class="tt-heading-subtitle">Watch our video presentation</div>
+                        </div>
+                    </div>
+                    <div class="video-promo-btn-wrap vpb-animated lightgallery">
+                        <a href="{{ $about->video_url ?? 'https://vimeo.com/9176726' }}"
+                            class="video-promo-btn lg-trigger">
+                            <span class="lnr lnr-camera-video"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{-- Portfolio Grid Section --}}
+        <section id="portfolio-list-section">
+            <div class="portfolio-list-inner isotope-wrap tt-wrap">
+                <div class="tt-heading tt-heading-lg text-center padding-on">
+                    <div class="tt-heading-inner">
+                        <h1 class="tt-heading-title">Latest Projects</h1>
+                        <div class="tt-heading-subtitle">Please see our recent work</div>
+                        <div class="zig-zag-separator">
+                            <span></span><span></span><span></span><span></span>
+                        </div>
+                       
+                    </div>
+                </div>
+
+                <div class="isotope col-3 gutter-3">
+                    
+                    <div class="isotope-items-wrap pli-white pli-alter-4">
+                        <div class="grid-sizer"></div>
+                        @forelse($portfolios as $portfolio)
+                            <div class="isotope-item {{ Str::slug($portfolio->service->title ?? 'all') }} iso-height-1">
+                                <div class="portfolio-list-item">
+                                    <div class="pl-item-image-wrap">
+                                        <a href="{{ route('portfolio.show', $portfolio->slug) }}" class="pl-item-image-inner">
+                                            <div class="pl-item-image bg-image lazy"
+                                                data-src="{{ $portfolio->image_url ? asset($portfolio->image_url) : asset('aivo/assets/img/portfolio/list/list-1/portfolio-list-1.jpg') }}">
+                                            </div>
+                                            <div class="pl-item-icon"><span class="lnr lnr-link"></span></div>
+                                        </a>
+                                    </div>
+                                    <div class="pl-item-info">
+                                        <div class="pl-item-caption">
+                                            <h2 class="pl-item-title">
+                                                <a href="{{ route('portfolio.show', $portfolio->slug) }}">{{ $portfolio->title }}</a>
+                                            </h2>
+                                            <div class="pl-item-category">
+                                                @if ($portfolio->service)
+                                                    <a href="{{ route('services.show', $portfolio->service->slug) }}">{{ $portfolio->service->title }}</a>
+                                                @endif
+                                            </div>
+                                            <div class="portfolio-techstack mt-2">
+                                                @if ($portfolio->techStacks && $portfolio->techStacks->count())
+                                                    @foreach ($portfolio->techStacks as $stack)
+                                                        <span class="badge">
+                                                            @if ($stack->icon)
+                                                                <img src="{{ asset('storage/' . $stack->icon) }}"
+                                                                    alt="{{ $stack->name }}">
+                                                            @endif
+                                                            {{ $stack->name }}
+                                                        </span>
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="pl-item-desc mt-2" style="color:#6c7a89;">
+                                            {{ \Illuminate\Support\Str::limit(strip_tags($portfolio->description), 90) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+                            <div class="col-12">
+                                <div class="alert alert-info text-center py-5">
+                                    Belum ada portfolio yang tersedia saat ini.
+                                </div>
+                            </div>
+                        @endforelse
+                    </div>
+                    <!-- End isotope items wrap -->
+                </div>
+            </div>
+        </section>
+
+        {{-- Products Section --}}
+        <section id="products-section">
+            <div class="products-inner tt-wrap">
+                <div class="tt-heading tt-heading-lg text-center padding-on">
+                    <div class="tt-heading-inner">
+                        <h1 class="tt-heading-title">Latest Products</h1>
+                        <div class="tt-heading-subtitle">Our newest products</div>
+                        <div class="zig-zag-separator">
+                            <span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-list-inner isotope-wrap">
+                    <div class="isotope col-3 gutter-3">
+                       
+
+                        <!-- Begin isotope items wrap -->
+                        <div class="isotope-items-wrap pli-white pli-alter-4">
+                            <div class="grid-sizer"></div>
+                            @forelse($products as $product)
+                                <div class="isotope-item {{ \Illuminate\Support\Str::slug($product->service->title ?? 'all') }} iso-height-1">
+                                    <div class="portfolio-list-item">
+                                        <div class="pl-item-image-wrap">
+                                            <a href="{{ route('products.show', $product->slug) }}" class="pl-item-image-inner">
+                                                <div class="pl-item-image bg-image lazy"
+                                                    data-src="{{ $product->image_url ? asset('images/products/' . $product->image_url) : asset('aivo/assets/img/portfolio/list/list-1/portfolio-list-1.jpg') }}">
+                                                </div>
+                                                <div class="pl-item-icon"><span class="lnr lnr-link"></span></div>
+                                            </a>
+                                        </div>
+                                        <div class="pl-item-info">
+                                            <div class="pl-item-caption">
+                                                <h2 class="pl-item-title">
+                                                    <a href="{{ route('products.show', $product->slug) }}">{{ $product->title }}</a>
+                                                </h2>
+                                                <div class="pl-item-category">
+                                                    <a href="#">{{ $product->service->title ?? '-' }}</a>
+                                                </div>
+                                                <div class="portfolio-techstack mt-2">
+                                                    @if ($product->techStacks && $product->techStacks->count())
+                                                        @foreach ($product->techStacks as $stack)
+                                                            <span class="badge">
+                                                                @if ($stack->icon)
+                                                                    <img src="{{ asset('storage/' . $stack->icon) }}"
+                                                                        alt="{{ $stack->name }}">
+                                                                @endif
+                                                                {{ $stack->name }}
+                                                            </span>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="pl-item-desc mt-2" style="color:#6c7a89;">
+                                                {{ \Illuminate\Support\Str::limit(strip_tags($product->description), 90) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @empty
+                                <div class="col-12">
+                                    <div class="alert alert-info text-center py-5">
+                                        Belum ada produk yang tersedia saat ini.
+                                    </div>
+                                </div>
+                            @endforelse
+                        </div>
+                        <!-- End isotope items wrap -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{-- Blog/News Section --}}
+        <section id="latest-news-section">
+            <div class="latest-news-section-inner tt-wrap">
+                <div class="tt-heading tt-heading-xlg text-center margin-bottom-80">
+                    <div class="tt-heading-inner">
+                        <h1 class="tt-heading-title">Latest News</h1>
+                        <div class="tt-heading-subtitle">Recent articles from blog</div>
+                        <div class="zig-zag-separator">
+                            <span></span><span></span><span></span><span></span>
+                        </div>
+                        <div class="tt-heading-text">
+                            <p>Duis mattis quam quis quam cursus, a rutrum ante luctus. Phasellus porta ornare enim ac
+                                euismod. Nulla fringilla lectus ac tincidunt viverra.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="latest-news-carousel">
+                    <div class="owl-carousel cursor-grab nav-outside-top nav-rounded" data-lazy-load="true"
+                        data-items="3" data-margin="30" data-loop="true" data-dots="false" data-nav="true"
+                        data-nav-speed="500" data-autoplay="false" data-autoplay-timeout="5000"
+                        data-autoplay-speed="500" data-autoplay-hover-pause="true" data-tablet-landscape="3"
+                        data-tablet-portrait="2" data-mobile-landscape="1" data-mobile-portrait="1">
+                        @foreach ($articles as $article)
+                            <div class="cc-item">
+                                <article class="blog-list-item">
+                                    <div class="bl-item-image-wrap">
+                                        <a href="{{ route('article.show', $article->slug) }}"
+                                            class="bl-item-image bg-image owl-lazy"
+                                            data-src="{{ asset($article->image_url) }}"></a>
+                                    </div>
+                                    <div class="bl-item-info">
+                                        <div class="bl-item-category">
+                                            @if ($article->service)
+                                                <a
+                                                    href="{{ route('services.show', $article->service->slug) }}">{{ $article->service->title }}</a>
+                                            @endif
+                                        </div>
+                                        <a href="{{ route('article.show', $article->slug) }}" class="bl-item-title">
+                                            <h2>{{ $article->title }}</h2>
+                                        </a>
+                                        <div class="bl-item-meta">
+                                            <span
+                                                class="published">{{ \Carbon\Carbon::parse($article->published_at)->translatedFormat('l, d F Y') }}
+                                            </span>
+                                            <span class="posted-by">- by <a
+                                                    href="#">{{ $article->author ?? 'Admin' }}</a></span>
+                                        </div>
+                                        <div class="bl-item-desc">
+                                            {{ \Illuminate\Support\Str::limit(strip_tags($article->content), 120) }}
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+            ///// Begin call to action section (style-2) /////
+            ============================================== -->
+        <section class="call-to-action-section cta-style-2 bg-dark text-white bg-image"
+            style="background-image: url({{ asset('assets/img/pattern/pt-2.jpg') }});">
+
+            <!-- Element cover
+                ===================
+                * Use class "cover-opacity-*" to set cover opasity (1, 1.5, 2, 2.5, ... 9.5). Example: "cover-opacity-2" or "cover-opacity-2-5".
+                * Aditional color classes you can use: "cover-color", "cover-light", "cover-red", "cover-pink", "cover-purple", "cover-green", "cover-blue", "cover-yellow" or "cover-brown" to set cover background color (note: class "cover-color" = template main color).
+                * Use class "cover-gradient-dark", "cover-gradient-light" or "cover-gradient-color" to enable cover gradient background.
+                -->
+            <div class="cover cover-gradient-dark cover-opacity-9"></div>
+
+            <div class="cta-inner tt-wrap">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="tt-heading tt-heading-xxlg">
+                            <div class="tt-heading-inner">
+                                <h1 class="tt-heading-title">Do You Feel Excited?</h1>
+                                <div class="tt-heading-subtitle">Interested in working with us?</div>
+                                <div class="zig-zag-separator zig-zag-light">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Fusce et velit sed augue rhoncus tempor. Sed ac lacinia augue, nec lacinia felis. Sed sit amet
+                            diam leo. Praesent vel malesuada arcu. Donec mattis, arcu vel vehicula feugiat sem turpis.</p>
+                        <div class="margin-top-30">
+                            <a href="{{ route('contact') }}" class="btn btn-primary btn-lg margin-top-5">Let's Work
+                                Together!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End call to action section (style-2) -->
+
+        {{-- Clients Section --}}
+        <section id="clients-section" class="clients-style-1">
+            <div class="clients-inner tt-wrap">
+                <div class="row">
+                    <div class="col-lg-push-7 col-lg-5">
+                        <div class="tt-heading tt-heading-xlg">
+                            <div class="tt-heading-inner">
+                                <h1 class="tt-heading-title">Clients</h1>
+                                <div class="tt-heading-subtitle">Our Loyal Clients</div>
+                                <div class="zig-zag-separator">
+                                    <span></span><span></span><span></span><span></span>
+                                </div>
+                                <div class="tt-heading-text">
+                                    {{ $about->client_text ?? 'We are trusted by these companies.' }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-pull-5 col-lg-7">
+                        <ul class="client-list">
+                            @foreach ($clients as $client)
+                                <li>
+                                    <a href="#" title="{{ $client->company_name }}">
+                                        <img src="{{ asset('images/clients/' . $client->company_logo) }}"
+                                            alt="{{ $client->company_name }}">
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{-- Fun Facts Section --}}
+        <section id="funn-facts-section" class="bg-main ff-light bg-pattern"
+            style="background-image: url('{{ asset('assets/img/pattern/transparent/pt-transparent-6.png') }}');">
+            <div class="funn-facts-inner tt-wrap">
+                <div class="cover cover-opacity-4 cover-color"></div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="counter-up-wrap cu-animated">
+                            <div class="counter-up-icon"><i class="fas fa-users"></i></div>
+                            <div class="counter-up">{{ $about->customers_count ?? 0 }}</div>
+                            <h4 class="counter-up-title">Satisfied Customers</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="counter-up-wrap cu-animated">
+                            <div class="counter-up-icon"><i class="fas fa-leaf"></i></div>
+                            <div class="counter-up">{{ $about->projects_count ?? 0 }}</div>
+                            <h4 class="counter-up-title">Completed Projects</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="counter-up-wrap cu-animated">
+                            <div class="counter-up-icon"><i class="fas fa-trophy"></i></div>
+                            <div class="counter-up">{{ $about->awards_count ?? 0 }}</div>
+                            <h4 class="counter-up-title">Winning Awards</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="counter-up-wrap cu-animated">
+                            <div class="counter-up-icon"><i class="fas fa-life-ring"></i></div>
+                            <div class="counter-up">{{ $about->support_count ?? 0 }}</div>
+                            <h4 class="counter-up-title">Support Provided</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 @endsection
 
-@section('scripts')
-<!-- Include additional JS libraries -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Initialize loading animation
-        const loadingOverlay = document.getElementById('loadingOverlay');
-        
-        // Initialize particles.js
-        if (document.getElementById('particles-js')) {
-            particlesJS('particles-js', {
-                particles: {
-                    number: { value: 80, density: { enable: true, value_area: 800 } },
-                    color: { value: "#6B7280" },
-                    shape: { type: "circle" },
-                    opacity: { value: 0.5, random: true },
-                    size: { value: 3, random: true },
-                    line_linked: { enable: true, distance: 150, color: "#9CA3AF", opacity: 0.4, width: 1 },
-                    move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
-                },
-                interactivity: {
-                    detect_on: "canvas",
-                    events: {
-                        onhover: { enable: true, mode: "repulse" },
-                        onclick: { enable: true, mode: "push" }
+@push('scripts')
+    <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/animsition/js/animsition.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/owl-carousel/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery.mousewheel.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/ytplayer/js/jquery.mb.YTPlayer.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery.dotdotdot.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/lightgallery/js/lightgallery.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/lightgallery/js/lightgallery-all.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery-lazy/js/jquery.lazy.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery-lazy/js/jquery.lazy.plugins.min.js') }}"></script>
+    <script src="{{ asset('assets/js/theme.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            // Products Isotope init
+            var $isoProducts = $('#products-section .isotope-items-wrap').imagesLoaded(function() {
+                $isoProducts.isotope({
+                    itemSelector: '.isotope-item',
+                    layoutMode: 'fitRows',
+                    percentPosition: true,
+                    masonry: {
+                        columnWidth: '.grid-sizer'
                     }
-                }
+                });
             });
-        }
 
-        // Hide loading overlay
-        setTimeout(() => {
-            loadingOverlay.classList.add('hidden');
-            setTimeout(() => {
-                loadingOverlay.style.display = 'none';
-            }, 500);
-        }, 1500);
-
-        // Typing effect
-        const typingText = document.getElementById('typing-text');
-        const texts = [
-            "Solusi Digital Kreatif",
-            "Layanan Haji & Umroh",
-            "Pengembangan Web & App",
-            "Paket Qurban Terbaik"
-        ];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typingSpeed = 100;
-
-        function type() {
-            const currentText = texts[textIndex];
-            
-            if (isDeleting) {
-                typingText.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-                typingSpeed = 50;
-            } else {
-                typingText.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-                typingSpeed = 100;
-            }
-
-            if (!isDeleting && charIndex === currentText.length) {
-                isDeleting = true;
-                typingSpeed = 1500; // Pause at end
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-                typingSpeed = 500; // Pause before typing next
-            }
-
-            setTimeout(type, typingSpeed);
-        }
-
-        // Start typing effect after loading
-        setTimeout(type, 1800);
-
-        // Initialize Swiper for testimonials
-        const testimonialSwiper = new Swiper('.testimonial-slider', {
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                640: { slidesPerView: 1 },
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 },
-            },
-            spaceBetween: 30,
-        });
-
-        // Animate counter numbers
-        const counters = document.querySelectorAll('.counter');
-        const speed = 200;
-        
-        function animateCounters() {
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-count');
-                const count = +counter.innerText;
-                const increment = target / speed;
-                
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + increment);
-                    setTimeout(animateCounters, 1);
-                } else {
-                    counter.innerText = target;
-                }
+            // Products Filter
+            $('#products-section .isotope-filter-links button').on('click', function() {
+                $('#products-section .isotope-filter-links button').removeClass('active');
+                $(this).addClass('active');
+                var filterValue = $(this).attr('data-filter');
+                $isoProducts.isotope({
+                    filter: filterValue
+                });
             });
-        }
 
-        // Start counter animation when scrolled to
-        const statsSection = document.querySelector('.stats-section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    observer.unobserve(entry.target);
-                }
+            // Lazy load bg images for products
+            $('#products-section .lazy').each(function() {
+                var $el = $(this);
+                $el.css('background-image', 'url(' + $el.data('src') + ')');
             });
-        }, { threshold: 0.5 });
 
-        if (statsSection) {
-            observer.observe(statsSection);
-        }
-
-        // Scroll progress bar
-        const scrollProgress = document.getElementById('scrollProgress');
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            scrollProgress.style.width = Math.min(scrollPercent, 100) + '%';
-        });
-
-        // Smooth scrolling with offset
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const target = document.querySelector(targetId);
-                
-                if (target) {
-                    const offset = 80;
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                    
-                    if (history.pushState) {
-                        history.pushState(null, null, targetId);
-                    } else {
-                        window.location.hash = targetId;
+            // Portfolio Isotope init
+            var $isoPortfolio = $('#portfolio-list-section .isotope-items-wrap').imagesLoaded(function() {
+                $isoPortfolio.isotope({
+                    itemSelector: '.isotope-item',
+                    layoutMode: 'fitRows',
+                    percentPosition: true,
+                    masonry: {
+                        columnWidth: '.grid-sizer'
                     }
-                }
+                });
+            });
+
+            // Portfolio Filter
+            $('#portfolio-list-section .isotope-filter-links button').on('click', function() {
+                $('#portfolio-list-section .isotope-filter-links button').removeClass('active');
+                $(this).addClass('active');
+                var filterValue = $(this).attr('data-filter');
+                $isoPortfolio.isotope({
+                    filter: filterValue
+                });
+            });
+
+            // Lazy load bg images for portfolio
+            $('#portfolio-list-section .lazy').each(function() {
+                var $el = $(this);
+                $el.css('background-image', 'url(' + $el.data('src') + ')');
             });
         });
+    </script>
+@endpush
 
-        // Scroll reveal animation
-        const animateElements = document.querySelectorAll('[data-animate]');
-        const scrollObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const animationType = entry.target.getAttribute('data-animate');
-                    entry.target.style.animationName = animationType;
-                    entry.target.style.opacity = 1;
-                    scrollObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
+<style>
+    .portfolio-techstack .badge {
+        background: #f8f9fa;
+        color: #2d3a4b;
+        border: 1px solid #e5eaf2;
+        font-size: 0.95em;
+        margin-right: 2px;
+        margin-bottom: 2px;
+        padding: 0.25em 0.6em;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+    }
 
-        animateElements.forEach(el => {
-            scrollObserver.observe(el);
-        });
-
-        // 3D tilt effect for service cards
-        const serviceCards = document.querySelectorAll('.service-card');
-        serviceCards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const xAxis = (window.innerWidth / 2 - e.pageX) / 15;
-                const yAxis = (window.innerHeight / 2 - e.pageY) / 15;
-                card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-            });
-
-            card.addEventListener('mouseenter', () => {
-                card.style.transition = 'none';
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transition = 'all 0.5s ease';
-                card.style.transform = 'rotateY(0deg) rotateX(0deg)';
-            });
-        });
-    });
-
-    // Re-run animations when navigating back/forward
-    window.addEventListener('pageshow', function(event) {
-        if (event.persisted) {
-            document.querySelectorAll('[data-animate]').forEach(el => {
-                el.style.animationName = 'none';
-                setTimeout(() => {
-                    el.style.animationName = el.getAttribute('data-animate');
-                }, 10);
-            });
-        }
-    });
-</script>
-@endsection
+    .portfolio-techstack img {
+        width: 18px;
+        height: 18px;
+        object-fit: contain;
+        margin-right: 3px;
+        vertical-align: middle;
+    }
+</style>

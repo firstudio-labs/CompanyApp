@@ -21,7 +21,7 @@ class HomeController extends Controller
             ->latest()->limit(3)->get();
 
         $portfolios = Portfolio::with(['service', 'techStacks'])
-            ->latest()->limit(3)->get();
+            ->latest()->limit(4)->get();
 
         $articles = Article::with('service')
             ->whereNotNull('published_at')
