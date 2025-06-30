@@ -9,8 +9,8 @@
     <meta name="author" content="themetorium.net">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" href="{{ asset('aivo/favicon.ico') }}" type="image/x-icon">
-    <link rel="icon" href="{{ asset('aivo/favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('logo/firstudio.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('logo/firstudio.png') }}" type="image/x-icon">
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800" rel="stylesheet">

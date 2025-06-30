@@ -61,8 +61,8 @@
         </section>
 
         <!-- =============================
-             >>>>> Begin about us section <<<<<
-             ============================== -->
+                 >>>>> Begin about us section <<<<<
+                 ============================== -->
         <section id="about-us-section">
             <div class="about-us-inner tt-wrap">
                 {{-- Menggunakan data-aos untuk animasi fade-up saat section muncul --}}
@@ -125,8 +125,8 @@
 
 
         <!-- =============================
-            ///// Begin services section /////
-            ============================== -->
+                ///// Begin services section /////
+                ============================== -->
         <section id="services-section" class="services-style-1 bg-gray-3 bg-pattern"
             style="background-image: url('{{ asset('aivo/assets/img/pattern/transparent/pt-transparent-2.png') }}');">
             <div class="cover cover-opacity-1 cover-light"></div>
@@ -254,19 +254,20 @@
                         <div class="zig-zag-separator">
                             <span></span><span></span><span></span><span></span>
                         </div>
-                       
+
                     </div>
                 </div>
 
                 <div class="isotope col-3 gutter-3">
-                    
+
                     <div class="isotope-items-wrap pli-white pli-alter-4">
                         <div class="grid-sizer"></div>
                         @forelse($portfolios as $portfolio)
                             <div class="isotope-item {{ Str::slug($portfolio->service->title ?? 'all') }} iso-height-1">
                                 <div class="portfolio-list-item">
                                     <div class="pl-item-image-wrap">
-                                        <a href="{{ route('portfolio.show', $portfolio->slug) }}" class="pl-item-image-inner">
+                                        <a href="{{ route('portfolio.show', $portfolio->slug) }}"
+                                            class="pl-item-image-inner">
                                             <div class="pl-item-image bg-image lazy"
                                                 data-src="{{ $portfolio->image_url ? asset($portfolio->image_url) : asset('aivo/assets/img/portfolio/list/list-1/portfolio-list-1.jpg') }}">
                                             </div>
@@ -276,11 +277,13 @@
                                     <div class="pl-item-info">
                                         <div class="pl-item-caption">
                                             <h2 class="pl-item-title">
-                                                <a href="{{ route('portfolio.show', $portfolio->slug) }}">{{ $portfolio->title }}</a>
+                                                <a
+                                                    href="{{ route('portfolio.show', $portfolio->slug) }}">{{ $portfolio->title }}</a>
                                             </h2>
                                             <div class="pl-item-category">
                                                 @if ($portfolio->service)
-                                                    <a href="{{ route('services.show', $portfolio->service->slug) }}">{{ $portfolio->service->title }}</a>
+                                                    <a
+                                                        href="{{ route('services.show', $portfolio->service->slug) }}">{{ $portfolio->service->title }}</a>
                                                 @endif
                                             </div>
                                             <div class="portfolio-techstack mt-2">
@@ -331,16 +334,18 @@
 
                 <div class="portfolio-list-inner isotope-wrap">
                     <div class="isotope col-3 gutter-3">
-                       
+
 
                         <!-- Begin isotope items wrap -->
                         <div class="isotope-items-wrap pli-white pli-alter-4">
                             <div class="grid-sizer"></div>
                             @forelse($products as $product)
-                                <div class="isotope-item {{ \Illuminate\Support\Str::slug($product->service->title ?? 'all') }} iso-height-1">
+                                <div
+                                    class="isotope-item {{ \Illuminate\Support\Str::slug($product->service->title ?? 'all') }} iso-height-1">
                                     <div class="portfolio-list-item">
                                         <div class="pl-item-image-wrap">
-                                            <a href="{{ route('products.show', $product->slug) }}" class="pl-item-image-inner">
+                                            <a href="{{ route('products.show', $product->slug) }}"
+                                                class="pl-item-image-inner">
                                                 <div class="pl-item-image bg-image lazy"
                                                     data-src="{{ $product->image_url ? asset('images/products/' . $product->image_url) : asset('aivo/assets/img/portfolio/list/list-1/portfolio-list-1.jpg') }}">
                                                 </div>
@@ -350,7 +355,8 @@
                                         <div class="pl-item-info">
                                             <div class="pl-item-caption">
                                                 <h2 class="pl-item-title">
-                                                    <a href="{{ route('products.show', $product->slug) }}">{{ $product->title }}</a>
+                                                    <a
+                                                        href="{{ route('products.show', $product->slug) }}">{{ $product->title }}</a>
                                                 </h2>
                                                 <div class="pl-item-category">
                                                     <a href="#">{{ $product->service->title ?? '-' }}</a>
@@ -394,17 +400,46 @@
             <div class="latest-news-section-inner tt-wrap">
                 <div class="tt-heading tt-heading-xlg text-center margin-bottom-80">
                     <div class="tt-heading-inner">
-                        <h1 class="tt-heading-title">Latest News</h1>
-                        <div class="tt-heading-subtitle">Recent articles from blog</div>
+                        <h1 class="tt-heading-title">Artikel Terbaru</h1>
+                        <div class="tt-heading-subtitle">Artikel terbaru dari blog kami</div>
                         <div class="zig-zag-separator">
                             <span></span><span></span><span></span><span></span>
                         </div>
                         <div class="tt-heading-text">
-                            <p>Duis mattis quam quis quam cursus, a rutrum ante luctus. Phasellus porta ornare enim ac
-                                euismod. Nulla fringilla lectus ac tincidunt viverra.</p>
+                            <p>Artikel terbaru dari blog kami, kami akan selalu memberikan informasi terbaru dan terkini
+                                untuk klien kami.</p>
                         </div>
                     </div>
                 </div>
+
+                <div class="custom-article-nav">
+                    <button type="button" class="article-nav-btn article-prev" aria-label="Sebelumnya">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <circle cx="11" cy="11" r="11" fill="none" />
+                            <path d="M13.8 16L9 11L13.8 6" stroke="#0040d8" stroke-width="2.2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <button type="button" class="article-nav-btn article-next" aria-label="Berikutnya">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <circle cx="11" cy="11" r="11" fill="none" />
+                            <path d="M8.2 6L13 11L8.2 16" stroke="#222" stroke-width="2.2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const owl = $('.latest-news-carousel .owl-carousel');
+                        $('.custom-article-nav .article-prev').click(function() {
+                            owl.trigger('prev.owl.carousel');
+                        });
+                        $('.custom-article-nav .article-next').click(function() {
+                            owl.trigger('next.owl.carousel');
+                        });
+                    });
+                </script>
+               
                 <div class="latest-news-carousel">
                     <div class="owl-carousel cursor-grab nav-outside-top nav-rounded" data-lazy-load="true"
                         data-items="3" data-margin="30" data-loop="true" data-dots="false" data-nav="true"
@@ -449,17 +484,11 @@
         </section>
 
         <!-- =============================================
-            ///// Begin call to action section (style-2) /////
-            ============================================== -->
+                ///// Begin call to action section (style-2) /////
+                ============================================== -->
         <section class="call-to-action-section cta-style-2 bg-dark text-white bg-image"
             style="background-image: url({{ asset('assets/img/pattern/pt-2.jpg') }});">
 
-            <!-- Element cover
-                ===================
-                * Use class "cover-opacity-*" to set cover opasity (1, 1.5, 2, 2.5, ... 9.5). Example: "cover-opacity-2" or "cover-opacity-2-5".
-                * Aditional color classes you can use: "cover-color", "cover-light", "cover-red", "cover-pink", "cover-purple", "cover-green", "cover-blue", "cover-yellow" or "cover-brown" to set cover background color (note: class "cover-color" = template main color).
-                * Use class "cover-gradient-dark", "cover-gradient-light" or "cover-gradient-color" to enable cover gradient background.
-                -->
             <div class="cover cover-gradient-dark cover-opacity-9"></div>
 
             <div class="cta-inner tt-wrap">
@@ -467,8 +496,8 @@
                     <div class="col-md-6">
                         <div class="tt-heading tt-heading-xxlg">
                             <div class="tt-heading-inner">
-                                <h1 class="tt-heading-title">Do You Feel Excited?</h1>
-                                <div class="tt-heading-subtitle">Interested in working with us?</div>
+                                <h1 class="tt-heading-title">Apakah Anda Tertarik?</h1>
+                                <div class="tt-heading-subtitle">Tertarik untuk bekerja sama dengan kami?</div>
                                 <div class="zig-zag-separator zig-zag-light">
                                     <span></span>
                                     <span></span>
@@ -479,11 +508,10 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <p>Fusce et velit sed augue rhoncus tempor. Sed ac lacinia augue, nec lacinia felis. Sed sit amet
-                            diam leo. Praesent vel malesuada arcu. Donec mattis, arcu vel vehicula feugiat sem turpis.</p>
+                        <p>Kami adalah perusahaan yang terpercaya oleh klien kami, kami akan memberikan solusi terbaik untuk
+                            klien kami.</p>
                         <div class="margin-top-30">
-                            <a href="{{ route('contact') }}" class="btn btn-primary btn-lg margin-top-5">Let's Work
-                                Together!</a>
+                            <a href="{{ route('contact') }}" class="btn btn-primary btn-lg margin-top-5">Hubungi Kami</a>
                         </div>
                     </div>
                 </div>
@@ -498,13 +526,13 @@
                     <div class="col-lg-push-7 col-lg-5">
                         <div class="tt-heading tt-heading-xlg">
                             <div class="tt-heading-inner">
-                                <h1 class="tt-heading-title">Clients</h1>
-                                <div class="tt-heading-subtitle">Our Loyal Clients</div>
+                                <h1 class="tt-heading-title">Klien</h1>
+                                <div class="tt-heading-subtitle">Klien yang telah mempercayai kami</div>
                                 <div class="zig-zag-separator">
                                     <span></span><span></span><span></span><span></span>
                                 </div>
                                 <div class="tt-heading-text">
-                                    {{ $about->client_text ?? 'We are trusted by these companies.' }}
+                                    Kami adalah perusahaan yang terpercaya oleh klien kami
                                 </div>
                             </div>
                         </div>
@@ -534,29 +562,29 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="counter-up-wrap cu-animated">
                             <div class="counter-up-icon"><i class="fas fa-users"></i></div>
-                            <div class="counter-up">{{ $about->customers_count ?? 0 }}</div>
-                            <h4 class="counter-up-title">Satisfied Customers</h4>
+                            <div class="counter-up">{{ $about->customers_count ?? 97 }}</div>
+                            <h4 class="counter-up-title">Klien yang telah mempercayai kami</h4>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="counter-up-wrap cu-animated">
                             <div class="counter-up-icon"><i class="fas fa-leaf"></i></div>
-                            <div class="counter-up">{{ $about->projects_count ?? 0 }}</div>
-                            <h4 class="counter-up-title">Completed Projects</h4>
+                            <div class="counter-up">{{ $about->projects_count ?? 24 }}</div>
+                            <h4 class="counter-up-title">Proyek yang telah kami selesaikan</h4>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="counter-up-wrap cu-animated">
                             <div class="counter-up-icon"><i class="fas fa-trophy"></i></div>
-                            <div class="counter-up">{{ $about->awards_count ?? 0 }}</div>
-                            <h4 class="counter-up-title">Winning Awards</h4>
+                            <div class="counter-up">{{ $about->awards_count ?? 86 }}</div>
+                            <h4 class="counter-up-title">Penghargaan yang telah kami peroleh</h4>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="counter-up-wrap cu-animated">
                             <div class="counter-up-icon"><i class="fas fa-life-ring"></i></div>
-                            <div class="counter-up">{{ $about->support_count ?? 0 }}</div>
-                            <h4 class="counter-up-title">Support Provided</h4>
+                            <div class="counter-up">{{ $about->support_count ?? 32 }}</div>
+                            <h4 class="counter-up-title">Dukungan yang telah kami berikan</h4>
                         </div>
                     </div>
                 </div>
@@ -583,6 +611,7 @@
     <script src="{{ asset('assets/vendor/jquery-lazy/js/jquery.lazy.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/jquery-lazy/js/jquery.lazy.plugins.min.js') }}"></script>
     <script src="{{ asset('assets/js/theme.js') }}"></script>
+    
     <script>
         $(document).ready(function() {
             // Products Isotope init
@@ -645,6 +674,54 @@
 @endpush
 
 <style>
+    .custom-article-nav {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        gap: 18px;
+        margin: 18px 18px 0 0;
+    }
+
+    .custom-article-nav .article-nav-btn {
+        width: 44px;
+        height: 44px;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        background: #f1f2f3;
+        color: #222;
+        transition: background 0.2s, color 0.2s;
+        box-shadow: none;
+        outline: none;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .custom-article-nav .article-nav-btn svg path {
+        transition: stroke 0.2s;
+    }
+
+    .custom-article-nav .article-nav-btn:hover,
+    .custom-article-nav .article-nav-btn:focus {
+        background: #0040d8;
+        color: #fff;
+    }
+
+    .custom-article-nav .article-nav-btn.article-prev:hover svg path,
+    .custom-article-nav .article-nav-btn.article-prev:focus svg path {
+        stroke: #fff;
+    }
+
+    .custom-article-nav .article-nav-btn.article-next:hover svg path,
+    .custom-article-nav .article-nav-btn.article-next:focus svg path {
+        stroke: #fff;
+    }
+
     .portfolio-techstack .badge {
         background: #f8f9fa;
         color: #2d3a4b;

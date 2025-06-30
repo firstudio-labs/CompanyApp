@@ -19,6 +19,8 @@
                             <li><a href="{{ route('about') }}">About</a></li>
                             <li><a href="{{ route('services') }}">Services</a></li>
                             <li><a href="{{ route('article') }}">Article</a></li>
+                            <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
+                            <li><a href="{{ route('products') }}">Product</a></li>
                             <li><a href="{{ route('contact') }}">Contact</a></li>
                         </ul>
                     </div>
@@ -27,9 +29,10 @@
                     <div class="footer-block">
                         <h4 class="f-block-heading">Follow</h4>
                         <ul class="f-block-links">
-                            <li><a href="#" target="_blank">Facebook</a></li>
-                            <li><a href="#" target="_blank">Instagram</a></li>
-                            <li><a href="#" target="_blank">WhatsApp</a></li>
+                            <li><a href="https://github.com/firstudio-labs" target="_blank">Github</a></li>
+                            <li><a href="https://www.linkedin.com/company/firstudioidn" target="_blank">Linkedin</a></li>
+                            <li><a href="https://www.instagram.com/firstudio.id/" target="_blank">Instagram</a></li>
+                            <li><a href="https://wa.me/6281327774528" target="_blank">WhatsApp</a></li>
                         </ul>
                     </div>
                 </div>
@@ -47,12 +50,13 @@
                     <div class="footer-block">
                         <h4 class="f-block-heading">About</h4>
                         <div class="f-block-text padding-right-30">
-                            Layanan Haji dan Qurban terpercaya untuk kebutuhan ibadah Anda.
+                            <p>Firstudio adalah perusahaan yang bergerak di bidang IT dan jasa konsultasi. Kami memiliki tim yang berpengalaman dan berdedikasi untuk memberikan solusi terbaik kepada klien kami.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <a href="#body" class="scrolltotop sm-scroll" title="Scroll to top"></a>
         <div class="footer-bottom">
             <div class="footer-container tt-wrap">
                 <div class="row">
@@ -61,14 +65,9 @@
                             &copy; {{ date('Y') }} Firstudio / All rights reserved
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="footer-bottom-col-right">
-                            Design by: <a href="https://themeforest.net/item/aivo-multipurpose-portfolio-html-website-template/21587861?ref=Themetorium" target="_blank">Themetorium</a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <a href="#body" class="scrolltotop sm-scroll" title="Scroll to top"></a>
+
 </section>

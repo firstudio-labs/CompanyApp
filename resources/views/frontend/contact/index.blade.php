@@ -34,7 +34,7 @@
             <div class="col-md-6">
                 <div class="contact-info-wrap margin-bottom-40">
                     <div class="contact-info-text">
-                        <p>{{ $about->description ?? 'Silakan hubungi kami untuk pertanyaan, konsultasi, atau kerjasama.' }}</p>
+                        <p>{{ strip_tags($about->description ?? 'Silakan hubungi kami untuk pertanyaan, konsultasi, atau kerjasama.') }}</p>
                     </div>
                     <h3 class="contact-info-title">Visit Us:</h3>
                     <ul class="contact-info">

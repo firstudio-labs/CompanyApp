@@ -12,10 +12,14 @@
     right: 10%;
     width: auto;
     border-radius: 50px;
+    opacity: 1;
+    visibility: visible;
 }
 
 .header.scrolled {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transform: translateY(0);
+    transition: all 0.6s ease;
 }
 
 .navbar-brand {
@@ -243,32 +247,12 @@
 <header id="header" class="header-show-hide-on-scroll menu-align-right">
     <div class="header-inner tt-wrap">
         <div id="logo">
-            <a href="{{ route('home') }}" class="logo-dark"><img src="{{ asset('aivo/assets/img/logo-dark.png') }}" alt="logo"></a>
-            <a href="{{ route('home') }}" class="logo-light"><img src="{{ asset('aivo/assets/img/logo-light.png') }}" alt="logo"></a>
-            <a href="{{ route('home') }}" class="logo-dark-m"><img src="{{ asset('aivo/assets/img/logo-dark-m.png') }}" alt="logo"></a>
-            <a href="{{ route('home') }}" class="logo-light-m"><img src="{{ asset('aivo/assets/img/logo-light-m.png') }}" alt="logo"></a>
+            <a href="{{ route('home') }}" class="logo-dark"><img src="{{ asset('logo/logo3.png') }}" alt="logo"></a>
+            <a href="{{ route('home') }}" class="logo-light"><img src="{{ asset('logo/logo3.png') }}" alt="logo"></a>
+            <a href="{{ route('home') }}" class="logo-dark-m"><img src="{{ asset('logo/logo3.png') }}" alt="logo"></a>
+            <a href="{{ route('home') }}" class="logo-light-m"><img src="{{ asset('logo/logo3.png') }}" alt="logo"></a>
         </div>
-        <div class="header-attributes">
-            <ul>
-                <li>
-                    <a href="#" class="h-attr-search-trigger"><i class="fas fa-search"></i></a>
-                    <!-- Search form can be added here -->
-                </li>
-                <li class="h-attr-dropdown-wrap h-attr-dropdown-master h-attr-lang h-attr-dropdown-dark h-attr-dropdown-right">
-                    <a href="#0"><img src="{{ asset('aivo/assets/img/flags/gb.png') }}" alt="English">EN</a>
-                    <ul class="h-attr-dropdown">
-                        <li><a href="#"><img src="{{ asset('aivo/assets/img/flags/gb.png') }}" alt="English">EN</a></li>
-                        <li><a href="#"><img src="{{ asset('aivo/assets/img/flags/fr.png') }}" alt="French">FR</a></li>
-                        <li><a href="#"><img src="{{ asset('aivo/assets/img/flags/de.png') }}" alt="Deutsch">DE</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <div id="tt-m-menu-toggle-btn">
-                        <span></span>
-                    </div>
-                </li>
-            </ul>
-        </div>
+
         <nav class="tt-main-menu">
             <div class="tt-menu-collapse tt-submenu-dark">
                 <ul class="tt-menu-nav">

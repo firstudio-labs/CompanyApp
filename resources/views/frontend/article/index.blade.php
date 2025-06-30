@@ -16,6 +16,73 @@
     <link rel="stylesheet" href="{{ asset('aivo/assets/vendor/lightgallery/css/lightgallery.min.css') }}">
     <link rel="stylesheet" href="{{ asset('aivo/assets/css/helper.css') }}">
     <link rel="stylesheet" href="{{ asset('aivo/assets/css/theme.css') }}">
+    <style>
+        .isotope-items-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        .isotope-item {
+            flex: 1 1 30%;
+            display: flex;
+            min-width: 280px;
+            max-width: 100%;
+        }
+        .blog-list-item {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            max-height: 600px;
+            box-sizing: border-box;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border-radius: 6px;
+        }
+        .bl-item-image-wrap {
+            width: 100%;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            flex-shrink: 0;
+        }
+        .bl-item-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-size: cover !important;
+            background-position: center !important;
+            min-height: 180px;
+        }
+        .bl-item-info {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 24px 20px 16px 20px;
+            overflow: hidden;
+        }
+        .bl-item-title h2, .bl-item-desc {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        .bl-item-desc {
+            min-height: 50px;
+            max-height: 60px;
+        }
+        /* Responsive */
+        @media (max-width: 991px) {
+            .isotope-item { flex: 1 1 45%; }
+        }
+        @media (max-width: 600px) {
+            .isotope-item { flex: 1 1 100%; }
+        }
+    </style>
 @endsection
 
 @section('content')
