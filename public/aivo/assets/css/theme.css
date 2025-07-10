@@ -2755,10 +2755,6 @@ body.tt-ol-menu-on #header #logo {
 	text-shadow: 0 0 0 #181c25, 0 50px 0 #181c25;
 }
 #tt-overlay-menu.tt-ol-menu-light .btn-white.btn-link:hover, 
-#tt-overlay-menu.tt-ol-menu-light .btn-white.btn-link.focus, 
-#tt-overlay-menu.tt-ol-menu-light .btn-white.btn-link:focus, 
-#tt-overlay-menu.tt-ol-menu-light .btn-white.btn-link.active, 
-#tt-overlay-menu.tt-ol-menu-light .btn-white.btn-link:active, 
 #tt-overlay-menu.tt-ol-menu-light .btn-white.btn-link.active.focus, 
 #tt-overlay-menu.tt-ol-menu-light .btn-white.btn-link.active:focus, 
 #tt-overlay-menu.tt-ol-menu-light .btn-white.btn-link.active:hover, 
@@ -3104,9 +3100,6 @@ body.tt-ol-menu-on #header #logo {
 	}
 }
 @media (max-width: 992px) {
-	#tt-intro .intro-caption-wrap.intro-caption-xlg .intro-title {
-		font-size: 48px;
-	}
 	#tt-intro .intro-caption-wrap.intro-caption-xlg .intro-subtitle {
 		font-size: 24px;
 	}
@@ -3798,6 +3791,283 @@ body.header-transparent-on #page-header.ph-xlg .page-header-inner {
 		padding-top: 23% !important;
 		padding-bottom: 12% !important;
 	}
+}
+
+/* =========================
+   Custom Home Page Styles
+   ========================= */
+
+.custom-article-nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    gap: 18px;
+    margin: 18px 18px 0 0;
+}
+@media (max-width: 767px) {
+    .custom-article-nav {
+        position: relative;
+        top: 0;
+        right: auto;
+        justify-content: center;
+        margin: 0 0 20px 0;
+    }
+}
+.custom-article-nav .article-nav-btn {
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    background: #f1f2f3;
+    color: #222;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    touch-action: manipulation;
+}
+.custom-article-nav .article-nav-btn:hover,
+.custom-article-nav .article-nav-btn:focus,
+.custom-article-nav .article-nav-btn:active {
+    background: #0040d8;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,64,216,0.3);
+}
+.custom-article-nav .article-nav-btn svg path {
+    transition: stroke 0.3s ease;
+}
+.custom-article-nav .article-nav-btn:hover svg path,
+.custom-article-nav .article-nav-btn:focus svg path,
+.custom-article-nav .article-nav-btn:active svg path {
+    stroke: #fff;
+}
+
+/* Portfolio Tech Stack Badge */
+.portfolio-techstack .badge {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    color: #2d3a4b;
+    border: 1px solid #dee2e6;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 0.35em 0.75em;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+.portfolio-techstack .badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+    background: linear-gradient(135deg, #0040d8 0%, #0033b3 100%);
+    color: white;
+    border-color: #0040d8;
+}
+.portfolio-techstack img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    margin-right: 5px;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+
+/* Lazy Loading States */
+.lazy {
+    background-color: #f8f9fa;
+    background-image: linear-gradient(45deg, transparent 25%, rgba(255,255,255,.5) 25%, rgba(255,255,255,.5) 75%, transparent 75%, transparent),
+                      linear-gradient(45deg, transparent 25%, rgba(255,255,255,.5) 25%, rgba(255,255,255,.5) 75%, transparent 75%, transparent);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    animation: loading-shimmer 1.5s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+.lazy.loaded {
+    animation: none;
+    background-image: none;
+}
+@keyframes loading-shimmer {
+    0% { background-position: 0 0, 10px 10px; }
+    100% { background-position: 20px 20px, 30px 30px; }
+}
+
+/* Info Box Responsive Design */
+.info-box {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+.info-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(0,64,216,0.03) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.info-box:hover::before {
+    opacity: 1;
+}
+.info-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* Button Enhancements */
+.btn {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+.btn:hover::before {
+    left: 100%;
+}
+
+/* Aspect Ratio Handling */
+.pl-item-image-wrap,
+.bl-item-image-wrap {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    padding-bottom: 62.5%; /* 16:10 aspect ratio */
+}
+.pl-item-image,
+.bl-item-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+/* Grid Spacing for Different Screen Sizes */
+@media (max-width: 1199px) and (min-width: 992px) {
+    .isotope.col-3 .isotope-item {
+        margin-bottom: 25px;
+    }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+    .isotope.col-3 .isotope-item {
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 767px) and (min-width: 576px) {
+    .isotope.col-3 .isotope-item {
+        margin-bottom: 25px;
+    }
+}
+@media (max-width: 575px) {
+    .isotope.col-3 .isotope-item {
+        margin-bottom: 20px;
+    }
+}
+
+/* Section Background Improvements */
+.bg-gray-1 {
+    background-color: #f8f9fa !important;
+}
+.bg-gray-2 {
+    background-color: #e9ecef !important;
+}
+
+/* Container Max-Width */
+.isotope-wrap {
+    max-width: 100%;
+    margin: 0 auto;
+}
+@media (min-width: 1400px) {
+    .isotope-wrap {
+        max-width: 1320px;
+    }
+}
+
+/* Overlapping Content Fix */
+.isotope-items-wrap::after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+
+/* Mobile Navigation for Carousels */
+@media (max-width: 767px) {
+    .custom-article-nav {
+        position: static;
+        justify-content: center;
+        margin: 20px 0;
+        gap: 15px;
+    }
+    .article-nav-btn {
+        position: relative;
+        z-index: 10;
+    }
+}
+
+/* Touch Interactions */
+@media (hover: none) and (pointer: coarse) {
+    .portfolio-list-item:hover,
+    .blog-list-item:hover {
+        transform: none;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    .pl-item-image:hover,
+    .bl-item-image:hover {
+        transform: none;
+    }
+}
+
+/* Loading Performance */
+.isotope-item {
+    contain: layout style paint;
+}
+
+/* Text Overflow Handling */
+.pl-item-title,
+.bl-item-title h2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.pl-item-desc,
+.bl-item-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 @media (max-width: 480px) {
 	body.header-transparent-on #page-header .page-header-inner,
@@ -6576,10 +6846,6 @@ body.tt-boxed .tt-wrap .isotope.gutter-6 .tt-pagination-wrap {
 .portfolio-list-item .pl-item-image-inner img {
 }
 
-.iso-height-1 .portfolio-list-item .pl-item-image-wrap,
-.iso-height-2 .portfolio-list-item .pl-item-image-wrap,
-.iso-height-1 .portfolio-list-item .pl-item-image-inner,
-.iso-height-2 .portfolio-list-item .pl-item-image-inner,
 .iso-height-1 .portfolio-list-item .pl-item-image,
 .iso-height-2 .portfolio-list-item .pl-item-image {
 	position: absolute;
@@ -6928,10 +7194,6 @@ body.tt-boxed .tt-wrap .isotope.gutter-6 .tt-pagination-wrap {
 	transform: scale(1);
 }
 
-.pli-alter-3 .portfolio-list-item .pl-item-icon {
-	display: none;
-}
-
 .pli-alter-3 .pl-item-info,
 .isotope.gutter-2 .pli-alter-3 .portfolio-list-item .pl-item-info,
 .isotope.gutter-3 .pli-alter-3 .portfolio-list-item .pl-item-info,
@@ -7276,10 +7538,6 @@ body.tt-boxed .tt-wrap .isotope.gutter-6 .tt-pagination-wrap {
 .pli-dark.pli-alter-5 .portfolio-list-item:hover .pl-item-image-inner::before {
 	background-color: #181c25 !important;
 	opacity: .85 !important;
-}
-.pli-dark.pli-alter-5 .portfolio-list-item .pl-item-image-inner::before {
-	background-color: #181c25 !important;
-	opacity: .6 !important;
 }
 .pli-dark.pli-alter-5:hover .portfolio-list-item .pl-item-title {
 	opacity: 1 !important;
@@ -7977,9 +8235,6 @@ body.tt-boxed .tt-wrap .isotope.gutter-6 .tt-pagination-wrap {
 	}
 }
 @media (max-width: 768px) {
-	#portfolio-list-carousel-section .plc-caption-wrap.plc-caption-xlg .plc-title {
-		font-size: 34px;
-	}
 	#portfolio-list-carousel-section .plc-caption-wrap.plc-caption-xlg .plc-subtitle {
 		font-size: 20px;
 	}

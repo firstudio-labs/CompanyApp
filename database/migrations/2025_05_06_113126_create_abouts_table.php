@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('email', 100)->nullable();
             $table->string('phone', 30)->nullable();
             $table->string('website', 255)->nullable(); // Tambahan: website perusahaan
-            $table->string('vision', 255)->nullable();  // Tambahan: visi
-            $table->string('mission', 255)->nullable(); // Tambahan: misi
+            $table->text('vision')->nullable();  // Tambahan: visi
+            $table->text('mission')->nullable(); // Tambahan: misi
             $table->timestamps();
         });
     }

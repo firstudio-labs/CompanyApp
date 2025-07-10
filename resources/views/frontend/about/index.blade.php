@@ -17,7 +17,7 @@
         <div class="page-header-inner tt-wrap">
             <div class="page-header-caption ph-cap-sm parallax-5">
                 <div class="ph-title-wrap">
-                    <h1 class="page-header-title">
+                    <h1 class="page-header-title text-white">
                         {{ isset($about) && $about ? $about->text_banner : 'Tentang Kami' }}
                     </h1>
                 </div>

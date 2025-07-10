@@ -67,7 +67,8 @@
                             <input type="number" class="form-control" id="order" name="order" value="{{ old('order', $slide->order) }}">
                         </div>
                         <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="is_active" name="is_active" {{ old('is_active', $slide->is_active) ? 'checked' : '' }}>
+                            <input type="hidden" name="is_active" value="0">
+                            <input type="checkbox" class="form-check-input" id="is_active" name="is_active" value="1" {{ old('is_active', $slide->is_active) ? 'checked' : '' }}>
                             <label class="form-check-label" for="is_active">Aktif</label>
                         </div>
                         <div class="d-flex justify-content-end gap-2">
@@ -92,6 +93,7 @@
                     <div class="small text-muted" id="preview-button">
                         <a href="#" class="btn btn-primary btn-sm" id="preview-button-link">{{ old('button_text', $slide->button_text) ?: 'Teks Tombol' }}</a>
                     </div>
+                    <div class="mt-2"><span class="badge" id="preview-status">{{ old('is_active', $slide->is_active) ? 'Aktif' : 'Nonaktif' }}</span></div>
                 </div>
             </div>
         </div>
@@ -125,6 +127,10 @@
         } else {
             preview.src = "{{ $slide->image ? asset('storage/'.$slide->image) : asset('assets/img/placeholder-image.png') }}";
         }
+    });
+    document.getElementById('is_active').addEventListener('change', function() {
+        document.getElementById('preview-status').textContent = this.checked ? 'Aktif' : 'Nonaktif';
+        document.getElementById('preview-status').className = 'badge ' + (this.checked ? 'bg-success' : 'bg-secondary');
     });
 </script>
 @endsection

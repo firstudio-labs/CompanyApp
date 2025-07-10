@@ -1,51 +1,115 @@
+<style>
+    /* Styling Logo */
+    #logo {
+        position: relative;
+        top: 5px;
+        margin-bottom: 5px;
+        z-index: 9;
+        height: auto;
+        width: auto;
+    }
+
+    #logo img {
+        max-height: 36px !important;
+        height: auto !important;
+        width: auto !important;
+        display: block;
+    }
+
+    #logo .logo-light {
+        display: none;
+    }
+
+    #logo .logo-light-m,
+    #logo .logo-dark-m {
+        display: none;
+    }
+
+    @media (max-width: 991px) {
+        #logo {
+            top: 5px !important;
+        }
+
+        #logo .logo-dark {
+            display: none;
+        }
+
+        #logo .logo-dark-m {
+            display: block;
+        }
+
+        #logo img {
+            max-height: 50px !important;
+        }
+    }
+</style>
+
 <header id="header" class="header-show-hide-on-scroll menu-align-right">
-    <!-- Begin header inner -->
     <div class="header-inner tt-wrap">
-        
-        <!-- Begin logo -->
+        <!-- Logo -->
         <div id="logo">
-            <!-- logo images for big screens -->
-            <a href="{{ route('home') }}" class="logo-dark"><img src="{{ asset('logo/logo3.png') }}" alt="logo"></a>
-            <a href="{{ route('home') }}" class="logo-light"><img src="{{ asset('logo/logo3.png') }}" alt="logo"></a>
-
-            <!-- logo images for smaller screens -->
-            <a href="{{ route('home') }}" class="logo-dark-m"><img src="{{ asset('logo/logo3.png') }}" alt="logo"></a>
-            <a href="{{ route('home') }}" class="logo-light-m"><img src="{{ asset('logo/logo3.png') }}" alt="logo"></a>
+            <a href="{{ route('home') }}">
+                <img src="{{ asset('logo/logo3.png') }}" alt="logo">
+            </a>
         </div>
-        <!-- End logo -->
 
-        <!-- Begin header attributes -->
+
+        <!-- Mobile toggle -->
         <div class="header-attributes">
             <ul>
-                <!-- Begin mobile menu toggle button (tt-main-menu) -->
                 <li>
                     <div id="tt-m-menu-toggle-btn">
                         <span></span>
                     </div>
                 </li>
-                <!-- End mobile menu toggle button -->
             </ul>
         </div>
-        <!-- End header attributes -->
 
-        <!-- Begin main menu -->
+        <!-- Menu -->
         <nav class="tt-main-menu">
-            <!-- Collect the nav links for toggling -->
             <div class="tt-menu-collapse tt-submenu-dark">
                 <ul class="tt-menu-nav">
-                    <li class="{{ request()->routeIs('home') ? 'active' : '' }}"><a href="{{ route('home') }}">Home</a></li>
-                    <li class="{{ request()->routeIs('about') ? 'active' : '' }}"><a href="{{ route('about') }}">About</a></li>
-                    <li class="{{ request()->routeIs('services*') ? 'active' : '' }}"><a href="{{ route('services') }}">Services</a></li>
-                    <li class="{{ request()->routeIs('portfolio*') ? 'active' : '' }}"><a href="{{ route('portfolio') }}">Portfolio</a></li>
-                    <li class="{{ request()->routeIs('products*') ? 'active' : '' }}"><a href="{{ route('products') }}">Product</a></li>
-                    <li class="{{ request()->routeIs('article*') ? 'active' : '' }}"><a href="{{ route('article') }}">Article</a></li>
-                    <li class="{{ request()->routeIs('contact') ? 'active' : '' }}"><a href="{{ route('contact') }}">Contact</a></li>
+                    <li class="{{ request()->routeIs('home') ? 'active' : '' }}"><a href="{{ route('home') }}">Beranda</a>
+                    </li>
+                    <li class="{{ request()->routeIs('about') ? 'active' : '' }}"><a
+                            href="{{ route('about') }}">Tentang Kami</a></li>
+                    <li class="{{ request()->routeIs('services*') ? 'active' : '' }}"><a
+                            href="{{ route('services') }}">Layanan</a></li>
+                    <li class="{{ request()->routeIs('portfolio*') ? 'active' : '' }}"><a
+                            href="{{ route('portfolio') }}">Portfolio</a></li>
+                    <li class="{{ request()->routeIs('products*') ? 'active' : '' }}"><a
+                            href="{{ route('products') }}">Produk</a></li>
+                    <li class="{{ request()->routeIs('article*') ? 'active' : '' }}"><a
+                            href="{{ route('article') }}">Artikel</a></li>
+                    <li class="{{ request()->routeIs('contact') ? 'active' : '' }}"><a
+                            href="{{ route('contact') }}">Kontak</a></li>
                 </ul>
             </div>
         </nav>
-        <!-- End main menu -->
-
     </div>
-    <!-- End header inner -->
 </header>
-<!-- End header -->
+
+<script>
+    let lastScrollTop = 0;
+    const header = document.getElementById('header');
+
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Tambah shadow jika scroll > 50
+        if (scrollTop > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+
+        // Sembunyikan saat scroll ke bawah
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+            header.classList.add('fly-up');
+        } else {
+            header.classList.remove('fly-up');
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+</script>

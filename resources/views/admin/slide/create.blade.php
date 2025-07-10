@@ -92,6 +92,7 @@
                     <div class="small text-muted" id="preview-button">
                         <a href="#" class="btn btn-primary btn-sm" id="preview-button-link">{{ old('button_text') ?: 'Teks Tombol' }}</a>
                     </div>
+                    <div class="mt-2"><span class="badge" id="preview-status">{{ old('is_active', isset($slide) ? $slide->is_active : 1) ? 'Aktif' : 'Nonaktif' }}</span></div>
                 </div>
             </div>
         </div>
@@ -126,6 +127,10 @@
         } else {
             preview.src = "{{ asset('assets/img/placeholder-image.png') }}";
         }
+    });
+    document.getElementById('is_active').addEventListener('change', function() {
+        document.getElementById('preview-status').textContent = this.checked ? 'Aktif' : 'Nonaktif';
+        document.getElementById('preview-status').className = 'badge ' + (this.checked ? 'bg-success' : 'bg-secondary');
     });
 </script>
 @endsection

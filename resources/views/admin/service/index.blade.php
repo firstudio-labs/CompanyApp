@@ -29,7 +29,6 @@
                             <th>Gambar</th>
                             <th>Judul</th>
                             <th>Deskripsi</th>
-                            <th>Slug</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -53,7 +52,6 @@
                             </td>
                             <td>{{ $service->title }}</td>
                             <td>{{ Str::limit(strip_tags($service->description), 50) }}</td>
-                            <td>{{ $service->slug }}</td>
                             <td>
                                 <a href="{{ route('admin.service.show', $service->id) }}" class="btn btn-info btn-sm mb-1">Detail</a>
                                 <a href="{{ route('admin.service.edit', $service->id) }}" class="btn btn-primary btn-sm mb-1"><i class="bx bx-edit-alt"></i></a>

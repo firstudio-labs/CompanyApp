@@ -33,9 +33,7 @@ class LoginController extends Controller
             ]);
 
             // Redirect admin ke dashboard, user ke home
-            return $user->role === 'admin'
-                ? redirect()->route('admin.dashboard')
-                : redirect()->route('home');
+            return redirect()->route('admin.dashboard');
         }
 
         Log::warning('Failed login attempt', ['email' => $request->email]);

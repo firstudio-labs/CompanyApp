@@ -46,7 +46,13 @@
                             <td>{{ $article->title }}</td>
                             <td>{{ $article->subtitle }}</td>
                             <td>{{ $article->author }}</td>
-                            <td>{{ $article->service ? $article->service->name : '-' }}</td>
+                            <td>
+                                @if($article->service && $article->service->title)
+                                    <span class="badge bg-info">{{ $article->service->title }}</span>
+                                @else
+                                    <span class="badge bg-secondary">-</span>
+                                @endif
+                            </td>
                             <td>{{ $article->published_at ? \Carbon\Carbon::parse($article->published_at)->format('d M Y') : '-' }}</td>
                             <td>
                                 <a href="{{ route('admin.article.show', $article->id) }}" class="btn btn-info btn-sm mb-1"><i class="bx bx-show"></i></a>

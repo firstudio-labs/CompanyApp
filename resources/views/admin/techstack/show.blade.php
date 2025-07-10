@@ -1,12 +1,17 @@
 @extends('admin.layouts.app')
 
+@section('title', 'Detail Tech Stack')
+
 @section('content')
-<div class="container py-4">
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4">
+        <span class="text-muted fw-light">Tech Stack /</span> Detail Tech Stack
+    </h4>
     <div class="row justify-content-center">
-        <div class="col-lg-7">
-            <div class="card shadow mb-4">
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0 mb-4">
                 <div class="card-header bg-info text-white">
-                    <h4 class="mb-0"><i class="bx bx-info-circle me-2"></i> Detail Tech Stack</h4>
+                    <h5 class="mb-0"><i class="bx bx-info-circle me-2"></i> Informasi Tech Stack</h5>
                 </div>
                 <div class="card-body">
                     <div class="mb-3 text-center">
@@ -16,23 +21,23 @@
                             <img src="{{ asset('assets/img/placeholder-image.png') }}" alt="icon" class="img-thumbnail mb-2" style="max-height:100px;">
                         @endif
                     </div>
-                    <table class="table table-borderless">
-                        <tr>
-                            <th width="120">Nama</th>
-                            <td>{{ $techstack->name }}</td>
-                        </tr>
-                        <tr>
-                            <th>Kategori</th>
-                            <td>{{ $techstack->category?->name ?? '-' }}</td>
-                        </tr>
-                        <tr>
-                            <th>Deskripsi</th>
-                            <td>{{ $techstack->description }}</td>
-                        </tr>
-                    </table>
-                    <div class="mt-4">
+                    <div class="mb-3">
+                        <span class="badge bg-info fs-5">{{ $techstack->name }}</span>
+                    </div>
+                    <div class="mb-3">
+                        <strong>Kategori:</strong> 
+                        @if($techstack->category && $techstack->category->name)
+                            <span class="badge bg-primary">{{ $techstack->category->name }}</span>
+                        @else
+                            <span class="badge bg-secondary">-</span>
+                        @endif
+                    </div>
+                    <div class="mb-3">
+                        <strong>Deskripsi:</strong> <span class="text-muted">{{ $techstack->description }}</span>
+                    </div>
+                    <div class="d-flex gap-2 justify-content-end mt-4">
                         <a href="{{ route('admin.techstack.edit', $techstack) }}" class="btn btn-warning"><i class="bx bx-edit"></i> Edit</a>
-                        <a href="{{ route('admin.techstack.index') }}" class="btn btn-secondary">Kembali</a>
+                        <a href="{{ route('admin.techstack.index') }}" class="btn btn-outline-secondary">Kembali</a>
                     </div>
                 </div>
             </div>

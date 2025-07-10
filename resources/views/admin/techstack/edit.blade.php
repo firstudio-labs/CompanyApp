@@ -1,13 +1,15 @@
 @extends('admin.layouts.app')
 
+@section('title', 'Edit Tech Stack')
+
 @section('content')
-<div class="container py-4">
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4">
+        <span class="text-muted fw-light">Tech Stack /</span> Edit Tech Stack
+    </h4>
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <div class="card shadow mb-4">
-                <div class="card-header bg-warning text-dark">
-                    <h4 class="mb-0"><i class="bx bx-edit-alt me-2"></i> Edit Tech Stack</h4>
-                </div>
+            <div class="card shadow-sm border-0 mb-4">
                 <div class="card-body">
                     <form action="{{ route('admin.techstack.update', $techstack) }}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -23,12 +25,6 @@
                                     <label class="form-label">Icon (Upload Gambar)</label>
                                     <input type="file" name="icon" class="form-control" accept="image/*" id="icon">
                                     @error('icon') <div class="text-danger">{{ $message }}</div> @enderror
-                                    @if($techstack->icon)
-                                        <div class="mt-2">
-                                            <img src="{{ asset('storage/'.$techstack->icon) }}" alt="icon" class="img-thumbnail" style="max-height:60px;">
-                                            <div class="small text-muted">Icon saat ini</div>
-                                        </div>
-                                    @endif
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Kategori</label>
@@ -45,9 +41,9 @@
                                     <textarea name="description" class="form-control" rows="3" id="description">{{ old('description', $techstack->description) }}</textarea>
                                     @error('description') <div class="text-danger">{{ $message }}</div> @enderror
                                 </div>
-                                <div class="d-flex gap-2">
+                                <div class="d-flex gap-2 justify-content-end">
+                                    <a href="{{ route('admin.techstack.index') }}" class="btn btn-outline-secondary">Batal</a>
                                     <button class="btn btn-warning"><i class="bx bx-save me-1"></i> Update</button>
-                                    <a href="{{ route('admin.techstack.index') }}" class="btn btn-secondary">Batal</a>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -73,8 +69,7 @@
     </div>
 </div>
 @endsection
-
-@push('scripts')
+@section('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('icon').addEventListener('change', function(e) {
@@ -102,4 +97,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-@endpush
+@endsection

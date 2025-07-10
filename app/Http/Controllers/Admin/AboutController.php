@@ -38,8 +38,8 @@ class AboutController extends Controller
             'phone' => 'nullable|string|max:30',
             'email' => 'nullable|email|max:100',
             'website' => 'nullable|string|max:255',
-            'vision' => 'nullable|string|max:255',
-            'mission' => 'nullable|string|max:255',
+            'vision' => 'nullable|string',
+            'mission' => 'nullable|string',
         ]);
 
         $about = About::first() ?? new About();

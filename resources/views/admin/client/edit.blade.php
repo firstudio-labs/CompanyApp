@@ -1,42 +1,102 @@
 @extends('admin.layouts.app')
 
+@section('title', 'Edit Client')
+
 @section('content')
-<div class="container">
-    <h1>Edit Client</h1>
-    <form action="{{ route('admin.client.update', $client) }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
-        <div class="mb-3">
-            <label>Nama Perusahaan</label>
-            <input type="text" name="company_name" class="form-control" value="{{ old('company_name', $client->company_name) }}" required>
-            @error('company_name') <div class="text-danger">{{ $message }}</div> @enderror
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4">
+        <span class="text-muted fw-light">Client /</span> Edit Client
+    </h4>
+
+    @if ($errors->any())
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <div class="mb-3">
-            <label>Logo (Upload Gambar)</label>
-            <input type="file" name="company_logo" class="form-control @error('company_logo') is-invalid @enderror" accept="image/*" id="company_logo">
-            @error('company_logo') <div class="text-danger">{{ $message }}</div> @enderror
-            <div class="mt-2">
-                <img id="preview-logo" src="{{ $client->company_logo ? asset('storage/'.$client->company_logo) : asset('assets/img/placeholder-image.png') }}" alt="Preview Logo" style="height:60px;">
+    @endif
+
+    <div class="row">
+        <!-- Form -->
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <form action="{{ route('admin.client.update', $client) }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+                        <div class="mb-3">
+                            <label for="company_name" class="form-label">Nama Perusahaan</label>
+                            <input type="text" name="company_name" id="company_name" class="form-control" value="{{ old('company_name', $client->company_name) }}" required>
+                            @error('company_name') 
+                                <div class="text-danger small mt-1">{{ $message }}</div> 
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="company_logo" class="form-label">Logo Perusahaan</label>
+                            <input type="file" name="company_logo" id="company_logo" class="form-control @error('company_logo') is-invalid @enderror" accept="image/*">
+                            @error('company_logo') 
+                                <div class="text-danger small mt-1">{{ $message }}</div> 
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="service_id" class="form-label">Layanan</label>
+                            <select name="service_id" id="service_id" class="form-select">
+                                <option value="">Pilih Layanan</option>
+                                @foreach($services as $service)
+                                    <option value="{{ $service->id }}" {{ (old('service_id', $client->service_id) == $service->id) ? 'selected' : '' }}>
+                                        {{ $service->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('service_id') 
+                                <div class="text-danger small mt-1">{{ $message }}</div> 
+                            @enderror
+                        </div>
+                        <div class="d-flex justify-content-end gap-2">
+                            <a href="{{ route('admin.client.index') }}" class="btn btn-outline-secondary">Batal</a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bx bx-save me-1"></i> Update Client
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="mb-3">
-            <label>Layanan</label>
-            <select name="service_id" class="form-control">
-                <option value="">- Pilih Layanan -</option>
-                @foreach($services as $service)
-                    <option value="{{ $service->id }}" {{ (old('service_id', $client->service_id) == $service->id) ? 'selected' : '' }}>{{ $service->title }}</option>
-                @endforeach
-            </select>
-            @error('service_id') <div class="text-danger">{{ $message }}</div> @enderror
+        <!-- Preview -->
+        <div class="col-lg-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="bx bx-show-alt text-primary me-2"></i> Preview Client</h5>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-3">
+                        <img id="preview-logo" src="{{ $client->company_logo ? asset('images/clients/' . $client->company_logo) : asset('assets/img/placeholder-image.png') }}" 
+                             alt="Preview Logo" class="rounded shadow-sm" style="max-width: 120px; max-height: 120px; object-fit: contain;">
+                    </div>
+                    <h6 id="preview-company-name" class="fw-bold">{{ old('company_name', $client->company_name) ?: 'Nama Perusahaan' }}</h6>
+                    <div class="mb-2">
+                        <span class="badge bg-info" id="preview-service">
+                            {{ $client->service ? $client->service->title : 'Belum memilih layanan' }}
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button class="btn btn-primary">Update</button>
-        <a href="{{ route('admin.client.index') }}" class="btn btn-secondary">Batal</a>
-    </form>
+    </div>
 </div>
 @endsection
 
 @section('scripts')
 <script>
+    // Live preview untuk nama perusahaan
+    document.getElementById('company_name').addEventListener('input', function() {
+        document.getElementById('preview-company-name').textContent = this.value || 'Nama Perusahaan';
+    });
+
+    // Live preview untuk logo
     document.getElementById('company_logo').addEventListener('change', function(e) {
         const file = e.target.files[0];
         const preview = document.getElementById('preview-logo');
@@ -47,8 +107,14 @@
             }
             reader.readAsDataURL(file);
         } else {
-            preview.src = "{{ $client->company_logo ? asset('storage/'.$client->company_logo) : asset('assets/img/placeholder-image.png') }}";
+            preview.src = "{{ $client->company_logo ? asset('images/clients/' . $client->company_logo) : asset('assets/img/placeholder-image.png') }}";
         }
+    });
+
+    // Live preview untuk layanan
+    document.getElementById('service_id').addEventListener('change', function() {
+        const selected = this.options[this.selectedIndex];
+        document.getElementById('preview-service').textContent = selected.text || 'Belum memilih layanan';
     });
 </script>
 @endsection

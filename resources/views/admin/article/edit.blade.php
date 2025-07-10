@@ -67,13 +67,13 @@
                         </div>
                         <div class="mb-3">
                             <label for="service_id" class="form-label">Layanan</label>
-                            <select class="form-select" id="service_id" name="service_id">
-                                <option value="">Pilih Layanan</option>
-                                @foreach($services as $service)
-                                    <option value="{{ $service->id }}" {{ old('service_id', $article->service_id) == $service->id ? 'selected' : '' }}>
-                                        {{ $service->name }}
-                                    </option>
-                                @endforeach
+                            <select class="form-select" id="service_id" name="service_id" required>
+                                <option value="" disabled hidden>Pilih Layanan</option>
+                                @forelse($services as $service)
+                                    <option value="{{ $service->id }}" {{ old('service_id', $article->service_id) == $service->id ? 'selected' : '' }}>{{ $service->name ?? 'Tanpa Nama' }}</option>
+                                @empty
+                                    <option value="" disabled>Tidak ada layanan tersedia</option>
+                                @endforelse
                             </select>
                         </div>
                         <div class="d-flex justify-content-end gap-2">
@@ -97,6 +97,7 @@
                     <div class="mb-2" id="preview-content">{!! old('content', $article->content) ?: 'Konten artikel akan tampil di sini...' !!}</div>
                     <div class="small text-muted" id="preview-author">Penulis: {{ old('author', $article->author) ?: '-' }}</div>
                     <div class="small text-muted" id="preview-date">Tanggal: {{ old('published_at', $article->published_at ? \Carbon\Carbon::parse($article->published_at)->format('Y-m-d') : '-') }}</div>
+                    <div class="small"><span class="badge bg-info" id="preview-service">Layanan: {{ $article->service ? $article->service->name : '-' }}</span></div>
                 </div>
             </div>
         </div>
@@ -137,6 +138,10 @@
         } else {
             preview.src = "{{ $article->image_url ? asset($article->image_url) : asset('assets/img/placeholder-image.png') }}";
         }
+    });
+    document.getElementById('service_id').addEventListener('change', function() {
+        var selected = this.options[this.selectedIndex];
+        document.getElementById('preview-service').textContent = 'Layanan: ' + (selected.text || '-');
     });
     // CKEditor live preview
     if (window.CKEDITOR) {

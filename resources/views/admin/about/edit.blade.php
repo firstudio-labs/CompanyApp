@@ -64,7 +64,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="mission" class="form-label">Misi (pisahkan per baris untuk tiap poin)</label>
-                            <textarea class="form-control" id="mission" name="mission" rows="3">{{ old('mission', isset($about) ? $about->mission : '') }}</textarea>
+                            <textarea class="form-control" id="mission" name="mission" rows="8" maxlength="2000" style="resize:vertical;min-height:120px;">{{ old('mission', isset($about) ? $about->mission : '') }}</textarea>
+                            <div class="form-text">Maksimal 2000 karakter. Jika misi sangat panjang, pastikan tidak melebihi batas ini.</div>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                         <a href="{{ route('admin.about.index') }}" class="btn btn-secondary">Batal</a>

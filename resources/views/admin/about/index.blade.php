@@ -7,7 +7,7 @@
 <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4 d-flex justify-content-between align-items-center">
         <span><i class="bx bx-info-circle me-2"></i> Manajemen Tentang Kami</span>
-        <a href="{{ route('admin.about.edit') }}" class="btn btn-primary">
+        <a href="{{ route('admin.about.edit') }}" class="btn btn-primary shadow-sm">
             <i class="bx bx-edit-alt"></i> {{ isset($about) && $about ? 'Edit' : 'Tambah' }} About
         </a>
     </h4>
@@ -26,10 +26,10 @@
         </div>
     @endif
 
-    <div class="card shadow-sm">
-        <div class="card-body">
+    <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-body p-4">
             @if(isset($about) && $about)
-                <div class="row justify-content-center align-items-stretch">
+                <div class="row justify-content-center align-items-stretch g-4">
                     <!-- Kolom Gambar -->
                     <div class="col-lg-5 mb-4 mb-lg-0 d-flex flex-column gap-4 align-items-center justify-content-center">
                         <div class="position-relative w-100">
@@ -52,13 +52,13 @@
                     </div>
                     <!-- Kolom Teks -->
                     <div class="col-lg-7 d-flex align-items-center">
-                        <div class="bg-white rounded-4 p-4 shadow-sm w-100">
+                        <div class="bg-white rounded-4 p-4 shadow-sm w-100 border h-100">
                             <h3 class="fw-bold mb-1 text-primary text-center">{{ $about->title ?? '-' }}</h3>
                             <h5 class="text-secondary mb-3 fst-italic text-center">{{ $about->subtitle ?? '-' }}</h5>
-                            <div class="mb-3 text-muted" style="white-space: pre-line;">
+                            <div class="mb-3 text-muted" style="white-space: pre-line; min-height:80px;">
                                 {!! isset($about->description) ? Str::limit(strip_tags($about->description), 500, '...') : '-' !!}
                             </div>
-                            <div class="row mb-2">
+                            <div class="row mb-2 g-2">
                                 <div class="col-6 mb-1"><i class="bx bx-map-pin me-1 text-primary"></i> <strong>Lokasi:</strong> {{ $about->location ?? '-' }}</div>
                                 <div class="col-6 mb-1"><i class="bx bx-phone me-1 text-primary"></i> <strong>Telepon:</strong> {{ $about->phone ?? '-' }}</div>
                                 <div class="col-6 mb-1"><i class="bx bx-envelope me-1 text-primary"></i> <strong>Email:</strong> {{ $about->email ?? '-' }}</div>
@@ -74,7 +74,7 @@
                                     <ul class="mb-0 ps-3">
                                         @foreach(preg_split('/\r\n|\r|\n/', $about->mission) as $point)
                                             @if(trim($point) !== '')
-                                                <li>{{ $point }}</li>
+                                                <li style="word-break:break-word;">{{ $point }}</li>
                                             @endif
                                         @endforeach
                                     </ul>

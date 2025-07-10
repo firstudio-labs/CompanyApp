@@ -98,7 +98,12 @@
             <h6 class="text-muted">{{ $article->subtitle }}</h6>
             <div class="mb-2">
                 <strong>Penulis:</strong> {{ $article->author ?? '-' }}<br>
-                <strong>Layanan:</strong> {{ $article->service ? $article->service->name : '-' }}<br>
+                <strong>Layanan:</strong> 
+                @if($article->service && $article->service->name)
+                    <span class="badge bg-info">{{ $article->service->name }}</span>
+                @else
+                    <span class="badge bg-secondary">-</span>
+                @endif<br>
                 <strong>Tanggal Publikasi:</strong> {{ $article->published_at ? \Carbon\Carbon::parse($article->published_at)->format('d M Y') : '-' }}<br>
                 <strong>Slug:</strong> {{ $article->slug }}
             </div>
