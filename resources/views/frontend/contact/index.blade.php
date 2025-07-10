@@ -41,7 +41,7 @@
                         <li>
                             <span class="address">
                                 <span class="lnr lnr-home"></span>
-                                {{ $about->address ?? 'Alamat belum tersedia' }}
+                                {{ $about->location ?? 'Alamat belum tersedia' }}
                             </span>
                         </li>
                         <li>
@@ -57,7 +57,7 @@
                             </span>
                         </li>
                     </ul>
-                    <!-- Social Buttons -->
+                    {{-- <!-- Social Buttons -->
                     <div class="social-buttons margin-top-25">
                         <h5>Follow Us:</h5>
                         <ul>
@@ -74,7 +74,7 @@
                                 <li><a href="{{ $about->social_media_youtube }}" class="btn btn-social-min btn-default btn-rounded-full" title="YouTube" target="_blank"><i class="fab fa-youtube"></i></a></li>
                             @endif
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <!-- End Contact Info -->

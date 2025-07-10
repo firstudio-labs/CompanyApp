@@ -16,16 +16,9 @@ class Portfolio extends Model
         'link',
         'slug',
         'service_id',
-        // Jika relasi many-to-many, hapus 'tech_stack_id' dari fillable
     ];
 
-    // Jika satu portfolio hanya punya satu tech stack:
-    public function techStack()
-    {
-        return $this->belongsTo(TechStack::class, 'tech_stack_id');
-    }
-
-    // Jika satu portfolio bisa punya banyak tech stack:
+    // Relasi many-to-many dengan TechStack
     public function techStacks()
     {
         return $this->belongsToMany(TechStack::class, 'portfolio_tech_stack');

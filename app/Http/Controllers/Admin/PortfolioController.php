@@ -14,8 +14,8 @@ class PortfolioController extends Controller
     public function adminIndex()
     {
         $portfolios = Portfolio::with(['service', 'techStacks'])->latest()->paginate(10);
-        $techStacks = TechStack::all();
-        return view('admin.portfolio.index', compact('portfolios', 'techStacks'));
+        $services = Service::all();
+        return view('admin.portfolio.index', compact('portfolios', 'services'));
     }
 
     public function create()
@@ -33,6 +33,8 @@ class PortfolioController extends Controller
             'image_url' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'link' => 'nullable|string',
             'service_id' => 'required|exists:services,id',
+            'tech_stack_ids' => 'nullable|array',
+            'tech_stack_ids.*' => 'exists:tech_stacks,id',
         ]);
 
         // Generate unique slug
@@ -52,10 +54,14 @@ class PortfolioController extends Controller
             $validated['image_url'] = $imageName;
         }
 
-        // Store
+        // Store portfolio
         $portfolio = Portfolio::create($validated);
-        // $request->tech_stack_ids adalah array of id
-        $portfolio->techStacks()->sync($request->tech_stack_ids);
+        
+        // Sync tech stacks (handle null array and remove duplicates)
+        $techStackIds = $request->tech_stack_ids ?? [];
+        $techStackIds = array_filter($techStackIds); // Remove empty values
+        $techStackIds = array_unique($techStackIds); // Remove duplicates
+        $portfolio->techStacks()->sync($techStackIds);
 
         return redirect()->route('admin.portfolio.index')->with('success', 'Portfolio berhasil ditambahkan.');
     }
@@ -84,6 +90,8 @@ class PortfolioController extends Controller
             'image_url' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'link' => 'nullable|string',
             'service_id' => 'required|exists:services,id',
+            'tech_stack_ids' => 'nullable|array',
+            'tech_stack_ids.*' => 'exists:tech_stacks,id',
         ]);
 
         // Update slug jika title berubah
@@ -110,9 +118,14 @@ class PortfolioController extends Controller
             $validated['image_url'] = $imageName;
         }
 
-        // Update
+        // Update portfolio
         $portfolio->update($validated);
-        $portfolio->techStacks()->sync($request->tech_stack_ids);
+        
+        // Sync tech stacks (handle null array and remove duplicates)
+        $techStackIds = $request->tech_stack_ids ?? [];
+        $techStackIds = array_filter($techStackIds); // Remove empty values
+        $techStackIds = array_unique($techStackIds); // Remove duplicates
+        $portfolio->techStacks()->sync($techStackIds);
 
         return redirect()->route('admin.portfolio.index')->with('success', 'Portfolio berhasil diperbarui.');
     }

@@ -3,6 +3,49 @@
 
 @section('title', 'Edit Portfolio')
 
+@section('styles')
+<style>
+    .tech-stack-row {
+        position: relative;
+    }
+    
+    .techstack-icon-preview {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+    }
+    
+    .techstack-icon-preview img {
+        border-radius: 2px;
+    }
+    
+    .select-techstack:focus {
+        border-color: #86b7fe;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+    
+    .badge {
+        font-size: 0.75rem;
+    }
+    
+    .badge img {
+        vertical-align: middle;
+    }
+    
+    .preview-card {
+        border: 1px solid #e9ecef;
+        border-radius: 0.5rem;
+    }
+    
+    .preview-image {
+        transition: all 0.3s ease;
+    }
+    
+    .preview-image:hover {
+        transform: scale(1.05);
+    }
+</style>
+@endsection
+
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4">
@@ -97,7 +140,7 @@
                             @endif
                             @error('image_url')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary" onclick="return validateForm()">Update</button>
                         <a href="{{ route('admin.portfolio.index') }}" class="btn btn-secondary">Batal</a>
                     </form>
                 </div>
@@ -157,11 +200,14 @@
     document.getElementById('service_id').addEventListener('change', function() {
         document.getElementById('preview-service').textContent = serviceMap[this.value] || '-';
     });
-    document.getElementById('tech-stack-group').addEventListener('change', function() {
+    // Update preview techstack
+    function updateTechStackPreview() {
         let selects = document.querySelectorAll('.select-techstack');
         let selected = Array.from(selects).map(sel => techStackMap[sel.value]).filter(Boolean);
         document.getElementById('preview-techstack').textContent = selected.length ? selected.join(', ') : '-';
-    });
+    }
+    
+    document.getElementById('tech-stack-group').addEventListener('change', updateTechStackPreview);
     document.getElementById('description').addEventListener('input', function() {
         let val = this.value || '-';
         document.getElementById('preview-description').textContent = val.length > 100 ? val.substring(0, 100) + '...' : val;
@@ -231,11 +277,15 @@
             row.appendChild(iconPreview);
             row.appendChild(btn);
             this.appendChild(row);
+            updateTechStackPreview();
         }
         if (e.target.classList.contains('remove-tech-stack') || e.target.closest('.remove-tech-stack')) {
             e.preventDefault();
             let row = e.target.closest('.tech-stack-row');
-            if (row) row.remove();
+            if (row) {
+                row.remove();
+                updateTechStackPreview();
+            }
         }
     });
 
@@ -247,6 +297,18 @@
             let iconUrl = selectedOption.getAttribute('data-icon') || "{{ asset('assets/img/placeholder-image.png') }}";
             let iconPreview = select.parentElement.querySelector('.techstack-icon-preview img');
             if (iconPreview) iconPreview.src = iconUrl;
+            
+            // Check for duplicates
+            let selectedValue = select.value;
+            let allSelects = document.querySelectorAll('.select-techstack');
+            let duplicates = Array.from(allSelects).filter(s => s.value === selectedValue && s !== select);
+            
+            if (duplicates.length > 0 && selectedValue !== '') {
+                alert('Tech Stack ini sudah dipilih!');
+                select.value = '';
+                iconPreview.src = "{{ asset('assets/img/placeholder-image.png') }}";
+                return;
+            }
         }
     });
 
@@ -257,5 +319,25 @@
         let iconPreview = select.parentElement.querySelector('.techstack-icon-preview img');
         if (iconPreview) iconPreview.src = iconUrl;
     });
+
+    // Form validation
+    function validateForm() {
+        let selects = document.querySelectorAll('.select-techstack');
+        let selectedValues = Array.from(selects).map(sel => sel.value).filter(Boolean);
+        
+        if (selectedValues.length === 0) {
+            alert('Pilih minimal satu Tech Stack!');
+            return false;
+        }
+        
+        // Check for duplicates
+        let uniqueValues = [...new Set(selectedValues)];
+        if (uniqueValues.length !== selectedValues.length) {
+            alert('Tech Stack tidak boleh duplikat!');
+            return false;
+        }
+        
+        return true;
+    }
 </script>
 @endsection

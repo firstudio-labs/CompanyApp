@@ -1594,22 +1594,7 @@
                     </div>
                 </div>
 
-                <div class="custom-article-nav">
-                    <button type="button" class="article-nav-btn article-prev" aria-label="Sebelumnya">
-                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                            <circle cx="11" cy="11" r="11" fill="none" />
-                            <path d="M13.8 16L9 11L13.8 6" stroke="#222" stroke-width="2.2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                    <button type="button" class="article-nav-btn article-next" aria-label="Berikutnya">
-                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                            <circle cx="11" cy="11" r="11" fill="none" />
-                            <path d="M8.2 6L13 11L8.2 16" stroke="#222" stroke-width="2.2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                </div>
+                
                
                 <div class="latest-news-carousel">
                     <div class="owl-carousel cursor-grab nav-outside-top nav-rounded" 

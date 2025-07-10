@@ -199,7 +199,7 @@
             opt.textContent = '-- Pilih Tech Stack --';
             select.appendChild(opt);
             @foreach($techStacks as $stack)
-                let option = document.createElement('option');
+                var option = document.createElement('option');
                 option.value = "{{ $stack->id }}";
                 option.textContent = "{{ $stack->name }}";
                 option.setAttribute('data-icon', "{{ $stack->icon ? asset('storage/'.$stack->icon) : asset('assets/img/placeholder-image.png') }}");
