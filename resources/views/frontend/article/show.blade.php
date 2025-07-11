@@ -72,9 +72,9 @@
                         </div>
                         <ul class="blog-single-links list-unstyled list-inline">
                             <li>
-                                <a href="#blog-post-comments" class="blog-single-comment-count sm-scroll" title="Read the comments">
+                                {{-- <a href="#blog-post-comments" class="blog-single-comment-count sm-scroll" title="Read the comments">
                                     <i class="far fa-comment"></i> {{ $article->comments_count ?? 0 }}
-                                </a>
+                                </a> --}}
                             </li>
                         </ul>
                         <div class="post-content lightgallery mt-3">
@@ -85,24 +85,23 @@
                         </div>
                         <div class="blog-single-attributes margin-top-60">
                             <div class="row">
-                                <div class="col-sm-8">
+                                {{-- <div class="col-sm-8">
                                     <div class="blog-single-tags">
                                         <ul>
                                             <li><span>Tags:</span></li>
                                             @if($article->service)
                                                 <li><a href="#">{{ $article->service->name }}</a></li>
                                             @endif
-                                            {{-- Add more tags if available --}}
                                         </ul>
                                     </div>
-                                </div>
-                                <div class="col-sm-4 text-right">
+                                </div> --}}
+                                {{-- <div class="col-sm-4 text-right">
                                     <ul class="blog-single-links list-unstyled list-inline">
                                         <li>
                                             <a href="#post-comment-form" class="leave-comment-btn sm-scroll">Leave a Comment</a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <div class="blog-single-share bss-fixed-bottom">
@@ -134,54 +133,7 @@
                     </div>
                     @endif
 
-                    {{-- Comments --}}
-                    <div id="blog-post-comments" class="mt-5">
-                        <h4 class="comments-heading">
-                            <span>{{ $article->comments_count ?? 0 }}</span> comments:
-                        </h4>
-                        {{-- Loop comments here --}}
-                        {{-- Example: --}}
-                        {{-- @foreach($comments as $comment)
-                            <div class="media">
-                                <a href="#" class="media-object pull-left bg-image" style="background-image: url('{{ asset('aivo/assets/img/blog/small/avatar/avatar-1.jpg') }}');"></a>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#">{{ $comment->author }}</a></h4>
-                                    <span class="article-time pull-left">{{ $comment->created_at->format('d M Y H:i') }}</span>
-                                    <span class="media-reply pull-right"><a href="#">Reply</a></span>
-                                    <p class="media-text">{{ $comment->content }}</p>
-                                </div>
-                            </div>
-                        @endforeach --}}
-                        {{-- End comments loop --}}
-                        {{-- Comment form --}}
-                        <form id="post-comment-form" class="mt-4">
-                            <h4>Leave a Comment:</h4>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name="name" placeholder="Your Name*" required>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" name="email" placeholder="Your Email*" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <textarea class="form-control" name="message" rows="5" placeholder="Your Comment*" required></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <button type="submit" class="btn btn-primary">Submit Comment</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    
                 </div>
                 <!-- Sidebar column -->
                 <div class="col-md-4 no-padding-left no-padding-right">
@@ -220,7 +172,7 @@
                             </ul>
                         </div>
                         @endif
-                        <div class="sidebar-widget sidebar-tags">
+                        {{-- <div class="sidebar-widget sidebar-tags">
                             <h3 class="sidebar-heading">Tags</h3>
                             <ul>
                                 @if($article->service)
@@ -229,7 +181,7 @@
                                 <li><a href="#">#blog</a></li>
                                 <li><a href="#">#artikel</a></li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <!-- End Sidebar column -->

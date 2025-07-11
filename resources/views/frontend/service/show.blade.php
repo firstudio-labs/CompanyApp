@@ -45,7 +45,7 @@
                     <!-- Begin portfolio single text -->
                     <div class="portfolio-single-text mb-5">
                         <h3 class="mb-4 text-primary fw-bold">Tentang Layanan</h3>
-                        <div class="fs-5" style="color:#444;">
+                        <div class="fs-5 text-justify" style="color:#444;">
                             {!! $service->description !!}
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                 </div>
             </div>
 
-            <!-- Begin portfolio single gallery -->
+            {{-- <!-- Begin portfolio single gallery -->
             @if($service->image_url)
             <div class="portfolio-single-gallery lightgallery psi-zoom psi-colored mt-5">
                 <div class="isotope col-1 gutter-3">
@@ -94,31 +94,17 @@
                 </div>
             </div>
             @endif
-            <!-- End portfolio single gallery -->
+            <!-- End portfolio single gallery --> --}}
 
             
         </div>
 
         <!-- Back to Services -->
-        <div class="tt-wrap text-center d-flex justify-content-center align-items-center my-5">
-            <a href="{{ route('services') }}" 
-               class="btn btn-outline-primary btn-lg rounded-pill px-5 shadow-sm animate__animated animate__fadeInUp"
-               style="font-weight:600; letter-spacing:0.5px; transition:all 0.2s; border-width:2.5px;">
-            <i class="bx bx-grid-alt me-2"></i>Semua Layanan
+        <div class="margin-top-30 margin-bottom-30 text-center d-flex justify-content-center align-items-center my-5">
+            <a href="{{ route('services') }}" class="service-link text-decoration-bold">
+                <i class="bx bx-grid-alt me-2"></i>Lihat Semua Layanan
             </a>
         </div>
-        <style>
-            .btn-outline-primary:hover, .btn-outline-primary:focus {
-            background: linear-gradient(90deg, #6366f1 0%, #60a5fa 100%);
-            color: #fff !important;
-            border-color: #6366f1;
-            box-shadow: 0 4px 16px #6366f133;
-            transform: translateY(-2px) scale(1.03);
-            }
-            .tt-wrap.d-flex.justify-content-center.align-items-center.my-5 {
-            margin-bottom: 3rem !important;
-            }
-        </style>
     </section>
 
     {{-- CTA Section --}}
@@ -128,8 +114,8 @@
                 <div class="col-md-6">
                     <div class="tt-heading tt-heading-xxlg">
                         <div class="tt-heading-inner">
-                            <h1 class="tt-heading-title">What Next?</h1>
-                            <div class="tt-heading-subtitle">Interested in working with us?</div>
+                            <h1 class="tt-heading-title">Apa yang ingin kamu tanyakan?</h1>
+                            <div class="tt-heading-subtitle">Kami siap membantu kamu!</div>
                             <div class="zig-zag-separator">
                                 <span></span>
                                 <span></span>
@@ -140,9 +126,9 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <p>Fusce et velit sed augue rhoncus tempor. Sed ac lacinia augue, nec lacinia felis. Sed sit amet diam leo. Praesent vel malesuada arcu. Donec mattis, arcu vel vehicula feugiat sem turpis.</p>
+                    <p>Kami siap membantu kamu dengan layanan terbaik yang kami tawarkan. Silakan hubungi kami untuk informasi lebih lanjut.</p>
                     <div class="margin-top-30">
-                        <a href="{{ route('contact') }}" class="btn btn-primary btn-lg margin-top-5">Let's Work Together!</a>
+                        <a href="{{ route('contact') }}" class="btn btn-primary btn-lg margin-top-5">Hubungi Kami!</a>
                     </div>
                 </div>
             </div>
@@ -204,6 +190,23 @@
     }
     .btn-outline-primary {
         border-width: 2px;
+    }
+    .service-link {
+        color: #6366f1;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+    }
+    .service-link:hover {
+        color: #4f46e5;
+        transform: translateX(-5px);
+    }
+    .service-link i {
+        font-size: 0.9em;
+        transition: transform 0.3s ease;
     }
 </style>
 @endpush
