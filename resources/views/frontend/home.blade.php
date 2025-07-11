@@ -1255,7 +1255,7 @@
                                     </div>
                                     <div class="split-box-content-text">
                                         {!! isset($about) && $about->description 
-                                            ? \Illuminate\Support\Str::limit(strip_tags($about->description), 524) 
+                                            ? \Illuminate\Support\Str::limit(strip_tags($about->description), 488) 
                                             : '<p class="text-muted">Deskripsi tentang kami belum tersedia. Kami adalah agensi digital yang bersemangat dalam menciptakan solusi inovatif.</p>' !!}
                                     </div>
                                 </div>
