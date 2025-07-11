@@ -1,35 +1,37 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Contact | Firstudio')
+@section('title', 'Kontak | Firstudio')
 @section('meta_description', 'Hubungi kami untuk informasi lebih lanjut tentang layanan kami')
 @section('meta_keywords', 'contact, hubungi kami, alamat, email, telepon, layanan')
 
 @section('content')
-<!-- Page Header -->
-<section id="page-header">
-    <div class="page-header-image parallax-6 bg-image" style="background-image: url('{{ asset('aivo/assets/img/pattern/pt-1.png') }}');">
-        <div class="cover cover-opacity-4"></div>
-    </div>
-    <div class="page-header-inner tt-wrap">
-        <div class="page-header-caption ph-cap-xlg ph-cap-light ph-cap-shadow parallax-5 fade-out-scroll-5">
-            <div class="ph-title-wrap">
-                <h1 class="page-header-title">Kontak</h1>
-            </div>
-            <div class="ph-subtitle-wrap">
-                <h2 class="page-header-subtitle">Hubungi Kami</h2>
-            </div>
-            <div class="zig-zag-separator zig-zag-lg zig-zag-light">
-                <span></span><span></span><span></span><span></span>
-            </div>
-            <div class="page-header-description">
-                <div class="ph-desc-inner text-start">
-                    Silakan hubungi kami untuk pertanyaan, konsultasi, atau kerjasama.
+<!-- ========================
+    ///// Begin page header /////
+    ============================= -->
+    <section id="page-header" class="ph-left">
+        <div class="page-header-image parallax-6 bg-image" style="background-image: url('{{ asset('aivo/assets/img/pattern/pt-1.png') }}');">
+            <div class="cover cover-opacity-4"></div>
+        </div>
+        <div class="page-header-inner tt-wrap">
+            <div class="page-header-caption ph-cap-xlg ph-cap-light ph-cap-shadow parallax-5 fade-out-scroll-4 text-start">
+                <div class="ph-title-wrap">
+                    <h1 class="page-header-title text-start">Kontak Kami</h1>
+                </div>
+                <div class="ph-subtitle-wrap">
+                    <h2 class="page-header-subtitle text-start">Hubungi Kami</h2>
+                </div>
+                <div class="zig-zag-separator zig-zag-lg">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+                <div class="page-header-description">
+                    <div class="ph-desc-inner text-start">
+                        Hubungi kami untuk informasi lebih lanjut tentang layanan kami.
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- End Page Header -->
+    </section>
+    <!-- End page header -->
 
 <!-- Contact Section -->
 <section id="contact-section" class="contact-style-1">
@@ -38,7 +40,7 @@
             <!-- Contact Info -->
             <div class="col-md-6">
                 <div class="contact-info-wrap margin-bottom-40">
-                    <div class="contact-info-text">
+                    <div class="contact-info-text text-justify">
                         <p>{{ strip_tags($about->description ?? 'Silakan hubungi kami untuk pertanyaan, konsultasi, atau kerjasama.') }}</p>
                     </div>
                     <h3 class="contact-info-title">Visit Us:</h3>

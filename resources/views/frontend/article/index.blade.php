@@ -86,37 +86,29 @@
 @endsection
 
 @section('content')
-    <!-- ========================
+ <!-- ========================
     ///// Begin page header /////
     ============================= -->
-    <section id="page-header" class="ph-sm">
+    <section id="page-header" class="ph-left">
         <div class="page-header-image parallax-6 bg-image" style="background-image: url('{{ asset('aivo/assets/img/pattern/pt-1.png') }}');">
             <div class="cover cover-opacity-4"></div>
         </div>
         <div class="page-header-inner tt-wrap">
             <div class="page-header-caption ph-cap-xlg ph-cap-light ph-cap-shadow parallax-5 fade-out-scroll-4 text-start">
                 <div class="ph-title-wrap">
-                    <h1 class="page-header-title text-start" style="color: #fff;">Artikel</h1>
+                    <h1 class="page-header-title text-start">Artikel</h1>
                 </div>
                 <div class="ph-subtitle-wrap">
-                    <h2 class="page-header-subtitle text-start">Kumpulan Artikel & Berita</h2>
+                    <h2 class="page-header-subtitle text-start">Artikel terbaru dari Firstudio</h2>
                 </div>
                 <div class="zig-zag-separator zig-zag-lg">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span><span></span>
                 </div>
                 <div class="page-header-description">
                     <div class="ph-desc-inner text-start">
-                        Temukan berbagai artikel, berita, dan informasi terbaru seputar layanan, teknologi, dan inspirasi dari kami.
+                        Temukan berbagai artikel terbaru dari Firstudio.
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="ph-anim-element-wrap ph-anim-circle parallax-4">
-            <div class="ph-anim-element-holder">
-                <div class="ph-anim-element"></div>
             </div>
         </div>
     </section>

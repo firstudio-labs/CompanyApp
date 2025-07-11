@@ -1,7 +1,6 @@
-{{-- filepath: resources/views/frontend/portfolio/index.blade.php --}}
 @extends('frontend.layouts.app')
 
-@section('title', 'Portofolio - Hasil Karya Kami')
+@section('title', 'Portofolio | Firstudio')
 @section('meta_description', 'Lihat koleksi portfolio dan hasil karya profesional kami di berbagai bidang digital')
 @section('meta_keywords', 'portfolio, hasil karya, web design, development, motion graphics, firstudio')
 

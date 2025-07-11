@@ -2,7 +2,7 @@
 
 @php use Illuminate\Support\Str; @endphp
 
-@section('title', isset($about) && $about ? $about->title : 'Tentang Kami')
+@section('title', isset($about) && $about ? $about->title : 'Tentang Kami | Firstudio')
 @section('meta_description', isset($about) && $about && $about->description ? Str::limit(strip_tags($about->description), 160) : 'Profil, visi, dan layanan kami')
 @section('meta_keywords', 'about, tentang kami, profil, visi, misi, layanan')
 
@@ -10,25 +10,26 @@
     <!-- ========================
     ///// Begin page header /////
     ============================= -->
-    <section id="page-header" class="ph-lg">
-        <div class="page-header-image parallax-6 bg-image" style="background-image: url('{{ isset($about) && $about && $about->image_banner ? asset($about->image_banner) : asset('aivo/assets/img/page-header/page-header-bg-4.jpg') }}');">
+    <section id="page-header" class="ph-left">
+        <div class="page-header-image parallax-6 bg-image" style="background-image: url('{{ asset('aivo/assets/img/pattern/pt-1.png') }}');">
             <div class="cover cover-opacity-4"></div>
         </div>
         <div class="page-header-inner tt-wrap">
-            <div class="page-header-caption ph-cap-sm parallax-5">
+            <div class="page-header-caption ph-cap-xlg ph-cap-light ph-cap-shadow parallax-5 fade-out-scroll-4 text-start">
                 <div class="ph-title-wrap">
-                    <h1 class="page-header-title text-white">
-                        {{ isset($about) && $about ? $about->text_banner : 'Tentang Kami' }}
-                    </h1>
+                    <h1 class="page-header-title text-start">Tentang Kami</h1>
+                </div>
+                <div class="ph-subtitle-wrap">
+                    <h2 class="page-header-subtitle text-start">Perjalanan dan Visi Kami</h2>
                 </div>
                 <div class="zig-zag-separator zig-zag-lg">
                     <span></span><span></span><span></span><span></span>
                 </div>
-            </div>
-        </div>
-        <div class="ph-anim-element-wrap ph-anim-circle parallax-4">
-            <div class="ph-anim-element-holder">
-                <div class="ph-anim-element"></div>
+                <div class="page-header-description">
+                    <div class="ph-desc-inner text-start">
+                        Temukan informasi lebih lanjut tentang kami dan perjalanan kami menuju kesuksesan.
+                    </div>
+                </div>
             </div>
         </div>
     </section>
