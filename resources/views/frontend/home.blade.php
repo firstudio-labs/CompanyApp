@@ -1278,8 +1278,7 @@
         <!-- =============================
                     ///// Begin Visi & Misi section /////
                     ============================== -->
-        <section id="services-section" class="services-style-1 bg-gray-3 bg-pattern"
-            style="background-image: url('{{ asset('aivo/assets/img/pattern/transparent/pt-transparent-2.png') }}');">
+        <section id="services-section" class="services-style-1 bg-gray-3">
             <div class="cover cover-opacity-1 cover-light"></div>
             <div class="services-inner tt-wrap">
                 <div class="row">
@@ -1298,23 +1297,23 @@
                 <div class="info-box-wrap ib-style-2 ib-icon-bg-shape">
                     <div class="row">
                         <div class="col-12 col-md-6 mb-4">
-                            <div class="info-box text-center h-100">
-                                <span class="info-box-icon">
+                            <div class="info-box h-100">
+                                {{-- <span class="info-box-icon">
                                     <span class="lnr lnr-bullhorn text-success"></span>
-                                </span>
+                                </span> --}}
                                 <div class="info-box-info">
-                                    <h3 class="info-box-heading text-success">Visi</h3>
+                                    <h3 class="info-box-heading text-info">Visi</h3>
                                     <div class="info-box-text fs-5">
                                         {{ $about->vision ?? '-' }}
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>  
                         <div class="col-12 col-md-6 mb-4">
                             <div class="info-box text-center h-100">
-                                <span class="info-box-icon">
+                                {{-- <span class="info-box-icon">
                                     <span class="lnr lnr-list text-info"></span>
-                                </span>
+                                </span> --}}
                                 <div class="info-box-info">
                                     <h3 class="info-box-heading text-info">Misi</h3>
                                     <div class="info-box-text fs-5 text-justify">
@@ -1419,7 +1418,7 @@
             </div>
         </section> --}}
 
-        <!-- Section Testimoni (Aivo style) -->
+        {{-- <!-- Section Testimoni (Aivo style) -->
         <section id="testimonials-section" class="bg-dark bg-image"
             style="background-image: url('aivo/assets/img/misc/testimonials-bg-3.jpg');">
             <span class="cover cover-opacity-7"></span>
@@ -1473,10 +1472,10 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         {{-- Portfolio Grid Section --}}
-        <section id="portfolio-list-section">
+        <section id="portfolio-list-section" class="bg-gray-3 bg-pattern" style="padding-bottom: 100px;">
             <div class="tt-wrap">
                 <div class="tt-heading tt-heading-lg padding-on">
                     <div class="tt-heading-inner">
@@ -1547,7 +1546,7 @@
         </section>
 
         {{-- Products Section --}}
-        <section id="products-section" class="bg-gray-2" style="padding-bottom: 100px;">
+        <section id="products-section" class="bg-gray-1" style="padding-bottom: 100px;">
             <div class="products-inner tt-wrap">
                 <div class="tt-heading tt-heading-lg padding-on">
                     <div class="tt-heading-inner">
@@ -1613,7 +1612,7 @@
         </section>
 
         {{-- Blog/News Section --}}
-        <section id="latest-news-section" class="bg-gray-1">
+        <section id="latest-news-section" class="bg-gray-3">
             <div class="latest-news-section-inner tt-wrap">
                 <div class="tt-heading tt-heading-xlg text-center margin-bottom-80">
                     <div class="tt-heading-inner">

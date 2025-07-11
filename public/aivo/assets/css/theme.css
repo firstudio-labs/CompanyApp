@@ -4473,7 +4473,7 @@ body.header-transparent-on #page-header.ph-xlg .page-header-inner {
 
 .owl-carousel.cc-height-full .owl-stage-outer,
 .owl-carousel.cc-height-full .owl-stage,
-.owl-carousel.cc-height-full .owl-item, {
+.owl-carousel.cc-height-full .owl-item {
 	height: 100%;
 }
 
