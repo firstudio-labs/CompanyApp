@@ -5,10 +5,10 @@
                 <div class="col-sm-12 col-md-3">
                     <div class="footer-block">
                         <div class="f-block-logo">
-                            <a href="{{ route('home') }}" class="logo-dark"><img src="{{ asset('aivo/assets/img/logo-dark.png') }}" alt="logo"></a>
-                            <a href="{{ route('home') }}" class="logo-light"><img src="{{ asset('aivo/assets/img/logo-light.png') }}" alt="logo"></a>
-                            <a href="{{ route('home') }}" class="logo-dark-m"><img src="{{ asset('aivo/assets/img/logo-dark-m.png') }}" alt="logo"></a>
-                            <a href="{{ route('home') }}" class="logo-light-m"><img src="{{ asset('aivo/assets/img/logo-light-m.png') }}" alt="logo"></a>
+                            <a href="{{ route('home') }}" class="logo-dark"><img src="{{ asset('logo/logo1.jpeg') }}" alt="logo"></a>
+                            <a href="{{ route('home') }}" class="logo-light"><img src="{{ asset('logo/logo1.jpeg') }}" alt="logo"></a>
+                            <a href="{{ route('home') }}" class="logo-dark-m"><img src="{{ asset('logo/logo1.jpeg') }}" alt="logo"></a>
+                            <a href="{{ route('home') }}" class="logo-light-m"><img src="{{ asset('logo/logo1.jpeg') }}" alt="logo"></a>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 {{-- filepath: resources/views/frontend/article/index.blade.php --}}
 @extends('frontend.layouts.app')
 
-@section('title', 'Blog')
+@section('title', 'Artikel')
 @section('meta_description', 'Artikel, berita, dan update terbaru dari Firstudio')
 @section('meta_keywords', 'blog, artikel, berita, haji, qurban, layanan, firstudio')
 
@@ -90,22 +90,27 @@
     ///// Begin page header /////
     ============================= -->
     <section id="page-header" class="ph-sm">
-        <div class="page-header-image hide-ph-image parallax-6 bg-image" style="background-image: url('{{ asset('aivo/assets/img/page-header/page-header-bg-13.jpg') }}');">
+        <div class="page-header-image parallax-6 bg-image" style="background-image: url('{{ asset('aivo/assets/img/pattern/pt-1.png') }}');">
             <div class="cover cover-opacity-4"></div>
         </div>
         <div class="page-header-inner tt-wrap">
-            <div class="page-header-caption ph-cap-xlg parallax-5">
+            <div class="page-header-caption ph-cap-xlg ph-cap-light ph-cap-shadow parallax-5 fade-out-scroll-4 text-start">
                 <div class="ph-title-wrap">
-                    <h1 class="page-header-title">Blog</h1>
+                    <h1 class="page-header-title text-start" style="color: #fff;">Artikel</h1>
                 </div>
                 <div class="ph-subtitle-wrap">
-                    <h2 class="page-header-subtitle">Articles &amp; News</h2>
+                    <h2 class="page-header-subtitle text-start">Kumpulan Artikel & Berita</h2>
                 </div>
                 <div class="zig-zag-separator zig-zag-lg">
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
+                </div>
+                <div class="page-header-description">
+                    <div class="ph-desc-inner text-start">
+                        Temukan berbagai artikel, berita, dan informasi terbaru seputar layanan, teknologi, dan inspirasi dari kami.
+                    </div>
                 </div>
             </div>
         </div>

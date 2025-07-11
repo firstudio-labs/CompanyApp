@@ -7,19 +7,24 @@
 @section('content')
 <!-- Page Header -->
 <section id="page-header">
-    <div class="page-header-image parallax-6 bg-image" style="background-image: url('{{ asset('assets/img/page-header/page-header-bg-7.jpg') }}');">
+    <div class="page-header-image parallax-6 bg-image" style="background-image: url('{{ asset('aivo/assets/img/pattern/pt-1.png') }}');">
         <div class="cover cover-opacity-4"></div>
     </div>
     <div class="page-header-inner tt-wrap">
         <div class="page-header-caption ph-cap-xlg ph-cap-light ph-cap-shadow parallax-5 fade-out-scroll-5">
             <div class="ph-title-wrap">
-                <h1 class="page-header-title">Contact</h1>
+                <h1 class="page-header-title">Kontak</h1>
             </div>
             <div class="ph-subtitle-wrap">
-                <h2 class="page-header-subtitle">Get in Touch</h2>
+                <h2 class="page-header-subtitle">Hubungi Kami</h2>
             </div>
             <div class="zig-zag-separator zig-zag-lg zig-zag-light">
                 <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="page-header-description">
+                <div class="ph-desc-inner text-start">
+                    Silakan hubungi kami untuk pertanyaan, konsultasi, atau kerjasama.
+                </div>
             </div>
         </div>
     </div>
@@ -153,8 +158,6 @@
 </section>
 <!-- End Contact Section -->
 
-<!-- Google Map (optional, style sesuai template) -->
-<div id="tt-map" style="width:100%;height:400px;"></div>
 @endsection
 
 @push('styles')

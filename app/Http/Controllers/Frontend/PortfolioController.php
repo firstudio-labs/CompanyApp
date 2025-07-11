@@ -10,7 +10,7 @@ class PortfolioController extends Controller
 {
     public function index()
     {
-        $portfolios = Portfolio::with('service')->latest()->paginate(8);
+        $portfolios = Portfolio::with('service', 'techStacks')->latest()->paginate(12);
         $services = Service::all();
         return view('frontend.portfolio.index', compact('portfolios', 'services'));
     }

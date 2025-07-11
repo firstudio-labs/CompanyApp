@@ -1,7 +1,7 @@
 {{-- filepath: resources/views/frontend/portfolio/index.blade.php --}}
 @extends('frontend.layouts.app')
 
-@section('title', 'Portfolio - Hasil Karya Kami')
+@section('title', 'Portofolio - Hasil Karya Kami')
 @section('meta_description', 'Lihat koleksi portfolio dan hasil karya profesional kami di berbagai bidang digital')
 @section('meta_keywords', 'portfolio, hasil karya, web design, development, motion graphics, firstudio')
 
@@ -50,7 +50,7 @@
         <div class="page-header-inner tt-wrap">
             <div class="page-header-caption ph-cap-xlg ph-cap-light ph-cap-shadow parallax-5 fade-out-scroll-4">
                 <div class="ph-title-wrap">
-                    <h1 class="page-header-title">Portfolio</h1>
+                    <h1 class="page-header-title">Portofolio</h1>
                 </div>
                 <div class="zig-zag-separator zig-zag-lg">
                     <span></span><span></span><span></span><span></span>
@@ -105,28 +105,26 @@
                             <div class="portfolio-list-item">
                                 <div class="pl-item-image-wrap">
                                     <a href="{{ route('portfolio.show', $portfolio->slug) }}" class="pl-item-image-inner">
-                                        <div class="pl-item-image bg-image lazy"
-                                            data-src="{{ $portfolio->image_url ? asset('images/portfolios/' . $portfolio->image_url) : asset('aivo/assets/img/portfolio/list/list-1/portfolio-list-1.jpg') }}">
-                                        </div>
+                                        <div class="pl-item-image bg-image lazy" data-src="{{ $portfolio->image_url ? asset('images/portfolios/' . $portfolio->image_url) : asset('aivo/assets/img/portfolio/list/list-1/portfolio-list-1.jpg') }}"></div>
                                         <div class="pl-item-icon"><span class="lnr lnr-link"></span></div>
                                     </a>
                                 </div>
                                 <div class="pl-item-info">
                                     <div class="pl-item-caption">
                                         <h2 class="pl-item-title">
-                                            <a
-                                                href="{{ route('portfolio.show', $portfolio->slug) }}">{{ $portfolio->title }}</a>
+                                            <a href="{{ route('portfolio.show', $portfolio->slug) }}">{{ $portfolio->title }}</a>
                                         </h2>
                                         <div class="pl-item-category">
-                                            <a href="#">{{ $portfolio->service->title ?? '-' }}</a>
+                                            @if ($portfolio->service)
+                                                <a href="{{ route('services.show', $portfolio->service->slug) }}">{{ $portfolio->service->title }}</a>
+                                            @endif
                                         </div>
                                         <div class="portfolio-techstack mt-2">
                                             @if ($portfolio->techStacks && $portfolio->techStacks->count())
                                                 @foreach ($portfolio->techStacks as $stack)
                                                     <span class="badge">
                                                         @if ($stack->icon)
-                                                            <img src="{{ asset('storage/' . $stack->icon) }}"
-                                                                alt="{{ $stack->name }}">
+                                                            <img src="{{ asset('storage/' . $stack->icon) }}" alt="{{ $stack->name }}">
                                                         @endif
                                                         {{ $stack->name }}
                                                     </span>
@@ -134,14 +132,11 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="pl-item-desc mt-2" style="color:#6c7a89;">
-                                        {{ \Illuminate\Support\Str::limit(strip_tags($portfolio->description), 90) }}
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     @empty
-                        <div class="col-12">
+                        <div class="isotope-item col-12">
                             <div class="alert alert-info text-center py-5">
                                 Belum ada portfolio yang tersedia saat ini.
                             </div>

@@ -17,75 +17,75 @@
     <link rel="stylesheet" href="{{ asset('aivo/assets/vendor/lightgallery/css/lightgallery.min.css') }}">
     <link rel="stylesheet" href="{{ asset('aivo/assets/css/helper.css') }}">
     <link rel="stylesheet" href="{{ asset('aivo/assets/css/theme.css') }}">
-    
+
     {{-- Custom Responsive Styles --}}
     <style>
         /* Mobile-first responsive design */
         .intro-caption {
             padding: 20px;
         }
-        
+
         .intro-title {
             font-size: 2rem;
             line-height: 1.2;
         }
-        
+
         .intro-subtitle {
             font-size: 1.2rem;
             margin-bottom: 15px;
         }
-        
+
         .intro-description {
             font-size: 0.95rem;
             margin-bottom: 20px;
         }
-        
+
         /* Tablet styles */
         @media (min-width: 768px) {
             .intro-title {
                 font-size: 2.5rem;
             }
-            
+
             .intro-subtitle {
                 font-size: 1.4rem;
             }
-            
+
             .intro-description {
                 font-size: 1rem;
             }
         }
-        
+
         /* Desktop styles */
         @media (min-width: 1024px) {
             .intro-title {
                 font-size: 3.5rem;
             }
-            
+
             .intro-subtitle {
                 font-size: 1.6rem;
             }
-            
+
             .intro-description {
                 font-size: 1.1rem;
             }
         }
-        
+
         /* About section responsive */
         .split-box-content {
             padding: 30px;
         }
-        
+
         @media (max-width: 991px) {
             .split-box-content {
                 padding: 20px;
                 margin-top: 30px;
             }
-            
+
             .split-box-image {
                 min-height: 300px;
             }
         }
-        
+
         /* Services grid responsive */
         .info-box {
             margin-bottom: 30px;
@@ -93,24 +93,24 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .info-box-info {
             flex-grow: 1;
         }
-        
+
         /* Enhanced Portfolio/Products/Articles Responsive Grid System */
-        
+
         /* Base isotope container setup */
         .isotope-wrap {
             padding: 0 15px;
         }
-        
+
         .isotope-items-wrap {
             display: flex;
             flex-wrap: wrap;
             margin: -15px;
         }
-        
+
         .isotope-item {
             padding: 15px;
             box-sizing: border-box;
@@ -118,11 +118,11 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .isotope-item:hover {
             transform: translateY(-5px);
         }
-        
+
         /* Mobile First - Single column for all content types */
         .isotope.col-3 .isotope-item,
         .isotope.col-4 .isotope-item {
@@ -130,24 +130,25 @@
             flex: 0 0 100%;
             max-width: 100%;
         }
-        
+
         /* Small Mobile optimization */
         @media (max-width: 480px) {
             .isotope-wrap {
                 padding: 0 10px;
             }
-            
+
             .isotope-items-wrap {
                 margin: -10px;
             }
-            
+
             .isotope-item {
                 padding: 10px;
             }
         }
-        
+
         /* Large Mobile - 2 columns for better spacing */
         @media (min-width: 576px) {
+
             .isotope.col-3 .isotope-item,
             .isotope.col-4 .isotope-item {
                 width: 50%;
@@ -155,21 +156,21 @@
                 max-width: 50%;
             }
         }
-        
+
         /* Tablet - 2 columns maintained for better readability */
         @media (min-width: 768px) {
             .isotope-wrap {
                 padding: 0 20px;
             }
-            
+
             .isotope-items-wrap {
                 margin: -20px;
             }
-            
+
             .isotope-item {
                 padding: 20px;
             }
-            
+
             .isotope.col-3 .isotope-item,
             .isotope.col-4 .isotope-item {
                 width: 50%;
@@ -177,7 +178,7 @@
                 max-width: 50%;
             }
         }
-        
+
         /* Desktop - 3 columns for col-3, 4 columns for col-4 */
         @media (min-width: 992px) {
             .isotope.col-3 .isotope-item {
@@ -185,29 +186,29 @@
                 flex: 0 0 33.333333%;
                 max-width: 33.333333%;
             }
-            
+
             .isotope.col-4 .isotope-item {
                 width: 25%;
                 flex: 0 0 25%;
                 max-width: 25%;
             }
         }
-        
+
         /* Large Desktop - maintained layout with better spacing */
         @media (min-width: 1200px) {
             .isotope-wrap {
                 padding: 0 30px;
             }
-            
+
             .isotope-items-wrap {
                 margin: -25px;
             }
-            
+
             .isotope-item {
                 padding: 25px;
             }
         }
-        
+
         /* Extra Large Desktop */
         @media (min-width: 1400px) {
             .isotope-wrap {
@@ -215,31 +216,31 @@
                 margin: 0 auto;
             }
         }
-        
+
         /* Portfolio/Product item enhancements */
         .portfolio-list-item,
         .product-list-item {
             background: #fff;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             height: 100%;
             display: flex;
             flex-direction: column;
         }
-        
+
         .portfolio-list-item:hover,
         .product-list-item:hover {
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
-        
+
         .pl-item-image-wrap {
             position: relative;
             overflow: hidden;
             aspect-ratio: 16/10;
         }
-        
+
         .pl-item-image {
             width: 100%;
             height: 100%;
@@ -247,85 +248,85 @@
             background-position: center;
             transition: transform 0.3s ease;
         }
-        
+
         .portfolio-list-item:hover .pl-item-image,
         .product-list-item:hover .pl-item-image {
             transform: scale(1.05);
         }
-        
+
         .pl-item-info {
             padding: 20px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
-        
+
         .pl-item-caption {
             margin-bottom: 10px;
         }
-        
+
         .pl-item-title {
             font-size: 1.2rem;
             margin-bottom: 8px;
             line-height: 1.3;
         }
-        
+
         .pl-item-title a {
             color: #2d3a4b;
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
+
         .pl-item-title a:hover {
             color: #0040d8;
         }
-        
+
         .pl-item-category {
             margin-bottom: 10px;
         }
-        
+
         .pl-item-category a {
             color: #0040d8;
             font-size: 0.9rem;
             text-decoration: none;
             font-weight: 500;
         }
-        
+
         .pl-item-desc {
             color: #6c7a89;
             font-size: 0.95rem;
             line-height: 1.5;
             margin-top: auto;
         }
-        
+
         /* Specific styling for Products Section */
         #products-section .isotope-item {
             margin-bottom: 30px;
         }
-        
+
         /* Specific styling for Articles/Blog Section */
         #latest-news-section .blog-list-item {
             background: #fff;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             height: 100%;
             display: flex;
             flex-direction: column;
         }
-        
+
         #latest-news-section .blog-list-item:hover {
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             transform: translateY(-5px);
         }
-        
+
         .bl-item-image-wrap {
             position: relative;
             overflow: hidden;
             aspect-ratio: 16/10;
         }
-        
+
         .bl-item-image {
             width: 100%;
             height: 100%;
@@ -333,117 +334,118 @@
             background-position: center;
             transition: transform 0.3s ease;
         }
-        
+
         .blog-list-item:hover .bl-item-image {
             transform: scale(1.05);
         }
-        
+
         .bl-item-info {
             padding: 20px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
-        
+
         .bl-item-meta {
             margin-bottom: 10px;
             font-size: 0.85rem;
             color: #6c7a89;
         }
-        
+
         .bl-item-title {
             margin-bottom: 10px;
         }
-        
+
         .bl-item-title h2 {
             font-size: 1.2rem;
             line-height: 1.3;
             margin: 0;
         }
-        
+
         .bl-item-title a {
             color: #2d3a4b;
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
+
         .bl-item-title a:hover {
             color: #0040d8;
         }
-        
+
         .bl-item-content {
             color: #6c7a89;
             font-size: 0.95rem;
             line-height: 1.5;
             margin-top: auto;
         }
-        
+
         @media (max-width: 575px) {
+
             .pl-item-info,
             .bl-item-info {
                 padding: 15px;
             }
-            
+
             .pl-item-title,
             .bl-item-title h2 {
                 font-size: 1.1rem;
             }
-            
+
             .pl-item-desc,
             .bl-item-content {
                 font-size: 0.9rem;
             }
         }
-        
+
         /* Vision Mission responsive */
         .info-box-wrap .info-box {
             padding: 25px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .info-box-wrap .info-box:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
-        
+
         /* Counter section responsive */
         .counter-up-wrap {
             text-align: center;
             margin-bottom: 30px;
             padding: 20px;
         }
-        
+
         .counter-up-icon {
             font-size: 2.5rem;
             margin-bottom: 15px;
         }
-        
+
         .counter-up {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 10px;
         }
-        
+
         .counter-up-title {
             font-size: 0.9rem;
             color: #666;
         }
-        
+
         @media (max-width: 768px) {
             .counter-up-wrap {
                 margin-bottom: 40px;
             }
         }
-        
+
         /* Article carousel responsive - Enhanced */
         .latest-news-carousel {
             position: relative;
             clear: both;
             margin-top: 40px;
         }
-        
+
         .custom-article-nav {
             position: absolute;
             top: -70px;
@@ -452,7 +454,7 @@
             display: flex;
             gap: 12px;
         }
-        
+
         .article-nav-btn {
             width: 45px;
             height: 45px;
@@ -465,34 +467,34 @@
             justify-content: center;
             transition: all 0.3s ease;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
-        
+
         .article-nav-btn:hover {
             background: #0040d8;
             color: #fff;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,64,216,0.3);
+            box-shadow: 0 4px 15px rgba(0, 64, 216, 0.3);
         }
-        
+
         .article-nav-btn svg path {
             transition: stroke 0.3s ease;
         }
-        
+
         .article-nav-btn:hover svg path {
             stroke: #fff;
         }
-        
+
         /* Enhanced article carousel for mobile */
         @media (max-width: 991px) {
             .latest-news-carousel {
                 margin-top: 30px;
             }
-            
+
             .latest-news-carousel .owl-carousel {
                 padding: 0 20px;
             }
-            
+
             .custom-article-nav {
                 position: relative;
                 top: auto;
@@ -502,44 +504,44 @@
                 padding: 0 20px;
             }
         }
-        
+
         @media (max-width: 575px) {
             .latest-news-carousel .owl-carousel {
                 padding: 0 15px;
             }
-            
+
             .custom-article-nav {
                 margin-bottom: 25px;
                 padding: 0 15px;
             }
         }
-        
+
         /* Enhanced owl carousel responsive */
         .owl-carousel .owl-item {
             backface-visibility: hidden;
             transform: translateZ(0);
         }
-        
+
         .owl-carousel .owl-stage {
             display: flex;
             align-items: stretch;
         }
-        
+
         .owl-carousel .owl-stage .owl-item {
             display: flex;
         }
-        
-        .owl-carousel .owl-stage .owl-item > div {
+
+        .owl-carousel .owl-stage .owl-item>div {
             width: 100%;
         }
-        
+
         /* Filter buttons styling - Enhanced */
         .isotope-filter-wrap {
             margin-bottom: 40px;
             clear: both;
             width: 100%;
         }
-        
+
         .isotope-filter-links {
             display: flex;
             flex-wrap: wrap;
@@ -547,7 +549,7 @@
             gap: 10px;
             margin-bottom: 20px;
         }
-        
+
         .isotope-filter-link {
             background: #f8f9fa;
             border: 2px solid #e9ecef;
@@ -564,7 +566,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .isotope-filter-link::before {
             content: '';
             position: absolute;
@@ -572,147 +574,148 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
             transition: left 0.5s ease;
         }
-        
+
         .isotope-filter-link:hover::before {
             left: 100%;
         }
-        
+
         .isotope-filter-link:hover,
         .isotope-filter-link.active {
             background: #0040d8;
             border-color: #0040d8;
             color: #fff;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,64,216,0.3);
+            box-shadow: 0 5px 15px rgba(0, 64, 216, 0.3);
         }
-        
+
         @media (max-width: 768px) {
             .isotope-filter-wrap {
                 margin-bottom: 30px;
             }
-            
+
             .isotope-filter-links {
                 gap: 8px;
             }
-            
+
             .isotope-filter-link {
                 padding: 8px 16px;
                 font-size: 0.8rem;
             }
         }
-        
+
         @media (max-width: 576px) {
             .isotope-filter-links {
                 flex-direction: column;
                 align-items: center;
                 gap: 6px;
             }
-            
+
             .isotope-filter-link {
                 min-width: 150px;
                 text-align: center;
             }
         }
-        
+
         /* Animation classes */
         .fadeInUp {
             animation: fadeInUp 0.6s ease-out forwards;
         }
-        
+
         @keyframes fadeInUp {
             0% {
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .touch-active {
             transform: scale(0.98);
             opacity: 0.9;
         }
-        
+
         /* Enhanced section spacing */
         section {
             padding: 80px 0;
             position: relative;
             clear: both;
         }
-        
+
         @media (max-width: 991px) {
             section {
                 padding: 60px 0;
             }
         }
-        
+
         @media (max-width: 575px) {
             section {
                 padding: 40px 0;
             }
         }
-        
+
         /* Enhanced grid system for isotope */
         .isotope-items-wrap {
             display: flex;
             flex-wrap: wrap;
             margin: -15px;
         }
-        
+
         .isotope-item {
             padding: 15px;
             box-sizing: border-box;
         }
-        
+
         @media (min-width: 992px) {
             .isotope-items-wrap {
                 margin: -20px;
             }
-            
+
             .isotope-item {
                 padding: 20px;
             }
         }
-        
+
         /* Section container fixes */
         #products-section,
         #latest-news-section {
             overflow: hidden;
         }
-        
+
         #products-section .isotope-wrap,
         #latest-news-section .isotope-wrap {
             clear: both;
             width: 100%;
         }
-        
+
         /* Products specific responsive grid */
         #products-section .isotope.col-3 .isotope-item {
             margin-bottom: 30px;
         }
-        
+
         @media (max-width: 767px) {
             #products-section .isotope.col-3 .isotope-item {
                 margin-bottom: 20px;
             }
         }
-        
+
         /* Articles specific responsive grid */
         #latest-news-section .isotope.col-3 .isotope-item {
             margin-bottom: 30px;
         }
-        
+
         @media (max-width: 767px) {
             #latest-news-section .isotope.col-3 .isotope-item {
                 margin-bottom: 20px;
             }
         }
-        
+
         /* Enhanced clearfix for sections */
         section::before,
         section::after {
@@ -720,98 +723,99 @@
             display: table;
             clear: both;
         }
-        
+
         /* Performance optimizations */
         .portfolio-list-item,
         .blog-list-item {
             will-change: transform;
         }
-        
+
         .pl-item-image,
         .bl-item-image {
             will-change: transform;
         }
-        
+
         /* Focus states for accessibility */
         .isotope-filter-link:focus,
         .article-nav-btn:focus,
         .portfolio-list-item:focus,
         .blog-list-item:focus {
-            outline: 3px solid rgba(0,64,216,0.5);
+            outline: 3px solid rgba(0, 64, 216, 0.5);
             outline-offset: 2px;
         }
-        
+
         /* High contrast mode support */
         @media (prefers-contrast: high) {
+
             .portfolio-list-item,
             .blog-list-item {
                 border: 2px solid #000;
             }
-            
+
             .isotope-filter-link {
                 border-width: 3px;
             }
         }
-        
+
         /* Critical fixes for Products and Articles sections */
-        
+
         /* Ensure proper section isolation */
         #products-section {
             position: relative;
             z-index: 1;
             overflow: hidden;
         }
-        
+
         #latest-news-section {
             position: relative;
             z-index: 2;
             overflow: hidden;
             clear: both;
         }
-        
+
         /* Specific grid fixes for Products */
         #products-section .isotope-wrap {
             width: 100%;
             max-width: 100%;
             overflow: hidden;
         }
-        
+
         #products-section .isotope-items-wrap {
             width: 100%;
             display: flex;
             flex-wrap: wrap;
             justify-content: flex-start;
         }
-        
+
         #products-section .isotope.col-3 .isotope-item {
             box-sizing: border-box;
         }
-        
+
         /* Specific grid fixes for Articles */
         #latest-news-section .latest-news-carousel {
             width: 100%;
             clear: both;
             margin-top: 40px;
         }
-        
+
         /* Improved spacing between sections */
-        #products-section + #latest-news-section {
+        #products-section+#latest-news-section {
             margin-top: 0;
             padding-top: 80px;
         }
-        
+
         @media (max-width: 991px) {
-            #products-section + #latest-news-section {
+            #products-section+#latest-news-section {
                 padding-top: 60px;
             }
         }
-        
+
         @media (max-width: 575px) {
-            #products-section + #latest-news-section {
+            #products-section+#latest-news-section {
                 padding-top: 40px;
             }
         }
-        
+
         /* Enhanced carousel navigation positioning */
         .latest-news-carousel .custom-article-nav {
             position: absolute;
@@ -819,7 +823,7 @@
             right: 0;
             z-index: 10;
         }
-        
+
         @media (max-width: 991px) {
             .latest-news-carousel .custom-article-nav {
                 position: static;
@@ -829,7 +833,7 @@
                 margin-bottom: 30px;
             }
         }
-        
+
         /* Ensure proper image aspect ratios */
         .product-list-item .pl-item-image-wrap,
         .blog-list-item .bl-item-image-wrap {
@@ -840,206 +844,214 @@
             overflow: hidden;
             border-radius: 12px 12px 0 0;
         }
-        
+
         /* Mobile-specific improvements */
         @media (max-width: 767px) {
+
             #products-section .isotope.col-3 .isotope-item,
             #latest-news-section .isotope.col-3 .isotope-item {
                 width: 100% !important;
                 margin-bottom: 25px;
             }
-            
+
             .isotope-wrap {
                 padding: 0 10px;
             }
         }
-        
+
         /* Tablet-specific improvements */
         @media (min-width: 768px) and (max-width: 991px) {
+
             #products-section .isotope.col-3 .isotope-item,
             #latest-news-section .isotope.col-3 .isotope-item {
                 width: 50% !important;
                 margin-bottom: 30px;
             }
         }
-        
+
         /* Desktop-specific improvements */
         @media (min-width: 992px) {
+
             #products-section .isotope.col-3 .isotope-item,
             #latest-news-section .isotope.col-3 .isotope-item {
                 width: 33.333333% !important;
                 margin-bottom: 40px;
             }
         }
-        
+
         /* Enhanced responsive styles */
-    .custom-article-nav {
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 1000;
-        display: flex;
-        gap: 18px;
-        margin: 18px 18px 0 0;
-    }
-
-    @media (max-width: 767px) {
         .custom-article-nav {
-            position: relative;
+            position: absolute;
             top: 0;
-            right: auto;
-            justify-content: center;
-            margin: 0 0 20px 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            gap: 18px;
+            margin: 18px 18px 0 0;
         }
-    }
 
-    .custom-article-nav .article-nav-btn {
-        width: 44px;
-        height: 44px;
-        border: none;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 22px;
-        background: #f1f2f3;
-        color: #222;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        outline: none;
-        cursor: pointer;
-        padding: 0;
-        touch-action: manipulation;
-    }
+        @media (max-width: 767px) {
+            .custom-article-nav {
+                position: relative;
+                top: 0;
+                right: auto;
+                justify-content: center;
+                margin: 0 0 20px 0;
+            }
+        }
 
-    .custom-article-nav .article-nav-btn:hover,
-    .custom-article-nav .article-nav-btn:focus,
-    .custom-article-nav .article-nav-btn:active {
-        background: #0040d8;
-        color: #fff;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 20px rgba(0,64,216,0.3);
-    }
+        .custom-article-nav .article-nav-btn {
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            background: #f1f2f3;
+            color: #222;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            outline: none;
+            cursor: pointer;
+            padding: 0;
+            touch-action: manipulation;
+        }
 
-    .custom-article-nav .article-nav-btn svg path {
-        transition: stroke 0.3s ease;
-    }
+        .custom-article-nav .article-nav-btn:hover,
+        .custom-article-nav .article-nav-btn:focus,
+        .custom-article-nav .article-nav-btn:active {
+            background: #0040d8;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 64, 216, 0.3);
+        }
 
-    .custom-article-nav .article-nav-btn:hover svg path,
-    .custom-article-nav .article-nav-btn:focus svg path,
-    .custom-article-nav .article-nav-btn:active svg path {
-        stroke: #fff;
-    }
+        .custom-article-nav .article-nav-btn svg path {
+            transition: stroke 0.3s ease;
+        }
 
-    /* Enhanced portfolio tech stack styles */
-    .portfolio-techstack .badge {
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        color: #2d3a4b;
-        border: 1px solid #dee2e6;
-        font-size: 0.85rem;
-        font-weight: 500;
-        margin-right: 5px;
-        margin-bottom: 5px;
-        padding: 0.35em 0.75em;
-        border-radius: 12px;
-        display: inline-flex;
-        align-items: center;
-        transition: all 0.3s ease;
-    }
+        .custom-article-nav .article-nav-btn:hover svg path,
+        .custom-article-nav .article-nav-btn:focus svg path,
+        .custom-article-nav .article-nav-btn:active svg path {
+            stroke: #fff;
+        }
 
-    .portfolio-techstack .badge:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 3px 12px rgba(0,0,0,0.15);
-        background: linear-gradient(135deg, #0040d8 0%, #0033b3 100%);
-        color: white;
-        border-color: #0040d8;
-    }
+        /* Enhanced portfolio tech stack styles */
+        .portfolio-techstack .badge {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #2d3a4b;
+            border: 1px solid #dee2e6;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            padding: 0.35em 0.75em;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
 
-    .portfolio-techstack img {
-        width: 16px;
-        height: 16px;
-        object-fit: contain;
-        margin-right: 5px;
-        vertical-align: middle;
-        border-radius: 2px;
-    }
+        .portfolio-techstack .badge:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, #0040d8 0%, #0033b3 100%);
+            color: white;
+            border-color: #0040d8;
+        }
 
-    /* Enhanced loading states */
-    .lazy {
-        background-color: #f8f9fa;
-        background-image: linear-gradient(45deg, transparent 25%, rgba(255,255,255,.5) 25%, rgba(255,255,255,.5) 75%, transparent 75%, transparent),
-                          linear-gradient(45deg, transparent 25%, rgba(255,255,255,.5) 25%, rgba(255,255,255,.5) 75%, transparent 75%, transparent);
-        background-size: 20px 20px;
-        background-position: 0 0, 10px 10px;
-        animation: loading-shimmer 1.5s ease-in-out infinite;
-        transition: all 0.3s ease;
-    }
+        .portfolio-techstack img {
+            width: 16px;
+            height: 16px;
+            object-fit: contain;
+            margin-right: 5px;
+            vertical-align: middle;
+            border-radius: 2px;
+        }
 
-    .lazy.loaded {
-        animation: none;
-        background-image: none;
-    }
+        /* Enhanced loading states */
+        .lazy {
+            background-color: #f8f9fa;
+            background-image: linear-gradient(45deg, transparent 25%, rgba(255, 255, 255, .5) 25%, rgba(255, 255, 255, .5) 75%, transparent 75%, transparent),
+                linear-gradient(45deg, transparent 25%, rgba(255, 255, 255, .5) 25%, rgba(255, 255, 255, .5) 75%, transparent 75%, transparent);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            animation: loading-shimmer 1.5s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
 
-    @keyframes loading-shimmer {
-        0% { background-position: 0 0, 10px 10px; }
-        100% { background-position: 20px 20px, 30px 30px; }
-    }
+        .lazy.loaded {
+            animation: none;
+            background-image: none;
+        }
 
-    /* Enhanced info box responsive design */
-    .info-box {
-        transition: all 0.3s ease;
-        border-radius: 12px;
-        overflow: hidden;
-        position: relative;
-    }
+        @keyframes loading-shimmer {
+            0% {
+                background-position: 0 0, 10px 10px;
+            }
 
-    .info-box::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(135deg, transparent 0%, rgba(0,64,216,0.03) 100%);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
+            100% {
+                background-position: 20px 20px, 30px 30px;
+            }
+        }
 
-    .info-box:hover::before {
-        opacity: 1;
-    }
+        /* Enhanced info box responsive design */
+        .info-box {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
 
-    .info-box:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    }
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(0, 64, 216, 0.03) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
 
-    /* Enhanced button styles */
-    .btn {
-        transition: all 0.3s ease;
-        border-radius: 8px;
-        font-weight: 500;
-        position: relative;
-        overflow: hidden;
-    }
+        .info-box:hover::before {
+            opacity: 1;
+        }
 
-    .btn::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-        transition: left 0.5s ease;
-    }
+        .info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
 
-    .btn:hover::before {
-        left: 100%;
-    }
+        /* Enhanced button styles */
+        .btn {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
 
-    /* Final responsive fixes and optimizations */
-        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Final responsive fixes and optimizations */
+
         /* Improved aspect ratio handling */
         .pl-item-image-wrap,
         .bl-item-image-wrap {
@@ -1047,9 +1059,10 @@
             overflow: hidden;
             width: 100%;
             height: 0;
-            padding-bottom: 62.5%; /* 16:10 aspect ratio */
+            padding-bottom: 62.5%;
+            /* 16:10 aspect ratio */
         }
-        
+
         .pl-item-image,
         .bl-item-image {
             position: absolute;
@@ -1062,53 +1075,53 @@
             background-position: center;
             transition: transform 0.3s ease;
         }
-        
+
         /* Improved grid spacing for different screen sizes */
         @media (max-width: 1199px) and (min-width: 992px) {
             .isotope.col-3 .isotope-item {
                 margin-bottom: 25px;
             }
         }
-        
+
         @media (max-width: 991px) and (min-width: 768px) {
             .isotope.col-3 .isotope-item {
                 margin-bottom: 30px;
             }
         }
-        
+
         @media (max-width: 767px) and (min-width: 576px) {
             .isotope.col-3 .isotope-item {
                 margin-bottom: 25px;
             }
         }
-        
+
         @media (max-width: 575px) {
             .isotope.col-3 .isotope-item {
                 margin-bottom: 20px;
             }
         }
-        
+
         /* Section background improvements */
         .bg-gray-1 {
             background-color: #f8f9fa !important;
         }
-        
+
         .bg-gray-2 {
             background-color: #e9ecef !important;
         }
-        
+
         /* Improved container max-width */
         .isotope-wrap {
             max-width: 100%;
             margin: 0 auto;
         }
-        
+
         @media (min-width: 1400px) {
             .isotope-wrap {
                 max-width: 1320px;
             }
         }
-        
+
         /* Fix for overlapping content */
         .isotope-items-wrap::after {
             content: "";
@@ -1117,7 +1130,7 @@
             height: 0;
             visibility: hidden;
         }
-        
+
         /* Improved mobile navigation for carousels */
         @media (max-width: 767px) {
             .custom-article-nav {
@@ -1126,32 +1139,33 @@
                 margin: 20px 0;
                 gap: 15px;
             }
-            
+
             .article-nav-btn {
                 position: relative;
                 z-index: 10;
             }
         }
-        
+
         /* Enhanced touch interactions */
         @media (hover: none) and (pointer: coarse) {
+
             .portfolio-list-item:hover,
             .blog-list-item:hover {
                 transform: none;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             }
-            
+
             .pl-item-image:hover,
             .bl-item-image:hover {
                 transform: none;
             }
         }
-        
+
         /* Improved loading performance */
         .isotope-item {
             contain: layout style paint;
         }
-        
+
         /* Better text overflow handling */
         .pl-item-title,
         .bl-item-title h2 {
@@ -1161,7 +1175,7 @@
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
         }
-        
+
         .pl-item-desc,
         .bl-item-content {
             overflow: hidden;
@@ -1215,26 +1229,28 @@
         </section>
 
         <!-- =============================
-                 >>>>> Begin about us section <<<<<
-                 ============================== -->
+                     >>>>> Begin about us section <<<<<
+                     ============================== -->
         <section id="about-us-section">
             <div class="about-us-inner tt-wrap">
                 {{-- Menggunakan data-aos untuk animasi fade-up saat section muncul --}}
                 <div class="split-box" data-aos="fade-up" data-aos-duration="800">
                     <div class="container-fluid">
-                        <div class="row row-lg-height">
+                        <div class="row row-lg-height align-items-center" style="min-height: 400px;">
                             <!-- Split box image -->
-                            <div class="col-12 col-lg-6 col-lg-height split-box-image-wrapper no-padding order-2 order-lg-1">
-                                <div class="split-box-image no-padding bg-image sbi-shadow"
-                                    style="background-image: url('{{ isset($about) && $about && $about->image_url ? asset($about->image_url) : asset('aivo/assets/img/misc/us-2.jpg') }}');">
+                            <div class="col-12 col-lg-6 col-lg-height split-box-image-wrapper no-padding order-2 order-lg-1 d-flex align-items-center justify-content-center"
+                                style="min-height: 320px;">
+                                <div class="split-box-image no-padding bg-image sbi-shadow w-100 d-flex align-items-center justify-content-center"
+                                    style="background-image: url('{{ isset($about) && $about && $about->image_url ? asset($about->image_url) : asset('aivo/assets/img/misc/us-2.jpg') }}'); min-height:320px; height:100%; display:flex; align-items:center; justify-content:center;">
                                     {{-- Kosongkan div ini, fungsinya hanya untuk memberi tinggi --}}
                                     <div class="sbi-height padding-height-80"></div>
                                 </div>
                             </div>
 
                             <!-- Split box content -->
-                            <div class="col-12 col-lg-6 col-lg-height col-lg-middle no-padding order-1 order-lg-2">
-                                <div class="split-box-content sb-content-right">
+                            <div class="col-12 col-lg-6 col-lg-height col-lg-middle no-padding order-1 order-lg-2 d-flex align-items-center justify-content-center"
+                                style="min-height: 320px;">
+                                <div class="split-box-content sb-content-right w-100">
                                     <div class="tt-heading tt-heading-xxlg">
                                         <div class="tt-heading-inner">
                                             <h2 class="tt-heading-title">{{ $about->title ?? 'Tentang Kami' }}</h2>
@@ -1245,28 +1261,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="split-box-content-text">
+                                    <div class="split-box-content-text" style="text-align: justify;">
                                         {!! isset($about) && $about->description
                                             ? $about->description
                                             : '<p class="text-muted">Deskripsi tentang kami belum tersedia. Kami adalah agensi digital yang bersemangat dalam menciptakan solusi inovatif.</p>' !!}
                                     </div>
-
-                                    {{-- Bagian Achievements yang telah di-refactor --}}
-                                    @if (isset($about) && $about && $about->achievements)
-                                        <div class="achievements-grid mt-4">
-                                            @foreach (json_decode($about->achievements) as $achievement)
-                                                <div class="achievement-card">
-                                                    <div class="achievement-icon">
-                                                        <i class="bx bx-check-circle"></i>
-                                                    </div>
-                                                    <div class="achievement-text">
-                                                        <h5 class="mb-0">{{ $achievement->title }}</h5>
-                                                        <small>{{ $achievement->description }}</small>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -1276,10 +1275,9 @@
         </section>
         <!-- End about us section -->
 
-
         <!-- =============================
-                ///// Begin services section /////
-                ============================== -->
+                    ///// Begin Visi & Misi section /////
+                    ============================== -->
         <section id="services-section" class="services-style-1 bg-gray-3 bg-pattern"
             style="background-image: url('{{ asset('aivo/assets/img/pattern/transparent/pt-transparent-2.png') }}');">
             <div class="cover cover-opacity-1 cover-light"></div>
@@ -1319,14 +1317,27 @@
                                 </span>
                                 <div class="info-box-info">
                                     <h3 class="info-box-heading text-info">Misi</h3>
-                                    <div class="info-box-text fs-5">
+                                    <div class="info-box-text fs-5 text-justify">
                                         @if (!empty($about->mission))
-                                            <ul class="list-unstyled text-start d-inline-block mx-auto" style="max-width: 400px;">
+                                            <ul class="list-unstyled d-inline-block mx-auto" style="max-width: 400px;">
+                                                @php $no = 1; @endphp
                                                 @foreach (preg_split('/\r\n|\r|\n/', $about->mission) as $point)
                                                     @if (trim($point) !== '')
-                                                        <li class="mb-2">
-                                                            <i class="bx bx-check-circle text-primary me-2"></i>
-                                                            {{ $point }}
+                                                        <li class="mb-3" style="text-align: left;">
+                                                            <div
+                                                                style="display: flex; align-items: flex-start; margin-top: 10px; margin-bottom: 10px;">
+                                                                <span class="fw-bold text-primary"
+                                                                    style="width: 28px; min-width: 28px; text-align: right; margin-right: 12px; display: block; line-height: 1.7;">
+                                                                    {{ $no++ }}.
+                                                                </span>
+                                                                <span
+                                                                    style="flex: 1; display: flex; align-items: flex-start;">
+                                                                    <i class="bx bx-check-circle text-primary me-2"
+                                                                        style="margin-top: 3px;"></i>
+                                                                    <span
+                                                                        style="margin-left: 6px; display: block;">{{ $point }}</span>
+                                                                </span>
+                                                            </div>
                                                         </li>
                                                     @endif
                                                 @endforeach
@@ -1348,11 +1359,13 @@
         <section id="services-section" class="services-style-1">
             <div class="services-inner tt-wrap">
                 <div class="tt-heading tt-heading-lg text-center padding-on">
-                    <div class="tt-heading-inner">
-                        <h1 class="tt-heading-title">Layanan Kami</h1>
-                        <div class="tt-heading-subtitle">Layanan yang kami tawarkan</div>
-                        <div class="zig-zag-separator">
-                            <span></span><span></span><span></span><span></span>
+                    <div class="tt-heading tt-heading-xxlg text-center">
+                        <div class="tt-heading-inner">
+                            <h1 class="tt-heading-title">Layanan Kami</h1>
+                            <div class="tt-heading-subtitle">Layanan yang kami tawarkan</div>
+                            <div class="zig-zag-separator">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1406,127 +1419,164 @@
             </div>
         </section> --}}
 
-        {{-- Portfolio Grid Section --}}
-        <section id="portfolio-list-section" class="bg-gray-1">
-            <div class="portfolio-list-inner isotope-wrap tt-wrap">
-                <div class="tt-heading tt-heading-lg text-center padding-on">
-                    <div class="tt-heading-inner">
-                        <h1 class="tt-heading-title">Latest Projects</h1>
-                        <div class="tt-heading-subtitle">Please see our recent work</div>
-                        <div class="zig-zag-separator">
-                            <span></span><span></span><span></span><span></span>
+        <!-- Section Testimoni (Aivo style) -->
+        <section id="testimonials-section" class="bg-dark bg-image"
+            style="background-image: url('aivo/assets/img/misc/testimonials-bg-3.jpg');">
+            <span class="cover cover-opacity-7"></span>
+            <div class="testimonials-section-inner tt-wrap">
+                <div class="testimonials-carousel tm-center tm-hide-image">
+                    <div class="owl-carousel cursor-grab dots-outside dots-rounded" data-lazy-load="true" data-items="1"
+                        data-loop="true" data-autoheight="true" data-dots-speed="800" data-autoplay="true"
+                        data-autoplay-timeout="8000" data-autoplay-speed="800" data-autoplay-hover-pause="true">
+                        <!-- Testimoni 1 -->
+                        <div class="cc-item">
+                            <div class="testimonial-item text-white">
+                                <div class="tm-image-wrap">
+                                    <div class="tm-image bg-image owl-lazy"
+                                        data-src="aivo/assets/img/blog/small/avatar/avatar-2.jpg"></div>
+                                </div>
+                                <blockquote>
+                                    <p>"Kami adalah perusahaan yang terpercaya oleh klien kami, kami akan memberikan solusi
+                                        terbaik untuk klien kami."</p>
+                                    <small>Klien Kami</small>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <!-- Testimoni 2 -->
+                        <div class="cc-item">
+                            <div class="testimonial-item text-white">
+                                <div class="tm-image-wrap">
+                                    <div class="tm-image bg-image owl-lazy"
+                                        data-src="aivo/assets/img/blog/small/avatar/avatar-3.jpg"></div>
+                                </div>
+                                <blockquote>
+                                    <p>"Kami adalah perusahaan yang terpercaya oleh klien kami, kami akan memberikan solusi
+                                        terbaik untuk klien kami."</p>
+                                    <small>Klien Kami</small>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <!-- Testimoni 3 -->
+                        <div class="cc-item">
+                            <div class="testimonial-item text-white">
+                                <div class="tm-image-wrap">
+                                    <div class="tm-image bg-image owl-lazy"
+                                        data-src="aivo/assets/img/blog/small/avatar/avatar-4.jpg"></div>
+                                </div>
+                                <blockquote>
+                                    <p>"Kami adalah perusahaan yang terpercaya oleh klien kami, kami akan memberikan solusi
+                                        terbaik untuk klien kami."</p>
+                                    <small>Klien Kami</small>
+                                </blockquote>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Portfolio Filter -->
-                <div class="isotope-filter-wrap text-center margin-bottom-60">
-                    <div class="isotope-filter-links">
-                        <button class="isotope-filter-link active" data-filter="*">All</button>
-                        @foreach($services as $service)
-                            <button class="isotope-filter-link" data-filter=".{{ Str::slug($service->title) }}">
-                                {{ $service->title }}
-                            </button>
-                        @endforeach
+        {{-- Portfolio Grid Section --}}
+        <section id="portfolio-list-section">
+            <div class="tt-wrap">
+                <div class="tt-heading tt-heading-lg padding-on">
+                    <div class="tt-heading-inner">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h1 class="tt-heading-title">Proyek Terbaru</h1>
+                                <div class="tt-heading-subtitle">Silakan lihat proyek terbaru kami</div>
+                                <div class="zig-zag-separator">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <p>Kami adalah perusahaan yang terpercaya oleh klien kami, kami akan memberikan solusi
+                                    terbaik untuk klien kami.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="isotope col-3 gutter-3">
-                    <div class="isotope-items-wrap pli-white pli-alter-4">
-                        <div class="grid-sizer"></div>
-                        @forelse($portfolios as $portfolio)
-                            <div class="isotope-item {{ Str::slug($portfolio->service->title ?? 'all') }} iso-height-1">
-                                <div class="portfolio-list-item">
-                                    <div class="pl-item-image-wrap">
-                                        <a href="{{ route('portfolio.show', $portfolio->slug) }}"
-                                            class="pl-item-image-inner">
-                                            <div class="pl-item-image bg-image lazy"
-                                                data-src="{{ $portfolio->image_url ? asset($portfolio->image_url) : asset('aivo/assets/img/portfolio/list/list-1/portfolio-list-1.jpg') }}">
-                                            </div>
-                                            <div class="pl-item-icon"><span class="lnr lnr-link"></span></div>
-                                        </a>
-                                    </div>
-                                    <div class="pl-item-info">
-                                        <div class="pl-item-caption">
-                                            <h2 class="pl-item-title">
-                                                <a href="{{ route('portfolio.show', $portfolio->slug) }}">{{ $portfolio->title }}</a>
-                                            </h2>
-                                            <div class="pl-item-category">
-                                                @if ($portfolio->service)
-                                                    <a href="{{ route('services.show', $portfolio->service->slug) }}">{{ $portfolio->service->title }}</a>
-                                                @endif
-                                            </div>
-                                            @if ($portfolio->techStacks && $portfolio->techStacks->count())
-                                                <div class="portfolio-techstack">
-                                                    @foreach ($portfolio->techStacks as $stack)
-                                                        <span class="badge">
-                                                            @if ($stack->icon)
-                                                                <img src="{{ asset('storage/' . $stack->icon) }}"
-                                                                    alt="{{ $stack->name }}">
-                                                            @endif
-                                                            {{ $stack->name }}
-                                                        </span>
-                                                    @endforeach
+                <div class="portfolio-list-inner isotope-wrap">
+                    <div class="isotope col-4 gutter-3">
+                        <div class="isotope-items-wrap pli-white pli-alter-4">
+                            <div class="grid-sizer"></div>
+                            @forelse($portfolios as $portfolio)
+                                <div
+                                    class="isotope-item {{ Str::slug($portfolio->service->title ?? 'all') }} iso-height-1">
+                                    <div class="portfolio-list-item">
+                                        <div class="pl-item-image-wrap">
+                                            <a href="{{ route('portfolio.show', $portfolio->slug) }}"
+                                                class="pl-item-image-inner">
+                                                <div class="pl-item-image bg-image lazy"
+                                                    data-src="{{ $portfolio->image_url ? asset('images/portfolios/' . $portfolio->image_url) : asset('aivo/assets/img/portfolio/list/list-1/portfolio-list-1.jpg') }}">
                                                 </div>
-                                            @endif
+                                                <div class="pl-item-icon"><span class="lnr lnr-link"></span></div>
+                                            </a>
                                         </div>
-                                        <div class="pl-item-desc">
-                                            {{ \Illuminate\Support\Str::limit(strip_tags($portfolio->description), 90) }}
+                                        <div class="pl-item-info">
+                                            <div class="pl-item-caption">
+                                                <h2 class="pl-item-title"><a
+                                                        href="{{ route('portfolio.show', $portfolio->slug) }}">{{ $portfolio->title }}</a>
+                                                </h2>
+                                                <div class="pl-item-category">
+                                                    @if ($portfolio->service)
+                                                        <a
+                                                            href="{{ route('services.show', $portfolio->service->slug) }}">{{ $portfolio->service->title }}</a>
+                                                    @endif
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @empty
-                            <div class="col-12">
-                                <div class="alert alert-info text-center py-5">
-                                    <i class="lnr lnr-inbox mb-3 d-block" style="font-size: 3rem; opacity: 0.5;"></i>
-                                    <h5>No Projects Available</h5>
-                                    <p class="mb-0">We're working on some amazing projects. Check back soon!</p>
+                            @empty
+                                <div class="col-12">
+                                    <div class="alert alert-info text-center py-5">
+                                        <i class="lnr lnr-inbox mb-3 d-block" style="font-size: 3rem; opacity: 0.5;"></i>
+                                        <h5>Tidak Ada Proyek Tersedia</h5>
+                                        <p class="mb-0">Kami sedang mengerjakan beberapa proyek luar biasa. Silakan cek
+                                            kembali nanti!</p>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforelse
+                            @endforelse
+                        </div>
                     </div>
-                    <!-- End isotope items wrap -->
                 </div>
             </div>
         </section>
 
         {{-- Products Section --}}
-        <section id="products-section" class="bg-gray-2">
+        <section id="products-section" class="bg-gray-2" style="padding-bottom: 100px;">
             <div class="products-inner tt-wrap">
-                <div class="tt-heading tt-heading-lg text-center padding-on">
+                <div class="tt-heading tt-heading-lg padding-on">
                     <div class="tt-heading-inner">
-                        <h1 class="tt-heading-title">Latest Products</h1>
-                        <div class="tt-heading-subtitle">Our newest products</div>
-                        <div class="zig-zag-separator">
-                            <span></span><span></span><span></span><span></span>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h1 class="tt-heading-title">Produk Terbaru</h1>
+                                <div class="tt-heading-subtitle">Silakan lihat produk terbaru kami</div>
+                                <div class="zig-zag-separator">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <p>Kami selalu menghadirkan produk-produk terbaru dan inovatif untuk kebutuhan bisnis Anda.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Products Filter -->
-                <div class="isotope-filter-wrap text-center margin-bottom-60">
-                    <div class="isotope-filter-links">
-                        <button class="isotope-filter-link active" data-filter="*">All Products</button>
-                        @foreach($services->take(4) as $service)
-                            <button class="isotope-filter-link" data-filter=".{{ Str::slug($service->title) }}">
-                                {{ $service->title }}
-                            </button>
-                        @endforeach
-                    </div>
-                </div>
-
                 <div class="portfolio-list-inner isotope-wrap">
-                    <div class="isotope col-3 gutter-3">
-                        <!-- Begin isotope items wrap -->
+                    <div class="isotope col-4 gutter-3">
                         <div class="isotope-items-wrap pli-white pli-alter-4">
                             <div class="grid-sizer"></div>
                             @forelse($products as $product)
-                                <div class="isotope-item {{ \Illuminate\Support\Str::slug($product->service->title ?? 'all') }} iso-height-1">
+                                <div class="isotope-item {{ Str::slug($product->service->title ?? 'all') }} iso-height-1">
                                     <div class="portfolio-list-item">
                                         <div class="pl-item-image-wrap">
-                                            <a href="{{ route('products.show', $product->slug) }}"
-                                                class="pl-item-image-inner">
+                                            <a href="{{ route('products.show', $product->slug) }}" class="pl-item-image-inner">
                                                 <div class="pl-item-image bg-image lazy"
                                                     data-src="{{ $product->image_url ? asset('images/products/' . $product->image_url) : asset('aivo/assets/img/portfolio/list/list-1/portfolio-list-1.jpg') }}">
                                                 </div>
@@ -1539,24 +1589,10 @@
                                                     <a href="{{ route('products.show', $product->slug) }}">{{ $product->title }}</a>
                                                 </h2>
                                                 <div class="pl-item-category">
-                                                    <a href="#">{{ $product->service->title ?? '-' }}</a>
+                                                    @if ($product->service)
+                                                        <a href="{{ route('services.show', $product->service->slug) }}">{{ $product->service->title }}</a>
+                                                    @endif
                                                 </div>
-                                                @if ($product->techStacks && $product->techStacks->count())
-                                                    <div class="portfolio-techstack">
-                                                        @foreach ($product->techStacks as $stack)
-                                                            <span class="badge">
-                                                                @if ($stack->icon)
-                                                                    <img src="{{ asset('storage/' . $stack->icon) }}"
-                                                                        alt="{{ $stack->name }}">
-                                                                @endif
-                                                                {{ $stack->name }}
-                                                            </span>
-                                                        @endforeach
-                                                    </div>
-                                                @endif
-                                            </div>
-                                            <div class="pl-item-desc">
-                                                {{ \Illuminate\Support\Str::limit(strip_tags($product->description), 90) }}
                                             </div>
                                         </div>
                                     </div>
@@ -1565,13 +1601,12 @@
                                 <div class="col-12">
                                     <div class="alert alert-info text-center py-5">
                                         <i class="lnr lnr-store mb-3 d-block" style="font-size: 3rem; opacity: 0.5;"></i>
-                                        <h5>No Products Available</h5>
-                                        <p class="mb-0">We're developing amazing products. Stay tuned for updates!</p>
+                                        <h5>Tidak Ada Produk Tersedia</h5>
+                                        <p class="mb-0">Kami sedang mengembangkan produk-produk luar biasa. Nantikan update dari kami!</p>
                                     </div>
                                 </div>
                             @endforelse
                         </div>
-                        <!-- End isotope items wrap -->
                     </div>
                 </div>
             </div>
@@ -1594,25 +1629,14 @@
                     </div>
                 </div>
 
-                
-               
+
+
                 <div class="latest-news-carousel">
-                    <div class="owl-carousel cursor-grab nav-outside-top nav-rounded" 
-                        data-lazy-load="true"
-                        data-items="3" 
-                        data-margin="30" 
-                        data-loop="true" 
-                        data-dots="false" 
-                        data-nav="false"
-                        data-nav-speed="500" 
-                        data-autoplay="true" 
-                        data-autoplay-timeout="5000"
-                        data-autoplay-speed="500" 
-                        data-autoplay-hover-pause="true" 
-                        data-tablet-landscape="2"
-                        data-tablet-portrait="2" 
-                        data-mobile-landscape="1" 
-                        data-mobile-portrait="1">
+                    <div class="owl-carousel cursor-grab nav-outside-top nav-rounded" data-lazy-load="true"
+                        data-items="3" data-margin="30" data-loop="true" data-dots="false" data-nav="false"
+                        data-nav-speed="500" data-autoplay="true" data-autoplay-timeout="5000" data-autoplay-speed="500"
+                        data-autoplay-hover-pause="true" data-tablet-landscape="2" data-tablet-portrait="2"
+                        data-mobile-landscape="1" data-mobile-portrait="1">
                         @forelse($articles as $article)
                             <div class="cc-item">
                                 <article class="blog-list-item">
@@ -1624,15 +1648,18 @@
                                     <div class="bl-item-info">
                                         <div class="bl-item-category">
                                             @if ($article->service)
-                                                <a href="{{ route('services.show', $article->service->slug) }}">{{ $article->service->title }}</a>
+                                                <a
+                                                    href="{{ route('services.show', $article->service->slug) }}">{{ $article->service->title }}</a>
                                             @endif
                                         </div>
                                         <a href="{{ route('article.show', $article->slug) }}" class="bl-item-title">
                                             <h2>{{ $article->title }}</h2>
                                         </a>
                                         <div class="bl-item-meta">
-                                            <span class="published">{{ \Carbon\Carbon::parse($article->published_at)->translatedFormat('l, d F Y') }}</span>
-                                            <span class="posted-by">- by <a href="#">{{ $article->author ?? 'Admin' }}</a></span>
+                                            <span
+                                                class="published">{{ \Carbon\Carbon::parse($article->published_at)->translatedFormat('l, d F Y') }}</span>
+                                            <span class="posted-by">- by <a
+                                                    href="#">{{ $article->author ?? 'Admin' }}</a></span>
                                         </div>
                                         <div class="bl-item-desc">
                                             {{ \Illuminate\Support\Str::limit(strip_tags($article->content), 120) }}
@@ -1655,36 +1682,37 @@
         </section>
 
         <!-- =============================================
-                ///// Begin call to action section (style-2) /////
-                ============================================== -->
+                    ///// Begin call to action section (style-2) /////
+                    ============================================== -->
         <section class="call-to-action-section cta-style-2 bg-dark text-white bg-image"
             style="background-image: url({{ asset('assets/img/pattern/pt-2.jpg') }});">
 
             <div class="cover cover-gradient-dark cover-opacity-9"></div>
 
-            <div class="cta-inner tt-wrap">                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <div class="tt-heading tt-heading-xxlg">
-                                <div class="tt-heading-inner">
-                                    <h1 class="tt-heading-title">Apakah Anda Tertarik?</h1>
-                                    <div class="tt-heading-subtitle">Tertarik untuk bekerja sama dengan kami?</div>
-                                    <div class="zig-zag-separator zig-zag-light">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
+            <div class="cta-inner tt-wrap">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="tt-heading tt-heading-xxlg">
+                            <div class="tt-heading-inner">
+                                <h1 class="tt-heading-title">Apakah Anda Tertarik?</h1>
+                                <div class="tt-heading-subtitle">Tertarik untuk bekerja sama dengan kami?</div>
+                                <div class="zig-zag-separator zig-zag-light">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-6">
-                            <p>Kami adalah perusahaan yang terpercaya oleh klien kami, kami akan memberikan solusi terbaik untuk
-                                klien kami.</p>
-                            <div class="margin-top-30">
-                                <a href="{{ route('contact') }}" class="btn btn-primary btn-lg margin-top-5">Hubungi Kami</a>
-                            </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p>Kami adalah perusahaan yang terpercaya oleh klien kami, kami akan memberikan solusi terbaik untuk
+                            klien kami.</p>
+                        <div class="margin-top-30">
+                            <a href="{{ route('contact') }}" class="btn btn-primary btn-lg margin-top-5">Hubungi Kami</a>
                         </div>
                     </div>
+                </div>
             </div>
         </section>
         <!-- End call to action section (style-2) -->
@@ -1693,34 +1721,47 @@
         <section id="clients-section" class="clients-style-1">
             <div class="clients-inner tt-wrap">
                 <div class="row">
-                    <div class="col-12 col-lg-5 offset-lg-7">
+
+                    <div class="col-lg-push-7 col-lg-5">
+
+                        <!-- Bagian Judul Klien -->
                         <div class="tt-heading tt-heading-xlg">
                             <div class="tt-heading-inner">
                                 <h1 class="tt-heading-title">Klien</h1>
                                 <div class="tt-heading-subtitle">Klien yang telah mempercayai kami</div>
                                 <div class="zig-zag-separator">
-                                    <span></span><span></span><span></span><span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
                                 </div>
                                 <div class="tt-heading-text">
-                                    Kami adalah perusahaan yang terpercaya oleh klien kami
+                                    Kami adalah perusahaan yang terpercaya oleh klien kami.
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-7 order-first order-lg-first">
+                        <!-- Akhir Judul Klien -->
+
+                    </div> <!-- /.col -->
+
+                    <div class="col-lg-pull-5 col-lg-7">
+
+                        <!-- Daftar Klien -->
                         <ul class="client-list">
                             @foreach ($clients as $client)
                                 <li>
-                                    <a href="#" title="{{ $client->company_name }}">
-                                        <img src="{{ asset('images/clients/' . $client->company_logo) }}"
-                                            alt="{{ $client->company_name }}">
+                                    <a target="_blank" href="{{ $client->website_url ?? '#' }}" title="{{ $client->company_name }}">
+                                        <img src="{{ asset('images/clients/' . $client->company_logo) }}" alt="{{ $client->company_name }}">
                                     </a>
                                 </li>
                             @endforeach
                         </ul>
-                    </div>
-                </div>
-            </div>
+                        <!-- Akhir Daftar Klien -->
+
+                    </div> <!-- /.col -->
+                </div> <!-- /.row -->
+
+            </div> <!-- /.clients-inner -->
         </section>
 
         {{-- Fun Facts Section --}}
@@ -1781,7 +1822,7 @@
     <script src="{{ asset('aivo/assets/vendor/jquery-lazy/js/jquery.lazy.min.js') }}"></script>
     <script src="{{ asset('aivo/assets/vendor/jquery-lazy/js/jquery.lazy.plugins.min.js') }}"></script>
     <script src="{{ asset('aivo/assets/js/theme.js') }}"></script>
-    
+
     <script>
         $(document).ready(function() {
             // Enhanced Isotope configuration for better responsive behavior
@@ -1798,7 +1839,7 @@
                             gutter: 30
                         }
                     });
-                    
+
                     // Refresh layout on window resize with debounce
                     let resizeTimer;
                     $(window).on('resize', function() {
@@ -1821,9 +1862,9 @@
                     var $filterLinks = $(sectionSelector + ' .isotope-filter-links .isotope-filter-link');
                     $filterLinks.removeClass('active');
                     $(this).addClass('active');
-                    
+
                     var filterValue = $(this).attr('data-filter');
-                    isoElement.isotope({ 
+                    isoElement.isotope({
                         filter: filterValue,
                         animationOptions: {
                             duration: 750,
@@ -1850,7 +1891,8 @@
                             $el.addClass('loaded');
                         };
                         img.onerror = function() {
-                            $el.css('background-image', 'url(' + '{{ asset("aivo/assets/img/misc/no-image.jpg") }}' + ')');
+                            $el.css('background-image', 'url(' +
+                                '{{ asset('aivo/assets/img/misc/no-image.jpg') }}' + ')');
                             $el.addClass('loaded');
                         };
                         img.src = src;
@@ -1868,7 +1910,7 @@
                 e.preventDefault();
                 $('.latest-news-carousel .owl-carousel').trigger('prev.owl.carousel');
             });
-            
+
             $('.custom-article-nav .article-next').on('click touchend keydown', function(e) {
                 if (e.type === 'keydown' && e.keyCode !== 13 && e.keyCode !== 32) return;
                 e.preventDefault();
@@ -1884,8 +1926,12 @@
                                 const $counter = $(this);
                                 const finalValue = parseInt($counter.text());
                                 $counter.text('0');
-                                
-                                $({ counter: 0 }).animate({ counter: finalValue }, {
+
+                                $({
+                                    counter: 0
+                                }).animate({
+                                    counter: finalValue
+                                }, {
                                     duration: 2000,
                                     easing: 'swing',
                                     step: function() {
@@ -1896,7 +1942,9 @@
                             counterObserver.unobserve(entry.target);
                         }
                     });
-                }, { threshold: 0.5 });
+                }, {
+                    threshold: 0.5
+                });
 
                 document.querySelectorAll('.counter-up-wrap').forEach(el => {
                     counterObserver.observe(el);
@@ -1985,12 +2033,13 @@
 
             // Enhanced error handling for images
             $('img').on('error', function() {
-                $(this).attr('src', '{{ asset("aivo/assets/img/misc/placeholder.jpg") }}');
+                $(this).attr('src', '{{ asset('aivo/assets/img/misc/placeholder.jpg') }}');
             });
 
             // Keyboard navigation support
             $(document).on('keydown', function(e) {
-                if (e.target.tagName.toLowerCase() !== 'input' && e.target.tagName.toLowerCase() !== 'textarea') {
+                if (e.target.tagName.toLowerCase() !== 'input' && e.target.tagName.toLowerCase() !==
+                    'textarea') {
                     if (e.keyCode === 37) { // Left arrow
                         $('.article-prev').trigger('click');
                     } else if (e.keyCode === 39) { // Right arrow
@@ -2001,10 +2050,10 @@
 
             // Performance optimization: preload critical images
             const criticalImages = [
-                '{{ asset("aivo/assets/img/misc/no-image.jpg") }}',
-                '{{ asset("aivo/assets/img/misc/placeholder.jpg") }}'
+                '{{ asset('aivo/assets/img/misc/no-image.jpg') }}',
+                '{{ asset('aivo/assets/img/misc/placeholder.jpg') }}'
             ];
-            
+
             criticalImages.forEach(src => {
                 const img = new Image();
                 img.src = src;

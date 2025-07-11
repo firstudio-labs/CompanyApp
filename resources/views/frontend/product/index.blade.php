@@ -131,9 +131,6 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="pl-item-desc mt-2" style="color:#6c7a89;">
-                                        {{ \Illuminate\Support\Str::limit(strip_tags($product->description), 90) }}
-                                    </div>
                                 </div>
                             </div>
                         </div>
