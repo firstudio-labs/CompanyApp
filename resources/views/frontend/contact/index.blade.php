@@ -41,7 +41,7 @@
             <div class="col-md-6">
                 <div class="contact-info-wrap margin-bottom-40">
                     <div class="contact-info-text text-justify">
-                        <p>{{ strip_tags($about->description ?? 'Silakan hubungi kami untuk pertanyaan, konsultasi, atau kerjasama.') }}</p>
+                        <p>{{ \Illuminate\Support\Str::limit(strip_tags($about->description ?? 'Silakan hubungi kami untuk pertanyaan, konsultasi, atau kerjasama.'), 750) }}</p>
                     </div>
                     <h3 class="contact-info-title">Visit Us:</h3>
                     <ul class="contact-info">

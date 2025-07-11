@@ -1255,7 +1255,7 @@
                                     </div>
                                     <div class="split-box-content-text">
                                         {!! isset($about) && $about->description 
-                                            ? $about->description 
+                                            ? \Illuminate\Support\Str::limit(strip_tags($about->description), 750) 
                                             : '<p class="text-muted">Deskripsi tentang kami belum tersedia. Kami adalah agensi digital yang bersemangat dalam menciptakan solusi inovatif.</p>' !!}
                                     </div>
                                 </div>
@@ -1439,8 +1439,8 @@
                             <div class="col-12 col-sm-6 col-lg-4 mb-4">
                                 <div class="info-box h-100">
                                     <span class="info-box-icon">
-                                        <span class="{{ $service->icon ?? 'lnr lnr-cog' }}"></span>
-                                    </span>
+                                        <img src="{{ asset($service->image_url) }}" alt="{{ $service->title }}" class="img-fluid rounded">
+                                    </span> 
                                     <div class="info-box-info">
                                         <h3 class="info-box-heading">
                                             <a href="{{ route('services.show', $service->slug) }}">
