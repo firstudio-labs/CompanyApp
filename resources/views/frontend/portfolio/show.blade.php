@@ -48,25 +48,20 @@
     ====================================== -->
     <section id="portfolio-single-section">
         <div class="portfolio-single-inner tt-wrap">
-            <div class="portfolio-single-info tt-wrap margin-bottom-60">
-                <div class="row">
-                    <div class="col-sm-push-5 col-md-push-4 col-xs-12 col-sm-7 col-md-8">
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+                    <!-- Begin portfolio single info -->
+                    <div class="portfolio-single-info margin-bottom-40">
+                        <!-- Begin portfolio single text -->
                         <div class="portfolio-single-text">
-                            <h2 class="mb-3">{{ $portfolio->title }}</h2>
                             @if($portfolio->short_description)
-                                <p class="lead">{{ $portfolio->short_description }}</p>
+                                <p>{{ $portfolio->short_description }}</p>
                             @endif
                             {!! $portfolio->description !!}
-                            @if($portfolio->link)
-                                <p class="margin-top-20">
-                                    <a href="{{ $portfolio->link }}" target="_blank" class="btn btn-primary btn-sm">
-                                        <i class="fas fa-external-link-alt"></i> Visit Project
-                                    </a>
-                                </p>
-                            @endif
                         </div>
-                    </div>
-                    <div class="col-sm-pull-7 col-md-pull-8 col-xs-12 col-sm-5 col-md-4">
+                        <!-- End portfolio single text -->
+
+                        <!-- Begin portfolio single attributes -->
                         <div class="ps-attributes">
                             <ul class="ps-attr">
                                 <li>
@@ -118,38 +113,49 @@
                                 </li>
                             </ul>
                         </div>
+                        <!-- End portfolio single attributes -->
                     </div>
+                    <!-- End portfolio single info -->
                 </div>
-            </div>
-            <div class="portfolio-single-gallery lightgallery">
-                <figure class="portfolio-single-image-holder">
-                    <a href="{{ $portfolio->image_url ? asset('images/portfolios/' . $portfolio->image_url) : asset('assets/img/placeholder-image.png') }}" class="ps-image-link lg-trigger">
-                        <div class="portfolio-single-image">
-                            <img class="lazy" data-src="{{ $portfolio->image_url ? asset('images/portfolios/' . $portfolio->image_url) : asset('assets/img/placeholder-image.png') }}" alt="{{ $portfolio->title }}">
-                            <div class="ps-image-icon">
-                                <span class="lnr lnr-eye"></span>
-                            </div>
-                        </div>
-                    </a>
-                </figure>
-                @if(isset($portfolio->gallery) && is_array($portfolio->gallery))
-                    @foreach($portfolio->gallery as $img)
-                    <figure class="portfolio-single-image-holder">
-                        <a href="{{ asset('images/portfolios/' . $img) }}" class="ps-image-link lg-trigger">
-                            <div class="portfolio-single-image">
-                                <img class="lazy" data-src="{{ asset('images/portfolios/' . $img) }}" alt="Gallery">
-                                <div class="ps-image-icon">
-                                    <span class="lnr lnr-eye"></span>
+
+                <div class="col-xs-12 col-md-8">
+                    <!-- Begin portfolio single gallery -->
+                    <div class="portfolio-single-gallery lightgallery">
+                        <!-- Main portfolio image -->
+                        <figure class="portfolio-single-image-holder">
+                            <a href="{{ $portfolio->image_url ? asset('images/portfolios/' . $portfolio->image_url) : asset('assets/img/placeholder-image.png') }}" class="ps-image-link lg-trigger">
+                                <div class="portfolio-single-image">
+                                    <img class="lazy" data-src="{{ $portfolio->image_url ? asset('images/portfolios/' . $portfolio->image_url) : asset('assets/img/placeholder-image.png') }}" alt="{{ $portfolio->title }}">
+                                    <div class="ps-image-icon">
+                                        <span class="lnr lnr-eye"></span>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </figure>
-                    @endforeach
-                @endif
+                            </a>
+                        </figure>
+
+                        <!-- Gallery images -->
+                        @if(isset($portfolio->gallery) && is_array($portfolio->gallery))
+                            @foreach($portfolio->gallery as $img)
+                            <figure class="portfolio-single-image-holder">
+                                <a href="{{ asset('images/portfolios/' . $img) }}" class="ps-image-link lg-trigger">
+                                    <div class="portfolio-single-image">
+                                        <img class="lazy" data-src="{{ asset('images/portfolios/' . $img) }}" alt="Gallery">
+                                        <div class="ps-image-icon">
+                                            <span class="lnr lnr-eye"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </figure>
+                            @endforeach
+                        @endif
+                    </div>
+                    <!-- End portfolio single gallery -->
+                </div>
             </div>
         </div>
     </section>
     <!-- End portfolio single section -->
+
     <!-- Sticky Share -->
     <div class="sticky-share ss-right">
         <div class="sticky-share-button">
@@ -171,12 +177,20 @@
 @push('scripts')
 <script>
     $(function(){
+        // Lazy load images
         $('.lazy').each(function(){
             var $el = $(this);
             $el.attr('src', $el.data('src'));
         });
+
+        // Initialize lightGallery
         if ($('.lightgallery').length) {
-            $('.lightgallery').lightGallery({ selector: '.ps-image-link' });
+            $('.lightgallery').lightGallery({ 
+                selector: '.ps-image-link',
+                thumbnail: true,
+                download: false,
+                autoplayControls: false
+            });
         }
     });
 </script>

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Layanan Kami')
+@section('title', 'Layanan Kami | Firstudio')
 @section('meta_description', 'Daftar layanan terbaik dari kami untuk kebutuhan bisnis dan digital Anda.')
 @section('meta_keywords', 'layanan, jasa, service, digital, web, aplikasi, desain, branding')
 
@@ -95,7 +95,7 @@
                 <div class="col-md-6 d-flex flex-column justify-content-center">
                     <p>Konsultasikan kebutuhan digital Anda bersama tim profesional kami. Kami siap membantu Anda berkembang!</p>
                     <div class="margin-top-30">
-                        <a href="{{ route('contact') }}" class="btn btn-primary btn-lg margin-top-5">Let's Work Together!</a>
+                        <a href="{{ route('contact') }}" class="btn btn-primary btn-lg margin-top-5">Hubungi Kami!</a>
                     </div>
                 </div>
             </div>

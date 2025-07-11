@@ -71,7 +71,7 @@
 
     <!-- Begin portfolio list section -->
     <section id="portfolio-list-section">
-        <div class="portfolio-list-inner isotope-wrap tt-wrap">
+        <div class="portfolio-list-inner isotope-wrap tt-wrap margin-bottom-60">
             <div class="isotope col-3 gutter-3">
                 <!-- Begin isotope top content -->
                 <div class="isotope-top-content">
@@ -145,8 +145,16 @@
                 <!-- End isotope items wrap -->
 
                 <!-- Pagination -->
-                <div class="tt-pagination-wrap tt-pagin-center tt-pagin-rounded">
-                    {{ $portfolios->onEachSide(1)->links() }}
+                <div class="tt-pagination-wrap">
+                    {{ $portfolios->links() }}
+                    <div class="tt-pagination-info">
+                        <span>
+                            Menampilkan halaman {{ $portfolios->currentPage() }} dari {{ $portfolios->lastPage() }}
+                        </span>
+                        <span>
+                            Portfolio {{ $portfolios->firstItem() }}-{{ $portfolios->lastItem() }} dari {{ $portfolios->total() }}
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

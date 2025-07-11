@@ -1,7 +1,7 @@
 {{-- filepath: resources/views/frontend/article/index.blade.php --}}
 @extends('frontend.layouts.app')
 
-@section('title', 'Artikel')
+@section('title', 'Artikel | Firstudio')
 @section('meta_description', 'Artikel, berita, dan update terbaru dari Firstudio')
 @section('meta_keywords', 'blog, artikel, berita, haji, qurban, layanan, firstudio')
 

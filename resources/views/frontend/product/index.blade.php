@@ -1,7 +1,7 @@
 {{-- filepath: resources/views/frontend/product/index.blade.php --}}
 @extends('frontend.layouts.app')
 
-@section('title', 'Produk Kami')
+@section('title', 'Produk Kami | Firstudio')
 @section('meta_description', 'Daftar produk unggulan dari layanan kami')
 @section('meta_keywords', 'produk, layanan, firstudio, haji, qurban')
 
@@ -71,7 +71,7 @@
 
     <!-- Begin product list section -->
     <section id="portfolio-list-section">
-        <div class="portfolio-list-inner isotope-wrap tt-wrap">
+        <div class="portfolio-list-inner isotope-wrap tt-wrap margin-bottom-60">
             <div class="isotope col-3 gutter-3">
                 <!-- Begin isotope top content -->
                 <div class="isotope-top-content">
@@ -134,6 +134,7 @@
                                 </div>
                             </div>
                         </div>
+
                     @empty
                         <div class="col-12">
                             <div class="alert alert-info text-center py-5">
@@ -145,8 +146,16 @@
                 <!-- End isotope items wrap -->
 
                 <!-- Pagination -->
-                <div class="tt-pagination-wrap tt-pagin-center tt-pagin-rounded">
-                    {{ $products->onEachSide(1)->links() }}
+                <div class="tt-pagination-wrap">
+                    {{ $products->links() }}
+                    <div class="tt-pagination-info">
+                        <span>
+                            Menampilkan halaman {{ $products->currentPage() }} dari {{ $products->lastPage() }}
+                        </span>
+                        <span>
+                            Produk {{ $products->firstItem() }}-{{ $products->lastItem() }} dari {{ $products->total() }}
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

@@ -26,7 +26,7 @@
         }
 
         .intro-title {
-            font-size: 2rem;
+            font-size: 1.5rem;
             line-height: 1.2;
         }
 
@@ -43,7 +43,7 @@
         /* Tablet styles */
         @media (min-width: 768px) {
             .intro-title {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
             .intro-subtitle {
@@ -58,7 +58,7 @@
         /* Desktop styles */
         @media (min-width: 1024px) {
             .intro-title {
-                font-size: 3.5rem;
+                font-size: 2.5rem;
             }
 
             .intro-subtitle {
@@ -1228,42 +1228,34 @@
             </div>
         </section>
 
-        <!-- =============================
-                     >>>>> Begin about us section <<<<<
-                     ============================== -->
+        <!-- ============================= >>>>> Begin about us section <<<<< ============================= -->
         <section id="about-us-section">
             <div class="about-us-inner tt-wrap">
-                {{-- Menggunakan data-aos untuk animasi fade-up saat section muncul --}}
                 <div class="split-box" data-aos="fade-up" data-aos-duration="800">
                     <div class="container-fluid">
-                        <div class="row row-lg-height align-items-center" style="min-height: 400px;">
+                        <div class="row g-0">
                             <!-- Split box image -->
-                            <div class="col-12 col-lg-6 col-lg-height split-box-image-wrapper no-padding order-2 order-lg-1 d-flex align-items-center justify-content-center"
-                                style="min-height: 320px;">
-                                <div class="split-box-image no-padding bg-image sbi-shadow w-100 d-flex align-items-center justify-content-center"
-                                    style="background-image: url('{{ isset($about) && $about && $about->image_url ? asset($about->image_url) : asset('aivo/assets/img/misc/us-2.jpg') }}'); min-height:320px; height:100%; display:flex; align-items:center; justify-content:center;">
-                                    {{-- Kosongkan div ini, fungsinya hanya untuk memberi tinggi --}}
-                                    <div class="sbi-height padding-height-80"></div>
+                            <div class="col-12 col-lg-6 split-box-image-holder">
+                                <div class="split-box-image bg-image" 
+                                    style="background-image: url('{{ isset($about) && $about && $about->image_url ? asset($about->image_url) : asset('aivo/assets/img/misc/us-2.jpg') }}');">
                                 </div>
                             </div>
 
                             <!-- Split box content -->
-                            <div class="col-12 col-lg-6 col-lg-height col-lg-middle no-padding order-1 order-lg-2 d-flex align-items-center justify-content-center"
-                                style="min-height: 320px;">
-                                <div class="split-box-content sb-content-right w-100">
+                            <div class="col-12 col-lg-6 split-box-content">
+                                <div class="split-box-container">
                                     <div class="tt-heading tt-heading-xxlg">
                                         <div class="tt-heading-inner">
                                             <h2 class="tt-heading-title">{{ $about->title ?? 'Tentang Kami' }}</h2>
-                                            <div class="tt-heading-subtitle">
-                                                {{ $about->subtitle ?? 'Perjalanan dan Visi Kami' }}</div>
+                                            <div class="tt-heading-subtitle">{{ $about->subtitle ?? 'Perjalanan dan Visi Kami' }}</div>
                                             <div class="zig-zag-separator">
                                                 <span></span><span></span><span></span><span></span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="split-box-content-text" style="text-align: justify;">
-                                        {!! isset($about) && $about->description
-                                            ? $about->description
+                                    <div class="split-box-content-text">
+                                        {!! isset($about) && $about->description 
+                                            ? $about->description 
                                             : '<p class="text-muted">Deskripsi tentang kami belum tersedia. Kami adalah agensi digital yang bersemangat dalam menciptakan solusi inovatif.</p>' !!}
                                     </div>
                                 </div>
@@ -1273,6 +1265,93 @@
                 </div>
             </div>
         </section>
+
+        <style>
+        /* About section styling */
+        #about-us-section {
+            position: relative;
+            padding: 80px 0;
+        }
+
+        .split-box {
+            position: relative;
+            width: 100%;
+        }
+
+        .split-box-image-holder {
+            position: relative;
+            min-height: 500px;
+            overflow: hidden;
+        }
+
+        .split-box-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .split-box-content {
+            position: relative;
+            background-color: #fff;
+            padding: 60px 40px;
+        }
+
+        .split-box-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .split-box-content-text {
+            margin-top: 30px;
+            text-align: justify;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991px) {
+            .split-box-image-holder {
+                min-height: 400px;
+            }
+
+            .split-box-content {
+                padding: 40px 20px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .split-box-image-holder {
+                min-height: 300px;
+            }
+
+            .split-box-content {
+                padding: 30px 15px;
+            }
+        }
+
+        /* Enhanced visual effects */
+        .split-box-image {
+            transition: transform 0.3s ease-out;
+        }
+
+        .split-box:hover .split-box-image {
+            transform: scale(1.05);
+        }
+
+        .split-box-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Ensure content doesn't overflow */
+        .split-box-content-text {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+        </style>
         <!-- End about us section -->
 
         <!-- =============================
@@ -1294,48 +1373,34 @@
                         </div>
                     </div>
                 </div>
-                <div class="info-box-wrap ib-style-2 ib-icon-bg-shape">
-                    <div class="row">
-                        <div class="col-12 col-md-6 mb-4">
-                            <div class="info-box h-100">
-                                {{-- <span class="info-box-icon">
-                                    <span class="lnr lnr-bullhorn text-success"></span>
-                                </span> --}}
+                <div class="justify-content-center">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="info-box text-center h-100">
                                 <div class="info-box-info">
-                                    <h3 class="info-box-heading text-info">Visi</h3>
-                                    <div class="info-box-text fs-5">
+                                    <h3 class="info-box-heading text-info mb-4">Visi</h3>
+                                    <div class="info-box-text fs-5 px-4">
                                         {{ $about->vision ?? '-' }}
                                     </div>
                                 </div>
                             </div>
                         </div>  
-                        <div class="col-12 col-md-6 mb-4">
+                        <div class="col-12">
                             <div class="info-box text-center h-100">
-                                {{-- <span class="info-box-icon">
-                                    <span class="lnr lnr-list text-info"></span>
-                                </span> --}}
                                 <div class="info-box-info">
-                                    <h3 class="info-box-heading text-info">Misi</h3>
-                                    <div class="info-box-text fs-5 text-justify">
+                                    <h3 class="info-box-heading text-info mb-4">Misi</h3>
+                                    <div class="info-box-text fs-5">
                                         @if (!empty($about->mission))
-                                            <ul class="list-unstyled d-inline-block mx-auto" style="max-width: 400px;">
+                                            <ul class="list-unstyled mx-auto px-4">
                                                 @php $no = 1; @endphp
                                                 @foreach (preg_split('/\r\n|\r|\n/', $about->mission) as $point)
                                                     @if (trim($point) !== '')
-                                                        <li class="mb-3" style="text-align: left;">
-                                                            <div
-                                                                style="display: flex; align-items: flex-start; margin-top: 10px; margin-bottom: 10px;">
-                                                                <span class="fw-bold text-primary"
-                                                                    style="width: 28px; min-width: 28px; text-align: right; margin-right: 12px; display: block; line-height: 1.7;">
+                                                        <li class="mb-3">
+                                                            <div class="d-flex align-items-start">
+                                                                <span class="fw-bold text-primary me-3" style="min-width: 25px;">
                                                                     {{ $no++ }}.
                                                                 </span>
-                                                                <span
-                                                                    style="flex: 1; display: flex; align-items: flex-start;">
-                                                                    <i class="bx bx-check-circle text-primary me-2"
-                                                                        style="margin-top: 3px;"></i>
-                                                                    <span
-                                                                        style="margin-left: 6px; display: block;">{{ $point }}</span>
-                                                                </span>
+                                                                <span class="text-start flex-grow-1">{{ $point }}</span>
                                                             </div>
                                                         </li>
                                                     @endif
@@ -1491,8 +1556,7 @@
                                 </div>
                             </div>
                             <div class="col-md-8">
-                                <p>Kami adalah perusahaan yang terpercaya oleh klien kami, kami akan memberikan solusi
-                                    terbaik untuk klien kami.</p>
+                                <p>Yuk, cari solusi terbaik bareng kami. Gampang, nyaman, dan sesuai kebutuhanmu!.</p>
                             </div>
                         </div>
                     </div>
@@ -1562,7 +1626,7 @@
                                 </div>
                             </div>
                             <div class="col-md-8">
-                                <p>Kami selalu menghadirkan produk-produk terbaru dan inovatif untuk kebutuhan bisnis Anda.</p>
+                                <p>Inovasi nggak pernah berhenti di sini, kami siap dukung bisnismu dengan produk-produk terkini.</p>
                             </div>
                         </div>
                     </div>
@@ -1622,8 +1686,7 @@
                             <span></span><span></span><span></span><span></span>
                         </div>
                         <div class="tt-heading-text">
-                            <p>Artikel terbaru dari blog kami, kami akan selalu memberikan informasi terbaru dan terkini
-                                untuk klien kami.</p>
+                            <p>Yuk, cek artikel terbaru di blog kami! Isinya update-info yang sayang banget buat dilewatkan.</p>
                         </div>
                     </div>
                 </div>
@@ -1705,8 +1768,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-6">
-                        <p>Kami adalah perusahaan yang terpercaya oleh klien kami, kami akan memberikan solusi terbaik untuk
-                            klien kami.</p>
+                        <p>Kami di sini karena kepercayaan itu penting. Dan tugas kami? Kasih solusi terbaik buat kamu.</p>
                         <div class="margin-top-30">
                             <a href="{{ route('contact') }}" class="btn btn-primary btn-lg margin-top-5">Hubungi Kami</a>
                         </div>
@@ -1735,7 +1797,7 @@
                                     <span></span>
                                 </div>
                                 <div class="tt-heading-text">
-                                    Kami adalah perusahaan yang terpercaya oleh klien kami.
+                                    Dipercaya klien, kami siap selalu memberikan yang terbaik.
                                 </div>
                             </div>
                         </div>
@@ -1764,7 +1826,7 @@
         </section>
 
         {{-- Fun Facts Section --}}
-        <section id="funn-facts-section" class="bg-main ff-light bg-pattern"
+        {{-- <section id="funn-facts-section" class="bg-main ff-light bg-pattern"
             style="background-image: url('{{ asset('aivo/assets/img/pattern/transparent/pt-transparent-6.png') }}');">
             <div class="funn-facts-inner tt-wrap">
                 <div class="cover cover-opacity-4 cover-color"></div>
@@ -1799,7 +1861,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
     </div>
 @endsection
 
