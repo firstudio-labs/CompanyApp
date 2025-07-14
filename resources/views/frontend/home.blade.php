@@ -1355,67 +1355,67 @@
         <!-- =============================
                     ///// Begin Visi & Misi section /////
                     ============================== -->
-        <section id="services-section" class="services-style-1 bg-gray-3">
-            <div class="cover cover-opacity-1 cover-light"></div>
-            <div class="services-inner tt-wrap">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="tt-heading tt-heading-xxlg text-center">
-                            <div class="tt-heading-inner">
-                                <h2 class="tt-heading-title">Visi &amp; Misi</h2>
-                                <div class="tt-heading-subtitle">Tujuan &amp; Langkah Kami</div>
-                                <div class="zig-zag-separator">
-                                    <span></span><span></span><span></span><span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="justify-content-center">
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-lg-10">
-                            <div class="info-box text-center h-100 mx-md-0 mx-3 mb-4">
-                                <div class="info-box-info">
-                                    <h3 class="info-box-heading text-info mb-4">Visi</h3>
-                                    <div class="info-box-text fs-5 px-md-5 px-4">
-                                        {{ $about->vision ?? '-' }}
+                    <section id="services-section" class="services-style-1 bg-gray-3">
+                        <div class="cover cover-opacity-1 cover-light"></div>
+                        <div class="services-inner tt-wrap">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="tt-heading tt-heading-xxlg text-center">
+                                        <div class="tt-heading-inner ">
+                                            <h2 class="tt-heading-title">Visi &amp; Misi</h2>
+                                            <div class="tt-heading-subtitle">Tujuan &amp; Langkah Kami</div>
+                                            <div class="zig-zag-separator">
+                                                <span></span><span></span><span></span><span></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>  
-                        <div class="col-12 col-lg-10">
-                            <div class="info-box text-center h-100 mx-md-0 mx-3">
-                                <div class="info-box-info">
-                                    <h3 class="info-box-heading text-info mb-4">Misi</h3>
-                                    <div class="info-box-text fs-5">
-                                        @if (!empty($about->mission))
-                                            <ul class="list-unstyled mx-auto px-md-5 px-4">
-                                                @php $no = 1; @endphp
-                                                @foreach (preg_split('/\r\n|\r|\n/', $about->mission) as $point)
-                                                    @if (trim($point) !== '')
-                                                        <li class="mb-3">
-                                                            <div class="d-flex align-items-start">
-                                                                <span class="fw-bold text-primary me-3" style="min-width: 25px;">
-                                                                    {{ $no++ }}.
-                                                                </span>
-                                                                <span class="text-start flex-grow-1">{{ $point }}</span>
-                                                            </div>
-                                                        </li>
+                            <div class="justify-content-center">
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div class="info-box text-center h-100">
+                                            <div class="info-box-info padding-20">
+                                                <h3 class="info-box-heading text-info mb-4">Visi</h3>
+                                                <div class="info-box-text fs-5 px-4">
+                                                    {{ $about->vision ?? '-' }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    <div class="col-12">
+                                        <div class="info-box text-center h-100">
+                                            <div class="info-box-info padding-20">
+                                                <h3 class="info-box-heading text-info mb-4">Misi</h3>
+                                                <div class="info-box-text fs-5">
+                                                    @if (!empty($about->mission))
+                                                        <ul class="list-unstyled mx-auto px-4">
+                                                            @php $no = 1; @endphp
+                                                            @foreach (preg_split('/\r\n|\r|\n/', $about->mission) as $point)
+                                                                @if (trim($point) !== '')
+                                                                    <li class="mb-3">
+                                                                        <div class="d-flex align-items-start">
+                                                                            <span class="fw-bold text-primary me-3" style="min-width: 25px;">
+                                                                                {{ $no++ }}.
+                                                                            </span>
+                                                                            <span class="text-start flex-grow-1">{{ $point }}</span>
+                                                                        </div>
+                                                                    </li>
+                                                                @endif
+                                                            @endforeach
+                                                        </ul>
+                                                    @else
+                                                        <span class="text-muted">-</span>
                                                     @endif
-                                                @endforeach
-                                            </ul>
-                                        @else
-                                            <span class="text-muted">-</span>
-                                        @endif
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End services/visi misi section -->
+                    </section>
+                    <!-- End services/visi misi section -->
 
         {{-- Services Section --}}
         <section id="services-section" class="services-style-1">
