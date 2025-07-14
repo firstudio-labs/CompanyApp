@@ -1254,9 +1254,7 @@
                                         </div>
                                     </div>
                                     <div class="split-box-content-text">
-                                        {!! isset($about) && $about->description 
-                                            ? \Illuminate\Support\Str::limit(strip_tags($about->description), 488) 
-                                            : '<p class="text-muted">Deskripsi tentang kami belum tersedia. Kami adalah agensi digital yang bersemangat dalam menciptakan solusi inovatif.</p>' !!}
+                                        <b>Firstudio</b> adalah <i>digital agency</i> yang mendampingi <b>UKM</b> dan <b>korporasi</b> menghadapi tantangan era digital melalui <b>solusi teknologi yang tepat guna</b>, mulai dari <b>konsultasi IT</b>, <b>pembuatan website</b>, <b>aplikasi</b>, hingga <b>pengembangan IoT</b>. Kami percaya <b>teknologi harus mempermudah, meningkatkan efisiensi, dan menciptakan dampak nyata</b>. Dengan pendekatan yang <b>suportif</b> dan <b>kolaboratif</b>, kami hadir sebagai <b>mitra yang tumbuh bersama klien</b>. Didukung tim profesional di bidang teknologi, desain, dan riset, kami memadukan <b>kreativitas</b> dan <b>data</b> untuk menciptakan <b>solusi digital yang inovatif, relevan, dan berkelanjutan</b>, berlandaskan nilai inti kami: <b>Future, Innovative, Research, Solution, Technology (FIRST)</b>.
                                     </div>
                                 </div>
                             </div>
@@ -1375,23 +1373,23 @@
                 </div>
                 <div class="justify-content-center">
                     <div class="row justify-content-center">
-                        <div class="col-12">
-                            <div class="info-box text-center h-100">
+                        <div class="col-12 col-lg-10">
+                            <div class="info-box text-center h-100 mx-md-0 mx-3 mb-4">
                                 <div class="info-box-info">
                                     <h3 class="info-box-heading text-info mb-4">Visi</h3>
-                                    <div class="info-box-text fs-5 px-4">
+                                    <div class="info-box-text fs-5 px-md-5 px-4">
                                         {{ $about->vision ?? '-' }}
                                     </div>
                                 </div>
                             </div>
                         </div>  
-                        <div class="col-12">
-                            <div class="info-box text-center h-100">
+                        <div class="col-12 col-lg-10">
+                            <div class="info-box text-center h-100 mx-md-0 mx-3">
                                 <div class="info-box-info">
                                     <h3 class="info-box-heading text-info mb-4">Misi</h3>
                                     <div class="info-box-text fs-5">
                                         @if (!empty($about->mission))
-                                            <ul class="list-unstyled mx-auto px-4">
+                                            <ul class="list-unstyled mx-auto px-md-5 px-4">
                                                 @php $no = 1; @endphp
                                                 @foreach (preg_split('/\r\n|\r|\n/', $about->mission) as $point)
                                                     @if (trim($point) !== '')
@@ -1422,7 +1420,7 @@
         {{-- Services Section --}}
         <section id="services-section" class="services-style-1">
             <div class="services-inner tt-wrap">
-                <div class="tt-heading tt-heading-lg text-center padding-on">
+                <div class="tt-heading tt-heading-lg text-center padding-on padding-20">
                     <div class="tt-heading tt-heading-xxlg text-center">
                         <div class="tt-heading-inner">
                             <h1 class="tt-heading-title">Layanan Kami</h1>
@@ -1542,7 +1540,7 @@
         {{-- Portfolio Grid Section --}}
         <section id="portfolio-list-section" class="bg-gray-3 bg-pattern" style="padding-bottom: 100px;">
             <div class="tt-wrap">
-                <div class="tt-heading tt-heading-lg padding-on">
+                <div class="tt-heading tt-heading-lg padding-on padding-bottom-20">
                     <div class="tt-heading-inner">
                         <div class="row">
                             <div class="col-md-4">
@@ -1555,11 +1553,11 @@
                                     <span></span>
                                 </div>
                             </div>
-                            <div class="col-md-8">
-                                <p>Yuk, cari solusi terbaik bareng kami. Gampang, nyaman, dan sesuai kebutuhanmu!.</p>
-                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-8 text-left margin-left-20 mx-auto mt-4 mb-4 fs-5 px-md-5 px-4">
+                    <p>Yuk, cari solusi terbaik bareng kami. Gampang, nyaman, dan sesuai kebutuhanmu!</p>
                 </div>
                 <div class="portfolio-list-inner isotope-wrap">
                     <div class="isotope col-4 gutter-3">
@@ -1612,7 +1610,7 @@
         {{-- Products Section --}}
         <section id="products-section" class="bg-gray-1" style="padding-bottom: 100px;">
             <div class="products-inner tt-wrap">
-                <div class="tt-heading tt-heading-lg padding-on">
+                <div class="tt-heading tt-heading-lg padding-on padding-bottom-20">
                     <div class="tt-heading-inner">
                         <div class="row">
                             <div class="col-md-4">
@@ -1625,11 +1623,11 @@
                                     <span></span>
                                 </div>
                             </div>
-                            <div class="col-md-8">
-                                <p>Inovasi nggak pernah berhenti di sini, kami siap dukung bisnismu dengan produk-produk terkini.</p>
-                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-12 text-left margin-left-20 mx-auto mt-4 mb-4 fs-5 px-md-5 px-4">
+                    <p>Inovasi nggak pernah berhenti di sini, kami siap dukung bisnismu dengan produk-produk terkini.</p>
                 </div>
                 <div class="portfolio-list-inner isotope-wrap">
                     <div class="isotope col-4 gutter-3">

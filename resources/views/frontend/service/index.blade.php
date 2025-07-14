@@ -84,7 +84,7 @@
                 <div class="col-md-6">
                     <div class="tt-heading tt-heading-xxlg">
                         <div class="tt-heading-inner">
-                            <h1 class="tt-heading-title">What Next?</h1>
+                            <h1 class="tt-heading-title">Apa yang ingin kamu tanyakan?</h1>
                             <div class="tt-heading-subtitle">Tertarik bekerja sama dengan kami?</div>
                             <div class="zig-zag-separator">
                                 <span></span><span></span><span></span><span></span>
